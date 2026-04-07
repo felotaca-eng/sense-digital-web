@@ -1,6 +1,6 @@
 # Deploy automatico para `sense-digital-web`
 
-Este proyecto queda listo para publicar una web estatica por `GitHub Actions + SSH + rsync + Nginx`.
+Este proyecto queda listo para publicar una web estatica en Hostinger por `GitHub Actions + FTP`.
 
 ## Flujo recomendado
 
@@ -31,58 +31,73 @@ git push -u origin main
 
 En el repositorio de GitHub crea estos secrets:
 
-- `DEPLOY_HOST`: IP o dominio del servidor
-- `DEPLOY_PORT`: normalmente `22`
-- `DEPLOY_USER`: usuario SSH con acceso al servidor
-- `DEPLOY_PATH`: carpeta destino, por ejemplo `/var/www/sense-digital-web`
-- `DEPLOY_SSH_PRIVATE_KEY`: llave privada usada por GitHub Actions
+- `FTP_HOST`: host FTP, por ejemplo `93.127.190.65`
+- `FTP_PORT`: normalmente `21`
+- `FTP_USERNAME`: usuario FTP
+- `FTP_PASSWORD`: contrasena FTP
+- `FTP_SERVER_DIR`: carpeta destino, en tu caso `/public_html/`
 
-## Preparacion del servidor
+## Datos para Hostinger
 
-### 1. Crear carpeta de publicacion
+Segun tu panel actual:
+
+- `FTP_HOST`: `93.127.190.65`
+- `FTP_PORT`: `21`
+- `FTP_USERNAME`: `u877003020.sense-digital.co`
+- `FTP_SERVER_DIR`: `/public_html/`
+
+Solo te faltaria definir o cambiar la contrasena FTP y guardarla en `FTP_PASSWORD`.
+
+## Preparacion en Hostinger
+
+### 1. Cambiar o confirmar la contrasena FTP
+
+En Hostinger:
+
+- `Archivos`
+- `Cuentas FTP`
+- `Cambiar la contrasena de FTP`
+
+Usa una contrasena dedicada para deploy.
+
+### 2. Guardar los secrets en GitHub
+
+En GitHub:
+
+- `Settings`
+- `Secrets and variables`
+- `Actions`
+- `New repository secret`
+
+Crea:
+
+- `FTP_HOST`
+- `FTP_PORT`
+- `FTP_USERNAME`
+- `FTP_PASSWORD`
+- `FTP_SERVER_DIR`
+
+### 3. Probar un deploy automatico
+
+Haz un cambio pequeno y subelo:
 
 ```bash
-sudo mkdir -p /var/www/sense-digital-web
-sudo chown -R $USER:$USER /var/www/sense-digital-web
+git add .
+git commit -m "test: ftp deploy"
+git push
 ```
 
-### 2. Configurar Nginx
-
-Usa como base:
-
-- [deploy/nginx/sense-digital-web.conf](/Users/felipeotalora/Desktop/Proyectos/sense-digital-web/deploy/nginx/sense-digital-web.conf)
-
-Copia el archivo al servidor y ajusta el `server_name` al subdominio real que vas a usar para la web estatica.
-
-Ejemplo:
-
-```bash
-sudo cp sense-digital-web.conf /etc/nginx/sites-available/sense-digital-web
-sudo ln -s /etc/nginx/sites-available/sense-digital-web /etc/nginx/sites-enabled/sense-digital-web
-sudo nginx -t
-sudo systemctl reload nginx
-```
-
-### 3. SSL
-
-Cuando el dominio ya apunte al servidor:
-
-```bash
-sudo certbot --nginx -d web.sense-digital.co
-```
+Luego revisa el workflow en GitHub Actions.
 
 ## Separacion con el blog en WordPress
 
-Tu idea encaja bien:
+Tu idea sigue encajando bien:
 
-- `web.sense-digital.co` o `www.sense-digital.co`: web estatica en HTML
+- `sense-digital.co` o `www.sense-digital.co`: web estatica principal
 - `blog.sense-digital.co`: WordPress para contenido SEO
-
-Asi no mezclas despliegue de marketing site con el blog y puedes optimizar cada cosa por separado.
 
 ## Notas importantes
 
-- El workflow hace `rsync --delete`, o sea elimina en servidor archivos que ya no existan en el repo.
-- El paso final recarga `nginx`, asi que el usuario de deploy debe tener permiso para `sudo nginx -t` y `sudo systemctl reload nginx`.
-- Si prefieres no dar `sudo`, puedo cambiar el flujo para que solo sincronice archivos y el reload lo hagas manual o via otro usuario.
-
+- El workflow sube solo lo necesario para la web estatica.
+- El archivo `logo sense digital  (1).png` queda excluido para no ensuciar `public_html`.
+- Si luego mueves WordPress a `blog.sense-digital.co`, no mezcles ese blog dentro del mismo repo de la web estatica.
