@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marketing Digital | Sense Digital</title>
+  <meta name="description" content="Campañas de alto rendimiento en Google, Facebook, TikTok y más. Gestionamos más de 1M USD en pauta mensual." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy:       #0d1347;
+      --navy-mid:   #0f1850;
+      --blue:       #1e3498;
+      --blue-light: #2b45c8;
+      --green:      #7de88a;
+      --green-dark: #55c965;
+      --white:      #ffffff;
+      --gray-sub:   #a0aecf;
+      --gray-line:  rgba(255,255,255,.08);
+      --radius:     14px;
+      --shadow:     0 4px 24px rgba(0,0,0,.25);
+      --shadow-lg:  0 12px 48px rgba(0,0,0,.35);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--navy); color: var(--white); line-height: 1.6; overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    .container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+    .section { padding: 96px 0; }
+    .section--alt { background: var(--navy-mid); }
+    .badge { display: inline-block; background: rgba(125,232,138,.12); color: var(--green); font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; padding: 6px 14px; border-radius: 99px; border: 1px solid rgba(125,232,138,.25); margin-bottom: 16px; }
+    .section-title { font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 900; line-height: 1.12; margin-bottom: 16px; }
+    .section-title .green { color: var(--green); }
+    .section-sub { font-size: 1rem; color: var(--gray-sub); max-width: 560px; line-height: 1.75; }
+    .section-header { margin-bottom: 56px; }
+    .section-header.centered { text-align: center; }
+    .section-header.centered .section-sub { margin: 0 auto; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; border-radius: 99px; font-size: .95rem; font-weight: 700; cursor: pointer; transition: all .25s; border: 2px solid transparent; }
+    .btn--green { background: var(--green); color: var(--navy); }
+    .btn--green:hover { background: var(--green-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(125,232,138,.35); }
+    .btn--outline { border-color: rgba(255,255,255,.3); color: var(--white); }
+    .btn--outline:hover { border-color: var(--green); color: var(--green); transform: translateY(-2px); }
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s, transform .6s; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* NAVBAR */
+    .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(13,19,71,.95); backdrop-filter: blur(20px); border-bottom: 1px solid var(--gray-line); }
+    .navbar__inner { display: flex; align-items: center; justify-content: space-between; height: 88px; }
+    .navbar__logo img { height: 72px; width: auto; display: block; mix-blend-mode: screen; }
+    .navbar__links { display: flex; align-items: center; gap: 32px; }
+    .navbar__links a { font-size: .88rem; font-weight: 500; color: var(--gray-sub); transition: color .2s; }
+    .navbar__links a:hover { color: var(--white); }
+    .navbar__cta { display: flex; gap: 12px; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .hamburger span { width: 24px; height: 2px; background: var(--white); border-radius: 2px; }
+
+    /* MEGA MENU */
+    .nav-item { position: relative; }
+    .nav-item__trigger { display: flex; align-items: center; gap: 5px; font-size: .88rem; font-weight: 500; color: var(--gray-sub); cursor: pointer; transition: color .2s; background: none; border: none; font-family: inherit; }
+    .nav-item__trigger:hover, .nav-item:hover .nav-item__trigger { color: var(--white); }
+    .nav-item__arrow { width: 14px; height: 14px; transition: transform .25s; display: flex; align-items: center; justify-content: center; }
+    .nav-item:hover .nav-item__arrow { transform: rotate(180deg); }
+    .megamenu { position: absolute; top: calc(100% + 12px); left: 50%; transform: translateX(-50%) translateY(8px); width: 680px; background: #0a1040; border: 1px solid rgba(125,232,138,.15); border-radius: 20px; padding: 24px; box-shadow: 0 24px 64px rgba(0,0,0,.5); opacity: 0; visibility: hidden; transition: opacity .2s, transform .2s, visibility .2s; }
+    .nav-item:hover .megamenu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+    .megamenu::before { content: ''; position: absolute; top: -6px; left: 50%; width: 12px; height: 12px; background: #0a1040; border-left: 1px solid rgba(125,232,138,.15); border-top: 1px solid rgba(125,232,138,.15); transform: translateX(-50%) rotate(45deg); }
+    .megamenu__header { font-size: .7rem; font-weight: 700; color: var(--gray-sub); text-transform: uppercase; letter-spacing: .12em; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--gray-line); }
+    .megamenu__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .megamenu__item { display: flex; align-items: flex-start; gap: 14px; padding: 14px; border-radius: 12px; transition: background .2s; }
+    .megamenu__item:hover { background: rgba(125,232,138,.07); }
+    .megamenu__item:hover .megamenu__item-title { color: var(--green); }
+    .megamenu__item-icon { width: 40px; height: 40px; border-radius: 10px; flex-shrink: 0; background: rgba(125,232,138,.08); border: 1px solid rgba(125,232,138,.15); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; }
+    .megamenu__item-title { font-size: .88rem; font-weight: 700; color: var(--white); margin-bottom: 3px; transition: color .2s; }
+    .megamenu__item-desc { font-size: .75rem; color: var(--gray-sub); line-height: 1.4; }
+    .megamenu__footer { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--gray-line); display: flex; align-items: center; justify-content: space-between; }
+    .megamenu__footer-text { font-size: .78rem; color: var(--gray-sub); }
+    .megamenu__footer-link { font-size: .78rem; font-weight: 700; color: var(--green); display: flex; align-items: center; gap: 4px; }
+
+    /* MOBILE MENU */
+    .mobile-menu { display: none; position: fixed; inset: 0; background: var(--navy); z-index: 999; flex-direction: column; align-items: center; justify-content: center; gap: 28px; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-size: 1.3rem; font-weight: 700; color: var(--white); }
+    .mobile-menu a:hover { color: var(--green); }
+    .mobile-menu__close { position: absolute; top: 24px; right: 24px; font-size: 1.8rem; cursor: pointer; }
+
+    /* BREADCRUMB */
+    .breadcrumb { padding: 100px 0 0; }
+    .breadcrumb__inner { display: flex; align-items: center; gap: 8px; font-size: .82rem; color: var(--gray-sub); padding: 24px 0 0; }
+    .breadcrumb__inner a { color: var(--gray-sub); transition: color .2s; }
+    .breadcrumb__inner a:hover { color: var(--green); }
+    .breadcrumb__sep { color: rgba(255,255,255,.2); }
+    .breadcrumb__current { color: var(--green); font-weight: 600; }
+
+    /* HERO */
+    .page-hero { padding: 40px 0 96px; position: relative; overflow: hidden; }
+    .page-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(30,52,152,.35) 0%, transparent 70%); }
+    .page-hero__dots { position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,.04) 1px, transparent 1px); background-size: 40px 40px; }
+    .page-hero__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; position: relative; z-index: 1; }
+    .page-hero__eyebrow { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
+    .page-hero__eyebrow-line { width: 28px; height: 2px; background: var(--green); }
+    .page-hero__eyebrow span { color: var(--green); font-size: .8rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+    .page-hero__title { font-size: clamp(2.4rem, 5vw, 3.4rem); font-weight: 900; line-height: 1.08; margin-bottom: 20px; }
+    .page-hero__title .green { color: var(--green); }
+    .page-hero__sub { font-size: 1.05rem; color: var(--gray-sub); margin-bottom: 36px; line-height: 1.75; }
+    .page-hero__sub strong { color: var(--white); }
+    .page-hero__actions { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 48px; }
+    .page-hero__stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .stat-box { background: rgba(255,255,255,.05); border: 1px solid var(--gray-line); border-radius: var(--radius); padding: 20px; text-align: center; }
+    .stat-box__num { font-size: 2rem; font-weight: 900; color: var(--green); line-height: 1; }
+    .stat-box__label { font-size: .75rem; color: var(--gray-sub); margin-top: 4px; }
+    .page-hero__visual { display: flex; flex-direction: column; gap: 14px; }
+    .metric-card { background: rgba(255,255,255,.05); border: 1px solid var(--gray-line); border-radius: var(--radius); padding: 20px; }
+    .metric-card__header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+    .metric-card__title { font-size: .88rem; font-weight: 700; }
+    .metric-card__badge { background: rgba(125,232,138,.15); color: var(--green); font-size: .7rem; font-weight: 700; padding: 3px 9px; border-radius: 99px; }
+    .metric-card__bar { height: 6px; background: rgba(255,255,255,.06); border-radius: 3px; margin-bottom: 6px; }
+    .metric-card__bar-fill { height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--green), var(--blue-light)); }
+    .metric-card__label { display: flex; justify-content: space-between; font-size: .75rem; color: var(--gray-sub); }
+    .metric-card__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .metric-card__item { text-align: center; background: rgba(255,255,255,.03); border-radius: 10px; padding: 12px 8px; }
+    .metric-card__item-num { font-size: 1.2rem; font-weight: 900; color: var(--green); }
+    .metric-card__item-label { font-size: .68rem; color: var(--gray-sub); margin-top: 2px; }
+
+    /* PLATFORMS */
+    .platforms__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .platform-card { background: rgba(255,255,255,.04); border: 1px solid var(--gray-line); border-radius: var(--radius); padding: 32px 28px; transition: all .3s; position: relative; overflow: hidden; }
+    .platform-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--green), var(--blue-light)); transform: scaleX(0); transition: transform .3s; }
+    .platform-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); border-color: rgba(125,232,138,.2); }
+    .platform-card:hover::before { transform: scaleX(1); }
+    .platform-card__icon { font-size: 2rem; margin-bottom: 16px; }
+    .platform-card__name { font-size: 1.1rem; font-weight: 800; margin-bottom: 8px; }
+    .platform-card__desc { font-size: .85rem; color: var(--gray-sub); line-height: 1.7; margin-bottom: 20px; }
+    .platform-card__features { display: flex; flex-direction: column; gap: 8px; }
+    .platform-card__feature { display: flex; align-items: center; gap: 8px; font-size: .82rem; color: var(--gray-sub); }
+    .platform-card__feature::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--green); flex-shrink: 0; }
+
+    /* PROCESS */
+    .process { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+    .process__item { text-align: center; padding: 28px 20px; background: rgba(255,255,255,.03); border: 1px solid var(--gray-line); border-radius: var(--radius); }
+    .process__num { width: 52px; height: 52px; border-radius: 50%; background: rgba(125,232,138,.1); border: 2px solid var(--green); color: var(--green); font-size: 1.1rem; font-weight: 900; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; }
+    .process__title { font-size: .95rem; font-weight: 700; margin-bottom: 8px; }
+    .process__desc { font-size: .82rem; color: var(--gray-sub); }
+
+    /* RESULTS */
+    .results__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .result-card { background: rgba(125,232,138,.05); border: 1px solid rgba(125,232,138,.15); border-radius: var(--radius); padding: 28px; text-align: center; }
+    .result-card__num { font-size: 2.4rem; font-weight: 900; color: var(--green); line-height: 1; margin-bottom: 6px; }
+    .result-card__label { font-size: .82rem; color: var(--gray-sub); }
+
+    /* PACKAGES */
+    .packages__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .pkg-card { background: rgba(255,255,255,.04); border: 1px solid var(--gray-line); border-radius: 20px; padding: 36px 32px; transition: all .3s; }
+    .pkg-card.featured { background: linear-gradient(145deg, rgba(125,232,138,.08), rgba(30,52,152,.2)); border-color: rgba(125,232,138,.3); position: relative; }
+    .pkg-card.featured::before { content: 'MÁS POPULAR'; position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--green); color: var(--navy); font-size: .65rem; font-weight: 900; letter-spacing: .1em; padding: 4px 14px; border-radius: 99px; }
+    .pkg-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .pkg-card__icon { font-size: 1.8rem; margin-bottom: 16px; }
+    .pkg-card__name { font-size: 1.1rem; font-weight: 800; margin-bottom: 6px; }
+    .pkg-card__desc { font-size: .85rem; color: var(--gray-sub); margin-bottom: 24px; line-height: 1.6; }
+    .pkg-card__list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
+    .pkg-card__item { display: flex; align-items: center; gap: 10px; font-size: .85rem; color: var(--gray-sub); }
+    .pkg-card__check { width: 18px; height: 18px; border-radius: 50%; background: rgba(125,232,138,.15); border: 1px solid var(--green); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: .6rem; color: var(--green); }
+
+    /* FAQ */
+    .faq { display: flex; flex-direction: column; gap: 12px; max-width: 780px; margin: 0 auto; }
+    .faq__item { background: rgba(255,255,255,.04); border: 1px solid var(--gray-line); border-radius: var(--radius); overflow: hidden; }
+    .faq__question { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; cursor: pointer; font-size: .95rem; font-weight: 600; gap: 16px; }
+    .faq__icon { width: 24px; height: 24px; border-radius: 50%; background: rgba(125,232,138,.1); border: 1px solid rgba(125,232,138,.2); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--green); font-size: .9rem; transition: transform .3s; }
+    .faq__item.open .faq__icon { transform: rotate(45deg); }
+    .faq__answer { font-size: .88rem; color: var(--gray-sub); line-height: 1.75; padding: 0 24px 20px; display: none; }
+    .faq__item.open .faq__answer { display: block; }
+
+    /* CTA */
+    .cta-banner { background: linear-gradient(135deg, rgba(125,232,138,.1) 0%, rgba(30,52,152,.3) 100%); border: 1px solid rgba(125,232,138,.2); border-radius: 24px; padding: 72px 48px; text-align: center; position: relative; overflow: hidden; }
+    .cta-banner__title { font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 900; margin-bottom: 12px; }
+    .cta-banner__title .green { color: var(--green); }
+    .cta-banner__sub { font-size: 1.05rem; color: var(--gray-sub); margin-bottom: 36px; }
+    .cta-banner__actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+    /* FOOTER */
+    .footer { background: #090d30; color: var(--gray-sub); padding: 56px 0 28px; }
+    .footer__inner { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 40px; }
+    .footer__logo img { height: 52px; width: auto; mix-blend-mode: screen; margin-bottom: 12px; }
+    .footer__desc { font-size: .85rem; line-height: 1.75; }
+    .footer__social { display: flex; gap: 10px; margin-top: 20px; }
+    .footer__social-link { width: 36px; height: 36px; border-radius: 8px; background: rgba(255,255,255,.05); border: 1px solid var(--gray-line); display: flex; align-items: center; justify-content: center; font-size: .8rem; font-weight: 700; transition: all .2s; }
+    .footer__social-link:hover { background: var(--green); color: var(--navy); }
+    .footer__col-title { font-size: .82rem; font-weight: 700; color: var(--white); margin-bottom: 16px; letter-spacing: .06em; text-transform: uppercase; }
+    .footer__links { display: flex; flex-direction: column; gap: 10px; }
+    .footer__links a { font-size: .85rem; transition: color .2s; }
+    .footer__links a:hover { color: var(--white); }
+    .footer__bottom { border-top: 1px solid var(--gray-line); padding-top: 24px; display: flex; justify-content: space-between; font-size: .8rem; }
+
+    @media (max-width: 960px) {
+      .page-hero__inner { grid-template-columns: 1fr; }
+      .page-hero__visual { display: none; }
+      .platforms__grid { grid-template-columns: 1fr 1fr; }
+      .results__grid { grid-template-columns: 1fr 1fr; }
+      .packages__grid { grid-template-columns: 1fr; }
+      .process { grid-template-columns: 1fr 1fr; }
+      .footer__inner { grid-template-columns: 1fr 1fr; }
+      .navbar__links, .navbar__cta .btn--outline { display: none; }
+      .hamburger { display: flex; }
+    }
+    @media (max-width: 600px) {
+      .section { padding: 64px 0; }
+      .platforms__grid { grid-template-columns: 1fr; }
+      .results__grid { grid-template-columns: 1fr 1fr; }
+      .page-hero__stats { grid-template-columns: 1fr 1fr; }
+      .footer__inner { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="navbar__inner">
+        <a href="../index.html" class="navbar__logo"><img src="../logo.png" alt="Sense Digital" /></a>
+        <div class="navbar__links">
+          <div class="nav-item">
+            <button class="nav-item__trigger">
+              Servicios
+              <span class="nav-item__arrow"><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </button>
+            <div class="megamenu">
+              <div class="megamenu__header">Nuestros Servicios</div>
+              <div class="megamenu__grid">
+                <a href="marketing-digital.html" class="megamenu__item">
+                  <div class="megamenu__item-icon">📣</div>
+                  <div><div class="megamenu__item-title">Marketing Digital</div><div class="megamenu__item-desc">Google, Facebook, TikTok Ads y estrategia</div></div>
+                </a>
+                <a href="desarrollo-web.html" class="megamenu__item">
+                  <div class="megamenu__item-icon">🌐</div>
+                  <div><div class="megamenu__item-title">Desarrollo Web</div><div class="megamenu__item-desc">Webs, e-commerce y landing pages</div></div>
+                </a>
+                <a href="apps-moviles.html" class="megamenu__item">
+                  <div class="megamenu__item-icon">📱</div>
+                  <div><div class="megamenu__item-title">Apps Móviles</div><div class="megamenu__item-desc">Apps iOS y Android con Flutter</div></div>
+                </a>
+                <a href="automatizacion-ia.html" class="megamenu__item">
+                  <div class="megamenu__item-icon">🤖</div>
+                  <div><div class="megamenu__item-title">Automatización con IA</div><div class="megamenu__item-desc">Agentes IA y flujos automáticos</div></div>
+                </a>
+                <a href="whatsapp-ia.html" class="megamenu__item">
+                  <div class="megamenu__item-icon">💬</div>
+                  <div><div class="megamenu__item-title">WhatsApp IA</div><div class="megamenu__item-desc">Ventas automáticas 24/7</div></div>
+                </a>
+                <a href="diseno-branding.html" class="megamenu__item">
+                  <div class="megamenu__item-icon">🎨</div>
+                  <div><div class="megamenu__item-title">Diseño &amp; Branding</div><div class="megamenu__item-desc">Identidad visual y community</div></div>
+                </a>
+              </div>
+              <div class="megamenu__footer">
+                <span class="megamenu__footer-text">¿No sabes cuál necesitas?</span>
+                <a href="../index.html#contacto" class="megamenu__footer-link">Habla con un especialista →</a>
+              </div>
+            </div>
+          </div>
+          <a href="../index.html#proceso">Proceso</a>
+          <a href="../index.html#tecnologia">Tecnología</a>
+          <a href="../index.html#testimonios">Clientes</a>
+          <a href="../index.html#contacto">Contacto</a>
+        </div>
+        <div class="navbar__cta">
+          <a href="../index.html#contacto" class="btn btn--outline" style="padding:10px 20px;font-size:.85rem;">Blog</a>
+          <a href="../index.html#contacto" class="btn btn--green" style="padding:10px 20px;font-size:.85rem;">¡Hablemos!</a>
+        </div>
+        <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <span class="mobile-menu__close" id="menuClose">✕</span>
+    <a href="../index.html">Inicio</a>
+    <a href="marketing-digital.html">Marketing Digital</a>
+    <a href="desarrollo-web.html">Desarrollo Web</a>
+    <a href="apps-moviles.html">Apps Móviles</a>
+    <a href="automatizacion-ia.html">Automatización IA</a>
+    <a href="whatsapp-ia.html">WhatsApp IA</a>
+    <a href="diseno-branding.html">Diseño &amp; Branding</a>
+    <a href="../index.html#contacto" class="btn btn--green">¡Hablemos!</a>
+  </div>
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb">
+    <div class="container">
+      <div class="breadcrumb__inner">
+        <a href="../index.html">Inicio</a>
+        <span class="breadcrumb__sep">/</span>
+        <a href="../index.html#servicios">Servicios</a>
+        <span class="breadcrumb__sep">/</span>
+        <span class="breadcrumb__current">Marketing Digital</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="page-hero__dots"></div>
+    <div class="container">
+      <div class="page-hero__inner">
+        <div class="reveal">
+          <div class="page-hero__eyebrow">
+            <div class="page-hero__eyebrow-line"></div>
+            <span>Marketing Digital · Performance</span>
+          </div>
+          <h1 class="page-hero__title">Campañas que<br/><span class="green">multiplican</span><br/>tus ventas</h1>
+          <p class="page-hero__sub">
+            Gestionamos más de <strong>1M USD en pauta mensual</strong>. Diseñamos estrategias de performance marketing en Google, Facebook, TikTok y más para llevar tu negocio al siguiente nivel.
+          </p>
+          <div class="page-hero__actions">
+            <a href="../index.html#contacto" class="btn btn--green">Quiero más ventas →</a>
+            <a href="#plataformas" class="btn btn--outline">Ver plataformas</a>
+          </div>
+          <div class="page-hero__stats">
+            <div class="stat-box"><div class="stat-box__num">1M+</div><div class="stat-box__label">USD en pauta/mes</div></div>
+            <div class="stat-box"><div class="stat-box__num">4.8x</div><div class="stat-box__label">ROAS promedio</div></div>
+            <div class="stat-box"><div class="stat-box__num">-60%</div><div class="stat-box__label">Costo por lead</div></div>
+          </div>
+        </div>
+        <div class="page-hero__visual reveal">
+          <div class="metric-card">
+            <div class="metric-card__header">
+              <span class="metric-card__title">📊 Rendimiento de Campañas</span>
+              <span class="metric-card__badge">↑ Este mes</span>
+            </div>
+            <div class="metric-card__bar"><div class="metric-card__bar-fill" style="width:88%"></div></div>
+            <div class="metric-card__label"><span>Google Ads · ROAS</span><span style="color:var(--green);font-weight:700">5.2x</span></div>
+            <div style="margin-top:12px">
+              <div class="metric-card__bar" style="margin-bottom:6px"><div class="metric-card__bar-fill" style="width:75%"></div></div>
+              <div class="metric-card__label"><span>Facebook Ads · CTR</span><span style="color:var(--green);font-weight:700">3.8%</span></div>
+            </div>
+            <div style="margin-top:12px">
+              <div class="metric-card__bar" style="margin-bottom:6px"><div class="metric-card__bar-fill" style="width:92%"></div></div>
+              <div class="metric-card__label"><span>TikTok Ads · Alcance</span><span style="color:var(--green);font-weight:700">+340%</span></div>
+            </div>
+          </div>
+          <div class="metric-card" style="margin-top:14px">
+            <div class="metric-card__grid">
+              <div class="metric-card__item"><div class="metric-card__item-num">7K+</div><div class="metric-card__item-label">Clientes activos</div></div>
+              <div class="metric-card__item"><div class="metric-card__item-num">340%</div><div class="metric-card__item-label">ROI promedio</div></div>
+              <div class="metric-card__item"><div class="metric-card__item-num">24h</div><div class="metric-card__item-label">Onboarding</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTADOS -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-header centered reveal">
+        <span class="badge">Resultados reales</span>
+        <h2 class="section-title">Números que <span class="green">hablan</span> por sí solos</h2>
+      </div>
+      <div class="results__grid reveal">
+        <div class="result-card"><div class="result-card__num">1M+</div><div class="result-card__label">USD gestionados en pauta mensual</div></div>
+        <div class="result-card"><div class="result-card__num">340%</div><div class="result-card__label">ROI promedio de nuestras campañas</div></div>
+        <div class="result-card"><div class="result-card__num">7.000+</div><div class="result-card__label">Empresas impactadas</div></div>
+        <div class="result-card"><div class="result-card__num">-60%</div><div class="result-card__label">Reducción promedio en costo por lead</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLATAFORMAS -->
+  <section class="section" id="plataformas">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="badge">Plataformas</span>
+        <h2 class="section-title">Dominamos cada <span class="green">plataforma</span></h2>
+        <p class="section-sub">Especialistas certificados en todas las plataformas de publicidad digital que importan para tu negocio.</p>
+      </div>
+      <div class="platforms__grid">
+        <div class="platform-card reveal">
+          <div class="platform-card__icon">🔵</div>
+          <div class="platform-card__name">Google Ads</div>
+          <div class="platform-card__desc">Captura clientes en el momento exacto en que buscan tus productos o servicios. La plataforma con mayor intención de compra.</div>
+          <div class="platform-card__features">
+            <div class="platform-card__feature">Search, Display y Shopping</div>
+            <div class="platform-card__feature">YouTube Ads</div>
+            <div class="platform-card__feature">Remarketing avanzado</div>
+            <div class="platform-card__feature">Performance Max</div>
+          </div>
+        </div>
+        <div class="platform-card reveal">
+          <div class="platform-card__icon">🟣</div>
+          <div class="platform-card__name">Meta Ads</div>
+          <div class="platform-card__desc">Facebook e Instagram juntos para llegar a la audiencia perfecta con creatividades que detienen el scroll y convierten.</div>
+          <div class="platform-card__features">
+            <div class="platform-card__feature">Facebook &amp; Instagram Ads</div>
+            <div class="platform-card__feature">Segmentación por intereses</div>
+            <div class="platform-card__feature">Catálogos dinámicos</div>
+            <div class="platform-card__feature">Lookalike audiences</div>
+          </div>
+        </div>
+        <div class="platform-card reveal">
+          <div class="platform-card__icon">⬛</div>
+          <div class="platform-card__name">TikTok Ads</div>
+          <div class="platform-card__desc">La plataforma de mayor crecimiento del mundo. Conecta con audiencias jóvenes y logra viralizaciones que generan ventas masivas.</div>
+          <div class="platform-card__features">
+            <div class="platform-card__feature">In-Feed Ads y TopView</div>
+            <div class="platform-card__feature">Spark Ads (contenido orgánico)</div>
+            <div class="platform-card__feature">TikTok Shopping</div>
+            <div class="platform-card__feature">Branded Effects</div>
+          </div>
+        </div>
+        <div class="platform-card reveal">
+          <div class="platform-card__icon">📧</div>
+          <div class="platform-card__name">Email Marketing</div>
+          <div class="platform-card__desc">El canal con mayor ROI del marketing digital. Automatiza la captación, nurturing y fidelización de tus clientes.</div>
+          <div class="platform-card__features">
+            <div class="platform-card__feature">Secuencias de email automáticas</div>
+            <div class="platform-card__feature">Segmentación de base de datos</div>
+            <div class="platform-card__feature">A/B testing</div>
+            <div class="platform-card__feature">Reportes de apertura y clicks</div>
+          </div>
+        </div>
+        <div class="platform-card reveal">
+          <div class="platform-card__icon">🟠</div>
+          <div class="platform-card__name">Taboola Ads</div>
+          <div class="platform-card__desc">Publicidad nativa en los principales medios de comunicación. Llega a tu audiencia cuando consume contenido editorial.</div>
+          <div class="platform-card__features">
+            <div class="platform-card__feature">Native advertising</div>
+            <div class="platform-card__feature">Medios premium</div>
+            <div class="platform-card__feature">Audiencias segmentadas</div>
+            <div class="platform-card__feature">Retargeting</div>
+          </div>
+        </div>
+        <div class="platform-card reveal">
+          <div class="platform-card__icon">🤖</div>
+          <div class="platform-card__name">Chatbots &amp; CRM</div>
+          <div class="platform-card__desc">Automatiza la respuesta a prospectos y centraliza todos tus leads en un CRM inteligente que potencia tu equipo de ventas.</div>
+          <div class="platform-card__features">
+            <div class="platform-card__feature">Chatbots para web y redes</div>
+            <div class="platform-card__feature">CRM integrado</div>
+            <div class="platform-card__feature">Lead scoring automático</div>
+            <div class="platform-card__feature">Pipelines de venta</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESO -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-header centered reveal">
+        <span class="badge">Metodología</span>
+        <h2 class="section-title">Cómo <span class="green">trabajamos</span> tu estrategia</h2>
+        <p class="section-sub">Un proceso probado que garantiza resultados desde el primer mes.</p>
+      </div>
+      <div class="process reveal">
+        <div class="process__item">
+          <div class="process__num">01</div>
+          <div class="process__title">Auditoría &amp; Análisis</div>
+          <div class="process__desc">Analizamos tu negocio, competencia y audiencia para identificar las mejores oportunidades.</div>
+        </div>
+        <div class="process__item">
+          <div class="process__num">02</div>
+          <div class="process__title">Estrategia &amp; Creatividades</div>
+          <div class="process__desc">Diseñamos el plan de medios y creamos las piezas creativas optimizadas para cada plataforma.</div>
+        </div>
+        <div class="process__item">
+          <div class="process__num">03</div>
+          <div class="process__title">Lanzamiento &amp; Optimización</div>
+          <div class="process__desc">Lanzamos las campañas y optimizamos diariamente para maximizar el ROAS.</div>
+        </div>
+        <div class="process__item">
+          <div class="process__num">04</div>
+          <div class="process__title">Reportes &amp; Escala</div>
+          <div class="process__desc">Reportes semanales transparentes y escalamos el presupuesto cuando encontramos la fórmula ganadora.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAQUETES -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header centered reveal">
+        <span class="badge">Paquetes</span>
+        <h2 class="section-title">Elige el plan <span class="green">ideal</span> para tu empresa</h2>
+        <p class="section-sub">Planes flexibles adaptados al tamaño y objetivos de tu negocio. Todos incluyen reportes mensuales detallados.</p>
+      </div>
+      <div class="packages__grid">
+        <div class="pkg-card reveal">
+          <div class="pkg-card__icon">🚀</div>
+          <div class="pkg-card__name">Starter</div>
+          <div class="pkg-card__desc">Ideal para negocios que comienzan en publicidad digital o tienen presupuestos ajustados.</div>
+          <div class="pkg-card__list">
+            <div class="pkg-card__item"><div class="pkg-card__check">✓</div>1 plataforma publicitaria</div>
+            <div class="pkg-card__item"><div class="pkg-card__check">✓</div>Configuración inicial de campañas</div>
+            <div class="pkg-card__item"><div class="pkg-card__check">✓</div>Reporte mensual</div>
+            <div class="pkg-card__item"><div class="pkg-card__check">✓</div>Soporte por WhatsApp</div>
+          </div>
+          <a href="../index.html#contacto" class="btn btn--outline" style="width:100%;justify-content:center;">Consultar precio →</a>
+        </div>
+        <div class="pkg-card featured reveal">
+          <div class="pkg-card__icon">⚡</div>
+          <div class="pkg-card__name">Growth</div>
+          <div class="pkg-card__desc">Para empresas que quieren escalar rápido con una estrategia multi-plataforma robusta.</div>
+          <div class="pkg-card__list">
+            <div class="pkg-card__item"><div class="pkg-card__check">✓</div>3 plataformas publicitarias</div>
+            <div class="pkg-card__item"><div class="pkg-card__check">✓</div>Estrategia de contenidos</div>
+            <div class="pkg-card__item"><div class="pkg-card__check">✓</div>Reporte semanal + dashboard</div>
+            <div class="pkg-card__item"><div class="pkg-card__check">✓</div>A/B testing de creatividades</div>
+            <div class="pkg-card__item"><div class="pkg-card__check">✓</div>Gestor dedicado</div>
+          </div>
+          <a href="../index.html#contacto" class="btn btn--green" style="width:100%;justify-content:center;">Consultar precio →</a>
+        </div>
+        <div class="pkg-card reveal">
+          <div class="pkg-card__icon">🏆</div>
+          <div class="pkg-card__name">Enterprise</div>
+          <div class="pkg-card__desc">Solución completa para empresas con alto volumen de pauta y necesidades avanzadas.</div>
+          <div class="pkg-card__list">
+            <div class="pkg-card__item"><div class="pkg-card__check">✓</div>Todas las plataformas</div>
+            <div class="pkg-card__item"><div class="pkg-card__check">✓</div>Equipo dedicado completo</div>
+            <div class="pkg-card__item"><div class="pkg-card__check">✓</div>BI &amp; Analytics avanzado</div>
+            <div class="pkg-card__item"><div class="pkg-card__check">✓</div>Integración CRM y automatización</div>
+            <div class="pkg-card__item"><div class="pkg-card__check">✓</div>SLA garantizado</div>
+          </div>
+          <a href="../index.html#contacto" class="btn btn--outline" style="width:100%;justify-content:center;">Consultar precio →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-header centered reveal">
+        <span class="badge">FAQ</span>
+        <h2 class="section-title">Preguntas <span class="green">frecuentes</span></h2>
+      </div>
+      <div class="faq reveal">
+        <div class="faq__item">
+          <div class="faq__question">¿Cuánto tiempo tarda en verse resultados? <span class="faq__icon">+</span></div>
+          <div class="faq__answer">Los primeros resultados se ven en las primeras 2-4 semanas. Sin embargo, las campañas alcanzan su máximo rendimiento entre el mes 2 y 3, cuando el algoritmo ha aprendido suficiente data de tu audiencia.</div>
+        </div>
+        <div class="faq__item">
+          <div class="faq__question">¿Cuál es el presupuesto mínimo recomendado en pauta? <span class="faq__icon">+</span></div>
+          <div class="faq__answer">Recomendamos un mínimo de 500 USD/mes en inversión publicitaria para obtener data suficiente y resultados consistentes. A partir de 1.000 USD/mes los resultados se potencian significativamente.</div>
+        </div>
+        <div class="faq__item">
+          <div class="faq__question">¿Incluyen la creación de las piezas creativas? <span class="faq__icon">+</span></div>
+          <div class="faq__answer">Sí, en los planes Growth y Enterprise incluimos el diseño de banners, videos cortos y copys publicitarios. En el plan Starter, orientamos al cliente para que provea las creatividades.</div>
+        </div>
+        <div class="faq__item">
+          <div class="faq__question">¿Tienen acceso a mis cuentas publicitarias? <span class="faq__icon">+</span></div>
+          <div class="faq__answer">Trabajamos como gestores en tus propias cuentas publicitarias, lo que significa que toda la data y el histórico de campañas es tuyo. Nunca trabajamos con cuentas propias de la agencia.</div>
+        </div>
+        <div class="faq__item">
+          <div class="faq__question">¿Qué incluyen los reportes? <span class="faq__icon">+</span></div>
+          <div class="faq__answer">Nuestros reportes incluyen: inversión total, impresiones, clics, conversiones, costo por resultado, ROAS, comparativa con período anterior y recomendaciones de optimización para el siguiente período.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section">
+    <div class="container">
+      <div class="cta-banner reveal">
+        <h2 class="cta-banner__title">¿Listo para <span class="green">multiplicar</span> tus ventas?</h2>
+        <p class="cta-banner__sub">Agenda una consultoría gratuita y te mostramos cómo podemos mejorar tus campañas actuales.</p>
+        <div class="cta-banner__actions">
+          <a href="../index.html#contacto" class="btn btn--green">Agendar consultoría gratuita →</a>
+          <a href="https://wa.me/573000000000" class="btn btn--outline" target="_blank">Hablar por WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div>
+          <div class="footer__logo"><img src="../logo.png" alt="Sense Digital" /></div>
+          <p class="footer__desc">Innovación digital al alcance de tu empresa. Tu socio estratégico en Colombia y México.</p>
+          <div class="footer__social">
+            <a class="footer__social-link" href="#">in</a>
+            <a class="footer__social-link" href="#">f</a>
+            <a class="footer__social-link" href="#">tt</a>
+            <a class="footer__social-link" href="#">li</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer__col-title">Servicios</div>
+          <div class="footer__links">
+            <a href="marketing-digital.html">Marketing Digital</a>
+            <a href="desarrollo-web.html">Desarrollo Web</a>
+            <a href="apps-moviles.html">Apps Móviles</a>
+            <a href="automatizacion-ia.html">Automatización IA</a>
+          <a href="whatsapp-ia.html">WhatsApp IA</a>
+          <a href="diseno-branding.html">Diseño &amp; Branding</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer__col-title">Empresa</div>
+          <div class="footer__links">
+            <a href="../index.html#proceso">Proceso</a>
+            <a href="../index.html#tecnologia">Tecnología</a>
+            <a href="../index.html#testimonios">Clientes</a>
+            <a href="#">Blog</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer__col-title">Contacto</div>
+          <div class="footer__links">
+            <a href="#">Bogotá, Colombia</a>
+            <a href="#">CDMX, México</a>
+            <a href="#">hola@sense-digital.co</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2024 Sense Digital. Todos los derechos reservados.</span>
+        <div style="display:flex;gap:24px"><a href="#">Privacidad</a><a href="#">Términos</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('hamburger').addEventListener('click', () => document.getElementById('mobileMenu').classList.add('open'));
+    document.getElementById('menuClose').addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open'));
+    document.querySelectorAll('.mobile-menu a').forEach(a => a.addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open')));
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => { if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 100); observer.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    document.querySelectorAll('.faq__question').forEach(q => {
+      q.addEventListener('click', () => {
+        const item = q.parentElement;
+        const wasOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq__item').forEach(i => i.classList.remove('open'));
+        if (!wasOpen) item.classList.add('open');
+      });
+    });
+  </script>
+</body>
+</html>
