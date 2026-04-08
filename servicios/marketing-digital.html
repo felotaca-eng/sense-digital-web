@@ -129,7 +129,16 @@
     .platform-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--green), var(--blue-light)); transform: scaleX(0); transition: transform .3s; }
     .platform-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); border-color: rgba(125,232,138,.2); }
     .platform-card:hover::before { transform: scaleX(1); }
-    .platform-card__icon { font-size: 2rem; margin-bottom: 16px; }
+    .platform-card__icon {
+      width: 56px; height: 56px; margin-bottom: 16px;
+      border-radius: 18px; display: flex; align-items: center; justify-content: center;
+      background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.04);
+    }
+    .platform-card__icon svg { width: 30px; height: 30px; display: block; }
+    .platform-card__icon--google svg { width: 34px; height: 34px; }
+    .platform-card__icon--meta svg { width: 34px; height: 24px; }
+    .platform-card__icon--tiktok svg { width: 26px; height: 30px; }
     .platform-card__name { font-size: 1.1rem; font-weight: 800; margin-bottom: 8px; }
     .platform-card__desc { font-size: .85rem; color: var(--gray-sub); line-height: 1.7; margin-bottom: 20px; }
     .platform-card__features { display: flex; flex-direction: column; gap: 8px; }
@@ -378,7 +387,14 @@
       </div>
       <div class="platforms__grid">
         <div class="platform-card reveal">
-          <div class="platform-card__icon">🔵</div>
+          <div class="platform-card__icon platform-card__icon--google" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M44.5 24.6c0-1.6-.1-3.1-.4-4.6H24v8.7h11.5c-.5 2.8-2.1 5.2-4.5 6.8v5.6h7.2c4.2-3.9 6.3-9.6 6.3-16.5Z" fill="#4285F4"/>
+              <path d="M24 45c5.4 0 9.9-1.8 13.2-4.9l-7.2-5.6c-2 1.3-4.6 2.1-8 2.1-6.1 0-11.3-4.1-13.2-9.6H1.4v6c3.2 6.4 9.8 12 22.6 12Z" fill="#34A853"/>
+              <path d="M10.8 27c-.5-1.3-.8-2.6-.8-4s.3-2.7.8-4v-6H1.4A21 21 0 0 0 0 23c0 3.4.8 6.6 2.2 9.4l8.6-5.4Z" fill="#FBBC05"/>
+              <path d="M24 9.5c2.9 0 5.5 1 7.6 2.9l5.7-5.7C33.9 3.5 29.4 1 24 1 11.2 1 4.6 6.6 1.4 13l8.6 6c1.9-5.5 7.1-9.5 14-9.5Z" fill="#EA4335"/>
+            </svg>
+          </div>
           <div class="platform-card__name">Google Ads</div>
           <div class="platform-card__desc">Captura clientes en el momento exacto en que buscan tus productos o servicios. La plataforma con mayor intención de compra.</div>
           <div class="platform-card__features">
@@ -389,7 +405,18 @@
           </div>
         </div>
         <div class="platform-card reveal">
-          <div class="platform-card__icon">🟣</div>
+          <div class="platform-card__icon platform-card__icon--meta" aria-hidden="true">
+            <svg viewBox="0 0 64 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M15.1 29.4c2.7 0 5.2-3.1 8.3-8 3.6-5.8 5.2-8.2 7.3-8.2 2.1 0 3.4 2.2 5.6 6.7l2.9 5.8c1.8 3.6 3.6 5.5 5.8 5.5 2.3 0 4.4-2.1 7-6.2l6.4-10.3c3.2-5.2 5-8.9 5-11.8 0-1.8-.7-3-2.2-3-2.4 0-5.1 2.3-8.6 7.7l-4.2 6.5c-1-4.8-3.9-10.2-9-10.2-4.1 0-7.3 2.7-10.1 7.5l-5.6 9.3-3.2 5.1c-1.6 2.6-2.9 3.4-4.3 3.4-1.7 0-3.3-1.4-5.6-5.5l-1.7-3.1H0l2.9 5.9c3 6.1 7.1 9 12.2 9Z" fill="url(#metaGradient)"/>
+              <defs>
+                <linearGradient id="metaGradient" x1="6" y1="33" x2="55" y2="2" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#0064E0"/>
+                  <stop offset="0.5" stop-color="#0F6EFF"/>
+                  <stop offset="1" stop-color="#7B3FE4"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
           <div class="platform-card__name">Meta Ads</div>
           <div class="platform-card__desc">Facebook e Instagram juntos para llegar a la audiencia perfecta con creatividades que detienen el scroll y convierten.</div>
           <div class="platform-card__features">
@@ -400,7 +427,13 @@
           </div>
         </div>
         <div class="platform-card reveal">
-          <div class="platform-card__icon">⬛</div>
+          <div class="platform-card__icon platform-card__icon--tiktok" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M30.6 5c1.3 4.7 4.1 7.6 8.4 8.8v6.5c-3-.1-5.8-1-8.4-2.7v12.8c0 7.8-4.8 12.6-12.3 12.6-7 0-12.3-5.2-12.3-12.1 0-7.4 5.7-12.4 13.5-12.1v6.7c-3.8-.3-6.5 2-6.5 5.4 0 3.1 2.2 5.2 5.2 5.2 3.1 0 5.2-2.2 5.2-5.7V5h7.2Z" fill="#25F4EE"/>
+              <path d="M32.6 5c1.2 4.6 4 7.5 8.4 8.8v6.5c-3-.1-5.8-1-8.4-2.7v12.8c0 7.8-4.8 12.6-12.3 12.6-2.6 0-4.9-.7-6.9-2 2 .9 4 1.2 5.8 1.2 5.9 0 10.2-4.5 10.2-10.7V5h3.2Z" fill="#FE2C55"/>
+              <path d="M30.6 5c1.3 4.7 4.1 7.6 8.4 8.8v4.7c-3.3 0-6-1-8.4-2.6v14.5c0 7.8-4.8 12.6-12.3 12.6-3 0-5.8-.9-7.9-2.6a12 12 0 0 0 9.1 4c7.5 0 12.3-4.8 12.3-12.6V17.6c2.4 1.6 5.1 2.5 8.4 2.6v-6.4c-4.3-1.2-7.1-4.1-8.4-8.8h-1.2Z" fill="#fff"/>
+            </svg>
+          </div>
           <div class="platform-card__name">TikTok Ads</div>
           <div class="platform-card__desc">La plataforma de mayor crecimiento del mundo. Conecta con audiencias jóvenes y logra viralizaciones que generan ventas masivas.</div>
           <div class="platform-card__features">
