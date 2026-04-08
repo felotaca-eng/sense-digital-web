@@ -267,6 +267,11 @@
       display: flex; align-items: stretch; justify-content: stretch;
       margin-bottom: 16px; padding: 18px; overflow: hidden;
     }
+    .hero__phone-hero-img img {
+      width: 100%; height: 100%; object-fit: cover;
+      border-radius: 14px; border: 1px solid rgba(255,255,255,.08);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.03);
+    }
     .hero__phone-dashboard { display: grid; grid-template-columns: 1.15fr .85fr; gap: 14px; width: 100%; }
     .hero__phone-chart { position: relative; border-radius: 14px; background: rgba(8,13,44,.45); border: 1px solid rgba(255,255,255,.08); padding: 16px; overflow: hidden; }
     .hero__phone-chart::after {
@@ -755,26 +760,7 @@
                   <span class="hero__phone-btn">En vivo</span>
                 </div>
                 <div class="hero__phone-hero-img">
-                  <div class="hero__phone-dashboard">
-                    <div class="hero__phone-chart">
-                      <div class="hero__phone-chart-grid"></div>
-                      <div class="hero__phone-chart-line"></div>
-                      <div class="hero__phone-chart-stat">+148%</div>
-                      <div class="hero__phone-chart-label">crecimiento en oportunidades calificadas</div>
-                    </div>
-                    <div class="hero__phone-side">
-                      <div class="hero__phone-side-card">
-                        <div class="hero__phone-side-label">Pipeline</div>
-                        <div class="hero__phone-side-num">128 leads</div>
-                        <div class="hero__phone-side-trend">+23 esta semana</div>
-                      </div>
-                      <div class="hero__phone-side-card">
-                        <div class="hero__phone-side-label">Canales activos</div>
-                        <div class="hero__phone-side-num">Web · Ads · WA</div>
-                        <div class="hero__phone-side-trend">Todo sincronizado</div>
-                      </div>
-                    </div>
-                  </div>
+                  <img src="assets/images/home/1.png" alt="Vista de app y dashboard de Sense Digital" />
                 </div>
                 <div class="hero__phone-title">Centro de crecimiento para operaciones y ventas</div>
                 <div class="hero__phone-sub">Diseñamos experiencias digitales con métricas visibles, automatización real y una capa comercial que empuja resultados.</div>
