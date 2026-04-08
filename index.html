@@ -484,6 +484,54 @@
     .sv-card__grid-item { background: rgba(255,255,255,.03); border-radius: 10px; padding: 14px; text-align: center; }
     .sv-card__grid-num { font-size: 1.4rem; font-weight: 900; color: var(--green); }
     .sv-card__grid-label { font-size: .72rem; color: var(--gray-sub); }
+    .sv-platforms {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .sv-platform {
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: 14px;
+      padding: 14px 12px;
+      min-height: 112px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+    }
+    .sv-platform:hover {
+      transform: translateY(-3px);
+      border-color: rgba(125,232,138,.24);
+      box-shadow: 0 14px 28px rgba(0,0,0,.16);
+    }
+    .sv-platform__icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .sv-platform__icon svg { display: block; }
+    .sv-platform__icon--google svg { width: 32px; height: 32px; }
+    .sv-platform__icon--meta svg { width: 34px; height: 22px; }
+    .sv-platform__icon--tiktok svg { width: 24px; height: 28px; }
+    .sv-platform__name {
+      font-size: .84rem;
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.2;
+    }
+    .sv-platform__copy {
+      font-size: .72rem;
+      color: var(--gray-sub);
+      margin-top: 4px;
+      line-height: 1.45;
+    }
     .sv-chat { display: flex; flex-direction: column; gap: 10px; margin-top: 4px; }
     .sv-chat__msg { padding: 10px 14px; border-radius: 12px; font-size: .82rem; max-width: 85%; line-height: 1.5; }
     .sv-chat__msg--in { background: rgba(255,255,255,.07); border-radius: 4px 12px 12px 12px; }
@@ -493,6 +541,37 @@
     .sv-chat__dot:nth-child(2) { animation-delay: .15s; }
     .sv-chat__dot:nth-child(3) { animation-delay: .3s; }
     @keyframes typing { 0%,100%{opacity:.3;transform:translateY(0)} 50%{opacity:1;transform:translateY(-3px)} }
+    .sv-embed {
+      margin-top: 14px;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.08);
+      background: rgba(7, 11, 40, .65);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.04);
+    }
+    .sv-embed__frame {
+      width: 100%;
+      height: 520px;
+      border: 0;
+      display: block;
+      background: #0b123e;
+    }
+    .sv-embed__hint {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 14px;
+      font-size: .75rem;
+      color: var(--gray-sub);
+      background: rgba(255,255,255,.03);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .sv-embed__hint a {
+      color: var(--green);
+      font-weight: 700;
+      white-space: nowrap;
+    }
     .sv-browser {
       background: rgba(255,255,255,.03);
       border-radius: 10px;
@@ -688,6 +767,7 @@
       .section { padding: 64px 0; }
       .hero__stats { flex-wrap: wrap; gap: 24px; }
       .showcase__stats { grid-template-columns: 1fr; }
+      .sv-platforms { grid-template-columns: 1fr; }
       .footer__inner { grid-template-columns: 1fr; }
       .form__row { grid-template-columns: 1fr; }
       .cta-banner { padding: 40px 24px; }
@@ -989,11 +1069,52 @@
             </div>
           </div>
           <div class="sv-card" style="margin-top:16px">
-            <div class="sv-card__grid">
-              <div class="sv-card__grid-item"><div class="sv-card__grid-num">1M+</div><div class="sv-card__grid-label">USD en pauta</div></div>
-              <div class="sv-card__grid-item"><div class="sv-card__grid-num">340%</div><div class="sv-card__grid-label">ROI promedio</div></div>
-              <div class="sv-card__grid-item"><div class="sv-card__grid-num">4</div><div class="sv-card__grid-label">Plataformas</div></div>
-              <div class="sv-card__grid-item"><div class="sv-card__grid-num">60%</div><div class="sv-card__grid-label">↓ Costo/lead</div></div>
+            <div class="sv-platforms">
+              <div class="sv-platform">
+                <div class="sv-platform__icon sv-platform__icon--google" aria-hidden="true">
+                  <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M44.5 24.6c0-1.6-.1-3.1-.4-4.6H24v8.7h11.5c-.5 2.8-2.1 5.2-4.5 6.8v5.6h7.2c4.2-3.9 6.3-9.6 6.3-16.5Z" fill="#4285F4"/>
+                    <path d="M24 45c5.4 0 9.9-1.8 13.2-4.9l-7.2-5.6c-2 1.3-4.6 2.1-8 2.1-6.1 0-11.3-4.1-13.2-9.6H1.4v6c3.2 6.4 9.8 12 22.6 12Z" fill="#34A853"/>
+                    <path d="M10.8 27c-.5-1.3-.8-2.6-.8-4s.3-2.7.8-4v-6H1.4A21 21 0 0 0 0 23c0 3.4.8 6.6 2.2 9.4l8.6-5.4Z" fill="#FBBC05"/>
+                    <path d="M24 9.5c2.9 0 5.5 1 7.6 2.9l5.7-5.7C33.9 3.5 29.4 1 24 1 11.2 1 4.6 6.6 1.4 13l8.6 6c1.9-5.5 7.1-9.5 14-9.5Z" fill="#EA4335"/>
+                  </svg>
+                </div>
+                <div>
+                  <div class="sv-platform__name">Google Ads</div>
+                  <div class="sv-platform__copy">Search, Display y Shopping</div>
+                </div>
+              </div>
+              <div class="sv-platform">
+                <div class="sv-platform__icon sv-platform__icon--meta" aria-hidden="true">
+                  <svg viewBox="0 0 64 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15.1 29.4c2.7 0 5.2-3.1 8.3-8 3.6-5.8 5.2-8.2 7.3-8.2 2.1 0 3.4 2.2 5.6 6.7l2.9 5.8c1.8 3.6 3.6 5.5 5.8 5.5 2.3 0 4.4-2.1 7-6.2l6.4-10.3c3.2-5.2 5-8.9 5-11.8 0-1.8-.7-3-2.2-3-2.4 0-5.1 2.3-8.6 7.7l-4.2 6.5c-1-4.8-3.9-10.2-9-10.2-4.1 0-7.3 2.7-10.1 7.5l-5.6 9.3-3.2 5.1c-1.6 2.6-2.9 3.4-4.3 3.4-1.7 0-3.3-1.4-5.6-5.5l-1.7-3.1H0l2.9 5.9c3 6.1 7.1 9 12.2 9Z" fill="url(#metaGradientHome)"/>
+                    <defs>
+                      <linearGradient id="metaGradientHome" x1="6" y1="33" x2="55" y2="2" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#0064E0"/>
+                        <stop offset="0.5" stop-color="#0F6EFF"/>
+                        <stop offset="1" stop-color="#7B3FE4"/>
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                </div>
+                <div>
+                  <div class="sv-platform__name">Meta Ads</div>
+                  <div class="sv-platform__copy">Facebook e Instagram Ads</div>
+                </div>
+              </div>
+              <div class="sv-platform">
+                <div class="sv-platform__icon sv-platform__icon--tiktok" aria-hidden="true">
+                  <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M30.6 5c1.3 4.7 4.1 7.6 8.4 8.8v6.5c-3-.1-5.8-1-8.4-2.7v12.8c0 7.8-4.8 12.6-12.3 12.6-7 0-12.3-5.2-12.3-12.1 0-7.4 5.7-12.4 13.5-12.1v6.7c-3.8-.3-6.5 2-6.5 5.4 0 3.1 2.2 5.2 5.2 5.2 3.1 0 5.2-2.2 5.2-5.7V5h7.2Z" fill="#25F4EE"/>
+                    <path d="M32.6 5c1.2 4.6 4 7.5 8.4 8.8v6.5c-3-.1-5.8-1-8.4-2.7v12.8c0 7.8-4.8 12.6-12.3 12.6-2.6 0-4.9-.7-6.9-2 2 .9 4 1.2 5.8 1.2 5.9 0 10.2-4.5 10.2-10.7V5h3.2Z" fill="#FE2C55"/>
+                    <path d="M30.6 5c1.3 4.7 4.1 7.6 8.4 8.8v4.7c-3.3 0-6-1-8.4-2.6v14.5c0 7.8-4.8 12.6-12.3 12.6-3 0-5.8-.9-7.9-2.6a12 12 0 0 0 9.1 4c7.5 0 12.3-4.8 12.3-12.6V17.6c2.4 1.6 5.1 2.5 8.4 2.6v-6.4c-4.3-1.2-7.1-4.1-8.4-8.8h-1.2Z" fill="#fff"/>
+                  </svg>
+                </div>
+                <div>
+                  <div class="sv-platform__name">TikTok Ads</div>
+                  <div class="sv-platform__copy">In-Feed, Spark Ads y TopView</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -1222,12 +1343,19 @@
               <div><div class="sv-card__title">WhatsApp IA · Sense</div><div class="sv-card__sub">En línea ahora</div></div>
               <span style="width:8px;height:8px;border-radius:50%;background:var(--green);margin-left:auto;box-shadow:0 0 8px var(--green);flex-shrink:0"></span>
             </div>
-            <div class="sv-chat">
-              <div class="sv-chat__msg sv-chat__msg--in">Hola, ¿cuánto cuesta desarrollar una app para mi negocio?</div>
-              <div class="sv-chat__msg sv-chat__msg--out">¡Hola! 👋 Soy el asistente IA de Sense Digital. El costo depende de las funcionalidades. ¿Puedes contarme un poco más sobre tu idea?</div>
-              <div class="sv-chat__msg sv-chat__msg--in">Es una app de delivery para restaurantes, con pagos y tracking</div>
-              <div class="sv-chat__msg sv-chat__msg--out">Perfecto, tenemos experiencia en ese tipo de proyectos. Déjame conectarte con un especialista ahora mismo. ¿A qué hora te queda bien una llamada?</div>
-              <div class="sv-chat__typing"><div class="sv-chat__dot"></div><div class="sv-chat__dot"></div><div class="sv-chat__dot"></div></div>
+            <div class="sv-embed">
+              <div class="sv-embed__hint">
+                <span>Prueba el chat real de Sense IA directamente desde la home.</span>
+                <a href="https://ia.sensedigital.co/" target="_blank" rel="noopener noreferrer">Abrir aparte</a>
+              </div>
+              <iframe
+                class="sv-embed__frame"
+                src="https://ia.sensedigital.co/"
+                title="Chat de Sense IA"
+                loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allow="clipboard-write"
+              ></iframe>
             </div>
           </div>
           <div class="sv-card" style="margin-top:16px">
