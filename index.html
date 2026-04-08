@@ -491,6 +491,92 @@
     .sv-chat__dot:nth-child(2) { animation-delay: .15s; }
     .sv-chat__dot:nth-child(3) { animation-delay: .3s; }
     @keyframes typing { 0%,100%{opacity:.3;transform:translateY(0)} 50%{opacity:1;transform:translateY(-3px)} }
+    .sv-browser {
+      background: rgba(255,255,255,.03);
+      border-radius: 10px;
+      padding: 12px;
+      margin-bottom: 12px;
+      border: 1px solid rgba(255,255,255,.04);
+      position: relative;
+      overflow: hidden;
+    }
+    .sv-browser::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(115deg, transparent 22%, rgba(125,232,138,.12) 50%, transparent 76%);
+      transform: translateX(-120%);
+      animation: browserSweep 5.2s ease-in-out infinite;
+      pointer-events: none;
+    }
+    .sv-browser__window {
+      display:flex; gap:6px; margin-bottom:10px;
+    }
+    .sv-browser__dot {
+      width:10px; height:10px; border-radius:50%; display:block;
+    }
+    .sv-browser__dot--red { background:#ff5f57; }
+    .sv-browser__dot--yellow { background:#ffbd2e; }
+    .sv-browser__dot--green {
+      background:#28c840;
+      box-shadow: 0 0 12px rgba(40,200,64,.45);
+      animation: greenPulse 2s ease-in-out infinite;
+    }
+    .sv-browser__topbar { background:rgba(255,255,255,.05); border-radius:6px; height:20px; margin-bottom:8px; }
+    .sv-browser__body { display:grid; grid-template-columns:1fr 2fr; gap:8px; }
+    .sv-browser__panel {
+      background: rgba(125,232,138,.08);
+      border-radius: 6px; height: 80px;
+      position: relative; overflow: hidden;
+    }
+    .sv-browser__panel::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(125,232,138,.18), rgba(125,232,138,0));
+      opacity: .75;
+      animation: panelPulse 3.2s ease-in-out infinite;
+    }
+    .sv-browser__lines {
+      position: relative;
+    }
+    .sv-browser__line { background:rgba(255,255,255,.05); border-radius:4px; }
+    .sv-browser__line--lg { height:12px; margin-bottom:6px; }
+    .sv-browser__line--sm { height:8px; margin-bottom:6px; width:70%; }
+    .sv-browser__cta {
+      border-radius:4px; height:24px; width:80px; margin-top:10px;
+      background: linear-gradient(90deg, var(--green), #9df1a7);
+      box-shadow: 0 0 0 rgba(125,232,138,0);
+      animation: ctaPulse 2.4s ease-in-out infinite;
+    }
+    .sv-card__tag {
+      background: rgba(125,232,138,.1); color: var(--green); font-size: .72rem; font-weight: 600; padding: 4px 10px; border-radius: 99px;
+      border: 1px solid rgba(125,232,138,.12);
+      animation: tagFloat 5.4s ease-in-out infinite;
+    }
+    .sv-card__tag:nth-child(2) { animation-delay: .35s; }
+    .sv-card__tag:nth-child(3) { animation-delay: .7s; }
+    .sv-card__tag:nth-child(4) { animation-delay: 1.05s; }
+    .sv-card__tag:nth-child(5) { animation-delay: 1.4s; }
+    @keyframes greenPulse {
+      0%,100% { transform: scale(1); box-shadow: 0 0 10px rgba(40,200,64,.22); }
+      50% { transform: scale(1.12); box-shadow: 0 0 18px rgba(40,200,64,.48); }
+    }
+    @keyframes ctaPulse {
+      0%,100% { transform: scaleX(1); box-shadow: 0 0 0 rgba(125,232,138,0); }
+      50% { transform: scaleX(1.06); box-shadow: 0 0 18px rgba(125,232,138,.24); }
+    }
+    @keyframes panelPulse {
+      0%,100% { opacity: .5; }
+      50% { opacity: .95; }
+    }
+    @keyframes browserSweep {
+      0%, 12% { transform: translateX(-120%); }
+      40%, 100% { transform: translateX(130%); }
+    }
+    @keyframes tagFloat {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
 
     /* ===== PROCESS ===== */
     .process__steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; position: relative; }
@@ -954,15 +1040,19 @@
         </div>
         <div class="service-visual reveal">
           <div class="sv-card">
-            <div style="background:rgba(255,255,255,.03);border-radius:10px;padding:12px;margin-bottom:12px;">
-              <div style="display:flex;gap:6px;margin-bottom:10px"><span style="width:10px;height:10px;border-radius:50%;background:#ff5f57;display:block"></span><span style="width:10px;height:10px;border-radius:50%;background:#ffbd2e;display:block"></span><span style="width:10px;height:10px;border-radius:50%;background:#28c840;display:block"></span></div>
-              <div style="background:rgba(255,255,255,.05);border-radius:6px;height:20px;margin-bottom:8px"></div>
-              <div style="display:grid;grid-template-columns:1fr 2fr;gap:8px">
-                <div style="background:rgba(125,232,138,.08);border-radius:6px;height:80px"></div>
-                <div>
-                  <div style="background:rgba(255,255,255,.05);border-radius:4px;height:12px;margin-bottom:6px"></div>
-                  <div style="background:rgba(255,255,255,.03);border-radius:4px;height:8px;margin-bottom:6px;width:70%"></div>
-                  <div style="background:var(--green);border-radius:4px;height:24px;width:80px;margin-top:10px"></div>
+            <div class="sv-browser">
+              <div class="sv-browser__window">
+                <span class="sv-browser__dot sv-browser__dot--red"></span>
+                <span class="sv-browser__dot sv-browser__dot--yellow"></span>
+                <span class="sv-browser__dot sv-browser__dot--green"></span>
+              </div>
+              <div class="sv-browser__topbar"></div>
+              <div class="sv-browser__body">
+                <div class="sv-browser__panel"></div>
+                <div class="sv-browser__lines">
+                  <div class="sv-browser__line sv-browser__line--lg"></div>
+                  <div class="sv-browser__line sv-browser__line--sm"></div>
+                  <div class="sv-browser__cta"></div>
                 </div>
               </div>
             </div>
