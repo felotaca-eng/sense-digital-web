@@ -515,7 +515,21 @@
     .sv-card__title { font-size: .95rem; font-weight: 700; }
     .sv-card__sub { font-size: .78rem; color: var(--gray-sub); }
     .sv-card__bar { height: 6px; background: rgba(255,255,255,.06); border-radius: 3px; margin-bottom: 8px; }
-    .sv-card__bar-fill { height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--green), var(--blue-light)); }
+    .sv-card__bar-fill {
+      height: 100%;
+      border-radius: 3px;
+      background: linear-gradient(90deg, var(--green), var(--blue-light));
+      position: relative;
+      overflow: hidden;
+    }
+    .sv-card__bar-fill::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(110deg, transparent 18%, rgba(255,255,255,.42) 46%, transparent 72%);
+      transform: translateX(-130%);
+      animation: dataSweep 4.8s ease-in-out infinite;
+    }
     .sv-card__bar-label { display: flex; justify-content: space-between; font-size: .75rem; color: var(--gray-sub); }
     .sv-card__tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
     .sv-card__tag { background: rgba(125,232,138,.1); color: var(--green); font-size: .72rem; font-weight: 600; padding: 4px 10px; border-radius: 99px; }
@@ -713,7 +727,11 @@
       border-color: rgba(125,232,138,.24);
       box-shadow: 0 14px 28px rgba(0,0,0,.16);
     }
+    .sv-platform:nth-child(1) { animation: platformFloat 6.4s ease-in-out infinite; }
+    .sv-platform:nth-child(2) { animation: platformFloat 6.4s ease-in-out infinite .6s; }
+    .sv-platform:nth-child(3) { animation: platformFloat 6.4s ease-in-out infinite 1.2s; }
     .sv-platform__icon {
+      position: relative;
       width: 46px;
       height: 46px;
       border-radius: 14px;
@@ -724,6 +742,17 @@
       justify-content: center;
     }
     .sv-platform__icon svg { display: block; }
+    .sv-platform__icon::after {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: inherit;
+      background: linear-gradient(135deg, rgba(125,232,138,.2), rgba(99,214,255,.12), transparent 70%);
+      opacity: .65;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .sv-platform__icon > * { position: relative; z-index: 1; }
     .sv-platform__icon--google svg { width: 32px; height: 32px; }
     .sv-platform__icon--meta svg { width: 34px; height: 22px; }
     .sv-platform__icon--tiktok svg { width: 24px; height: 28px; }
@@ -799,6 +828,66 @@
       color: var(--green);
       font-weight: 700;
       white-space: nowrap;
+    }
+    .sv-automation-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .sv-automation-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 16px;
+      border-radius: 12px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.05);
+      animation: automationPulse 4.8s ease-in-out infinite;
+    }
+    .sv-automation-item:nth-child(2) { animation-delay: .7s; }
+    .sv-automation-item:nth-child(3) { animation-delay: 1.4s; }
+    .sv-automation-item--accent {
+      background: linear-gradient(90deg, rgba(125,232,138,.08), rgba(99,214,255,.05));
+      border-color: rgba(125,232,138,.24);
+    }
+    .sv-automation-item__left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--gray-sub);
+      font-size: .88rem;
+      font-weight: 500;
+    }
+    .sv-automation-item__status {
+      font-size: 1rem;
+      filter: drop-shadow(0 0 10px rgba(125,232,138,.22));
+    }
+    .sv-automation-item__value {
+      color: var(--green);
+      font-size: .95rem;
+      font-weight: 800;
+    }
+    .sv-grid--animated .sv-card__grid-item {
+      position: relative;
+      overflow: hidden;
+      animation: tileLift 5.8s ease-in-out infinite;
+    }
+    .sv-grid--animated .sv-card__grid-item:nth-child(2) { animation-delay: .4s; }
+    .sv-grid--animated .sv-card__grid-item:nth-child(3) { animation-delay: .8s; }
+    .sv-grid--animated .sv-card__grid-item:nth-child(4) { animation-delay: 1.2s; }
+    .sv-grid--animated .sv-card__grid-item::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, transparent 20%, rgba(125,232,138,.12) 50%, transparent 78%);
+      transform: translateX(-140%);
+      animation: dataSweep 5.6s ease-in-out infinite;
+      pointer-events: none;
+    }
+    .sv-grid--apps .sv-card__grid-num,
+    .sv-grid--automation .sv-card__grid-num {
+      text-shadow: 0 0 16px rgba(125,232,138,.12);
     }
     @keyframes chatReveal {
       0%, 8% { opacity: 0; transform: translateY(10px) scale(.98); }
@@ -918,6 +1007,30 @@
     @keyframes playPulse {
       0%,100% { transform: scale(1); opacity: .9; }
       50% { transform: scale(1.12); opacity: 1; }
+    }
+    @keyframes dataSweep {
+      0%, 14% { transform: translateX(-140%); }
+      48%, 100% { transform: translateX(140%); }
+    }
+    @keyframes platformFloat {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+    @keyframes automationPulse {
+      0%,100% {
+        transform: translateY(0);
+        border-color: rgba(255,255,255,.05);
+        box-shadow: 0 0 0 rgba(125,232,138,0);
+      }
+      50% {
+        transform: translateY(-3px);
+        border-color: rgba(125,232,138,.18);
+        box-shadow: 0 12px 24px rgba(0,0,0,.16);
+      }
+    }
+    @keyframes tileLift {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
     }
 
     /* ===== PROCESS ===== */
@@ -1517,7 +1630,7 @@
               <span class="sv-card__icon">📱</span>
               <div><div class="sv-card__title">Expreso Andino App</div><div class="sv-card__sub">Caso de éxito</div></div>
             </div>
-            <div class="sv-card__grid">
+            <div class="sv-card__grid sv-grid--animated sv-grid--apps">
               <div class="sv-card__grid-item"><div class="sv-card__grid-num">3M</div><div class="sv-card__grid-label">Usuarios/mes</div></div>
               <div class="sv-card__grid-item"><div class="sv-card__grid-num">4.8★</div><div class="sv-card__grid-label">Rating en stores</div></div>
               <div class="sv-card__grid-item"><div class="sv-card__grid-num">iOS</div><div class="sv-card__grid-label">App Store</div></div>
@@ -1571,20 +1684,20 @@
               <div><div class="sv-card__title">Agente IA activo</div><div class="sv-card__sub">Procesando tareas...</div></div>
               <span style="width:8px;height:8px;border-radius:50%;background:var(--green);margin-left:auto;box-shadow:0 0 8px var(--green);flex-shrink:0"></span>
             </div>
-            <div style="display:flex;flex-direction:column;gap:10px">
-              <div style="display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.04);border-radius:8px;padding:10px 14px;">
-                <span>✅</span><span style="font-size:.82rem;color:var(--gray-sub)">Facturas procesadas automáticamente</span><span style="margin-left:auto;font-size:.78rem;color:var(--green);font-weight:700">247</span>
+            <div class="sv-automation-list">
+              <div class="sv-automation-item">
+                <span class="sv-automation-item__left"><span class="sv-automation-item__status">✅</span> Facturas procesadas automáticamente</span><span class="sv-automation-item__value">247</span>
               </div>
-              <div style="display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.04);border-radius:8px;padding:10px 14px;">
-                <span>✅</span><span style="font-size:.82rem;color:var(--gray-sub)">Leads calificados por IA hoy</span><span style="margin-left:auto;font-size:.78rem;color:var(--green);font-weight:700">89</span>
+              <div class="sv-automation-item">
+                <span class="sv-automation-item__left"><span class="sv-automation-item__status">✅</span> Leads calificados por IA hoy</span><span class="sv-automation-item__value">89</span>
               </div>
-              <div style="display:flex;align-items:center;gap:10px;background:rgba(125,232,138,.06);border:1px solid rgba(125,232,138,.15);border-radius:8px;padding:10px 14px;">
-                <span>⚡</span><span style="font-size:.82rem;color:var(--gray-sub)">Reportes generados automáticamente</span><span style="margin-left:auto;font-size:.78rem;color:var(--green);font-weight:700">12</span>
+              <div class="sv-automation-item sv-automation-item--accent">
+                <span class="sv-automation-item__left"><span class="sv-automation-item__status">⚡</span> Reportes generados automáticamente</span><span class="sv-automation-item__value">12</span>
               </div>
             </div>
           </div>
           <div class="sv-card" style="margin-top:16px">
-            <div class="sv-card__grid">
+            <div class="sv-card__grid sv-grid--animated sv-grid--automation">
               <div class="sv-card__grid-item"><div class="sv-card__grid-num">80%</div><div class="sv-card__grid-label">Reducción tareas manuales</div></div>
               <div class="sv-card__grid-item"><div class="sv-card__grid-num">24/7</div><div class="sv-card__grid-label">Operación continua</div></div>
               <div class="sv-card__grid-item"><div class="sv-card__grid-num">3x</div><div class="sv-card__grid-label">Productividad del equipo</div></div>
