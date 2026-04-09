@@ -29,6 +29,17 @@
 .app-modal{padding:18px;background:rgba(4,7,27,.44);backdrop-filter:blur(8px)}.app-modal__card{width:min(100%,380px);padding:18px;border-radius:22px;box-shadow:0 20px 42px rgba(0,0,0,.3)}.app-modal__close{top:10px;right:10px;width:34px;height:34px;font-size:1rem}.app-modal__eyebrow{padding:5px 10px;font-size:.66rem}.app-modal__title{font-size:clamp(1.2rem,2.3vw,1.55rem);line-height:1.1;margin:14px 0 10px;max-width:280px}.app-modal__sub{font-size:.86rem;line-height:1.55}.app-modal__hero{margin:16px 0;padding:16px;border-radius:18px}.app-modal__phone{width:122px;height:236px;border-radius:26px;border-width:6px;box-shadow:0 14px 24px rgba(0,0,0,.28);padding:14px 10px}.app-modal__phone::before{top:8px;width:52px;height:10px}.app-modal__screen{border-radius:18px;padding:12px 10px}.app-modal__screen-top{gap:7px}.app-modal__screen-bar{height:11px}.app-modal__screen-card{height:70px;border-radius:14px}.app-modal__screen-card::after{inset:auto 10px 10px 10px;height:22px;border-radius:10px}.app-modal__screen-grid{gap:6px}.app-modal__screen-chip{height:28px;border-radius:10px}.app-modal__actions{flex-direction:column;gap:10px}.app-modal__actions .btn{justify-content:center;padding:12px 16px}
 body.app-modal-open{overflow:hidden}.app-modal.open{z-index:4000}.app-modal.open~*{pointer-events:none}.app-modal.open .app-modal__card{pointer-events:auto}body.app-modal-open .navbar{z-index:20}body.app-modal-open .megamenu{opacity:0!important;visibility:hidden!important;transform:translateX(-50%) translateY(8px)!important;pointer-events:none!important}
 .page-hero__title{background:linear-gradient(90deg,#98a7ff 0%,#74d4d5 52%,#43de78 100%);-webkit-background-clip:text;background-clip:text;color:transparent}.page-hero__title .green{color:inherit}
+    .nav-item{position:relative}
+    .nav-item::after{content:'';position:absolute;left:0;right:0;top:100%;height:18px}
+    .nav-item__trigger{transition:color .2s;padding:8px 0}
+    .nav-item__trigger:hover,.nav-item:hover .nav-item__trigger{color:var(--white)}
+    .nav-item__arrow{transition:transform .25s}
+    .nav-item:hover .nav-item__arrow{transform:rotate(180deg)}
+    .megamenu{top:calc(100% + 12px);transform:translateX(-50%) translateY(8px);transition:opacity .2s,transform .2s,visibility .2s}
+    .nav-item:hover .megamenu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+    .megamenu::before{content:'';position:absolute;top:-6px;left:50%;width:12px;height:12px;background:#0a1040;border-left:1px solid rgba(125,232,138,.15);border-top:1px solid rgba(125,232,138,.15);transform:translateX(-50%) rotate(45deg)}
+    .megamenu__item{transition:background .2s}
+    .megamenu__item:hover .megamenu__item-title{color:var(--green)}
   </style>
 </head>
 <body>

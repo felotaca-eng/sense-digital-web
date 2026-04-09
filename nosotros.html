@@ -100,6 +100,17 @@
       .page-hero__stats,.story-grid,.values-grid,.markets-grid,.timeline,.footer__inner{grid-template-columns:1fr}
       .footer__bottom{flex-direction:column}
     }
+    .nav-item{position:relative}
+    .nav-item::after{content:'';position:absolute;left:0;right:0;top:100%;height:18px}
+    .nav-item__trigger{transition:color .2s;padding:8px 0}
+    .nav-item__trigger:hover,.nav-item:hover .nav-item__trigger{color:var(--white)}
+    .nav-item__arrow{transition:transform .25s}
+    .nav-item:hover .nav-item__arrow{transform:rotate(180deg)}
+    .megamenu{top:calc(100% + 12px);transform:translateX(-50%) translateY(8px);transition:opacity .2s,transform .2s,visibility .2s}
+    .nav-item:hover .megamenu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+    .megamenu::before{content:'';position:absolute;top:-6px;left:50%;width:12px;height:12px;background:#0a1040;border-left:1px solid rgba(125,232,138,.15);border-top:1px solid rgba(125,232,138,.15);transform:translateX(-50%) rotate(45deg)}
+    .megamenu__item{transition:background .2s}
+    .megamenu__item:hover .megamenu__item-title{color:var(--green)}
   </style>
 </head>
 <body>
