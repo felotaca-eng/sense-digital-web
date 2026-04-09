@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1400" height="1100" viewBox="0 0 1400 1100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="120" y1="80" x2="1280" y2="1020" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0C1F46"/>
+      <stop offset="0.55" stop-color="#081731"/>
+      <stop offset="1" stop-color="#07111F"/>
+    </linearGradient>
+
+    <radialGradient id="panelGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+      gradientTransform="translate(700 520) rotate(90) scale(620 620)">
+      <stop stop-color="#0C2A5D" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#06101F" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="cardFill" x1="120" y1="100" x2="1060" y2="940" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B1E42"/>
+      <stop offset="1" stop-color="#07101D"/>
+    </linearGradient>
+
+    <linearGradient id="chip" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#183A73"/>
+      <stop offset="1" stop-color="#10274C"/>
+    </linearGradient>
+
+    <linearGradient id="nodeFill" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#132C59"/>
+      <stop offset="1" stop-color="#0D1D3A"/>
+    </linearGradient>
+
+    <linearGradient id="ring" x1="450" y1="250" x2="860" y2="720" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#61A1FF"/>
+      <stop offset="1" stop-color="#7B6DFF"/>
+    </linearGradient>
+
+    <filter id="softShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="18" stdDeviation="28" flood-color="#000814" flood-opacity="0.45"/>
+    </filter>
+
+    <filter id="glow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="16" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <style>
+      .title { font: 700 30px Inter, Arial, sans-serif; fill: #D9EAFF; }
+      .label { font: 700 22px Inter, Arial, sans-serif; fill: #E8F1FF; }
+      .small { font: 600 18px Inter, Arial, sans-serif; fill: #C6D7F2; }
+      .mini { font: 700 14px Inter, Arial, sans-serif; fill: #AFC7EA; letter-spacing: .08em; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1400" height="1100" rx="0" fill="url(#bg)"/>
+
+  <!-- subtle grid -->
+  <g opacity="0.12" stroke="#8FB4FF">
+    <path d="M120 0V1100"/>
+    <path d="M520 0V1100"/>
+    <path d="M920 0V1100"/>
+    <path d="M1320 0V1100"/>
+    <path d="M0 160H1400"/>
+    <path d="M0 520H1400"/>
+    <path d="M0 880H1400"/>
+  </g>
+
+  <!-- Main card -->
+  <g filter="url(#softShadow)">
+    <rect x="120" y="70" width="940" height="860" rx="54" fill="url(#cardFill)" stroke="#223C6A" stroke-opacity="0.65"/>
+    <rect x="120" y="70" width="940" height="860" rx="54" fill="url(#panelGlow)"/>
+  </g>
+
+  <!-- Top bar -->
+  <g>
+    <rect x="175" y="130" width="720" height="118" rx="34" fill="#10264E" stroke="#284673" stroke-opacity="0.8"/>
+    <circle cx="230" cy="189" r="20" fill="#6BE4DF"/>
+    <rect x="280" y="160" width="235" height="22" rx="11" fill="#F1F6FF" fill-opacity="0.9"/>
+    <rect x="280" y="198" width="360" height="18" rx="9" fill="#7890B6" fill-opacity="0.9"/>
+    <g>
+      <rect x="685" y="155" width="190" height="50" rx="25" fill="url(#chip)"/>
+      <text x="780" y="188" text-anchor="middle" class="title" style="font-size:18px;">GPT activo</text>
+    </g>
+  </g>
+
+  <!-- Orbit lines -->
+  <g opacity="0.9">
+    <path d="M485 460C675 420 850 500 905 670" stroke="#66A2FF" stroke-width="4" stroke-dasharray="13 18" stroke-linecap="round" opacity="0.8"/>
+    <path d="M355 590C470 545 635 560 700 790" stroke="#5A90FF" stroke-width="4" stroke-dasharray="13 18" stroke-linecap="round" opacity="0.8"/>
+    <path d="M620 315C785 350 900 435 930 580" stroke="#7E74FF" stroke-width="4" stroke-dasharray="13 18" stroke-linecap="round" opacity="0.75"/>
+  </g>
+
+  <!-- Center logo area -->
+  <g>
+    <circle cx="520" cy="520" r="170" fill="#0E2450" stroke="url(#ring)" stroke-width="4"/>
+    <circle cx="520" cy="520" r="88" fill="#13366E"/>
+    <circle cx="520" cy="520" r="66" fill="#12315E"/>
+    <path d="M488 478C488 448 512 426 543 426C575 426 601 451 601 483C601 516 575 541 543 541H464" stroke="#6BE4DF" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="503" cy="518" r="15" fill="#6BE4DF"/>
+    <circle cx="608" cy="575" r="16" fill="#4F9BFF"/>
+    <circle cx="543" cy="483" r="74" fill="#6BE4DF" opacity="0.06" filter="url(#glow)"/>
+  </g>
+
+  <!-- API node -->
+  <g filter="url(#softShadow)">
+    <rect x="840" y="260" width="190" height="160" rx="34" fill="url(#nodeFill)" stroke="#35598E" stroke-opacity="0.85"/>
+    <text x="935" y="333" text-anchor="middle" class="title" style="font-size:28px;">API</text>
+  </g>
+
+  <!-- WhatsApp node -->
+  <g filter="url(#softShadow)">
+    <rect x="805" y="640" width="210" height="180" rx="34" fill="url(#nodeFill)" stroke="#35598E" stroke-opacity="0.85"/>
+    <circle cx="910" cy="708" r="34" fill="#153868"/>
+    <path d="M894 720C900 725 907 727 915 727C935 727 951 711 951 692C951 674 936 659 918 659C903 659 890 669 886 683"
+          stroke="#6BE4DF" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M893 723L889 736L901 732" stroke="#6BE4DF" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="910" y="790" text-anchor="middle" class="label">WhatsApp</text>
+  </g>
+
+  <!-- Analytics node -->
+  <g filter="url(#softShadow)">
+    <rect x="655" y="845" width="250" height="150" rx="34" fill="url(#nodeFill)" stroke="#35598E" stroke-opacity="0.85"/>
+    <path d="M710 930L756 884L804 918L864 860" stroke="#8E73FF" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="780" y="980" text-anchor="middle" class="label">Analítica</text>
+  </g>
+
+  <!-- CRM node -->
+  <g filter="url(#softShadow)">
+    <rect x="78" y="610" width="180" height="185" rx="34" fill="url(#nodeFill)" stroke="#35598E" stroke-opacity="0.85"/>
+    <rect x="135" y="670" width="70" height="56" rx="14" fill="#234A86"/>
+    <path d="M153 705H188" stroke="#73B1FF" stroke-width="7" stroke-linecap="round"/>
+    <path d="M153 724H176" stroke="#73B1FF" stroke-width="7" stroke-linecap="round"/>
+    <text x="168" y="760" text-anchor="middle" class="label">CRM</text>
+  </g>
+
+  <!-- Clean decorative accents -->
+  <g opacity="0.28">
+    <circle cx="1075" cy="215" r="90" fill="#7E74FF"/>
+    <circle cx="270" cy="975" r="120" fill="#3A87FF"/>
+    <circle cx="1170" cy="900" r="150" fill="#3A87FF"/>
+  </g>
+</svg>
