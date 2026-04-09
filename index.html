@@ -191,8 +191,9 @@
     .megamenu__item-icon {
       width: 40px; height: 40px; border-radius: 10px; flex-shrink: 0;
       background: rgba(125,232,138,.08); border: 1px solid rgba(125,232,138,.15);
-      display: flex; align-items: center; justify-content: center; font-size: 1.1rem;
+      display: flex; align-items: center; justify-content: center; color: var(--green);
     }
+    .megamenu__item-icon svg { width: 18px; height: 18px; stroke: currentColor; }
     .megamenu__item-title { font-size: .88rem; font-weight: 700; color: var(--white); margin-bottom: 3px; transition: color .2s; }
     .megamenu__item-desc { font-size: .75rem; color: var(--gray-sub); line-height: 1.4; }
     .megamenu__footer {
@@ -465,11 +466,13 @@
     .services-nav__inner { display: flex; gap: 0; overflow-x: auto; scrollbar-width: none; }
     .services-nav__inner::-webkit-scrollbar { display: none; }
     .services-nav__item {
+      display: inline-flex; align-items: center; gap: 9px;
       flex-shrink: 0; padding: 18px 28px;
       font-size: .85rem; font-weight: 600; color: var(--gray-sub);
       border-bottom: 2px solid transparent;
       cursor: pointer; transition: all .2s; white-space: nowrap;
     }
+    .services-nav__item-icon { width: 16px; height: 16px; stroke: currentColor; flex-shrink: 0; }
     .services-nav__item:hover { color: var(--white); }
     .services-nav__item.active { color: var(--green); border-bottom-color: var(--green); }
 
@@ -483,9 +486,10 @@
     .service-section__icon {
       width: 64px; height: 64px; border-radius: 16px;
       background: rgba(125,232,138,.1); border: 1px solid rgba(125,232,138,.2);
-      display: flex; align-items: center; justify-content: center; font-size: 1.8rem;
+      display: flex; align-items: center; justify-content: center; color: var(--green);
       margin-bottom: 20px;
     }
+    .service-section__icon svg { width: 28px; height: 28px; stroke: currentColor; }
     .service-section__title { font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 900; margin-bottom: 12px; }
     .service-section__title .green { color: var(--green); }
     .service-section__sub { font-size: 1rem; color: var(--gray-sub); margin-bottom: 32px; line-height: 1.75; }
@@ -511,7 +515,8 @@
     }
     .sv-card + .sv-card { margin-top: 16px; }
     .sv-card__header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
-    .sv-card__icon { font-size: 1.4rem; }
+    .sv-card__icon { width: 26px; height: 26px; display: inline-flex; align-items: center; justify-content: center; color: var(--green); flex-shrink: 0; }
+    .sv-card__icon svg { width: 22px; height: 22px; stroke: currentColor; }
     .sv-card__title { font-size: .95rem; font-weight: 700; }
     .sv-card__sub { font-size: .78rem; color: var(--gray-sub); }
     .sv-card__bar { height: 6px; background: rgba(255,255,255,.06); border-radius: 3px; margin-bottom: 8px; }
@@ -1284,7 +1289,8 @@
     .contact__inner { display: grid; grid-template-columns: 1fr 1.2fr; gap: 64px; }
     .contact__info { display: flex; flex-direction: column; gap: 28px; }
     .contact__item { display: flex; gap: 16px; align-items: flex-start; }
-    .contact__item-icon { width: 46px; height: 46px; background: rgba(125,232,138,.1); border: 1px solid rgba(125,232,138,.2); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
+    .contact__item-icon { width: 46px; height: 46px; background: rgba(125,232,138,.1); border: 1px solid rgba(125,232,138,.2); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--green); flex-shrink: 0; }
+    .contact__item-icon svg { width: 20px; height: 20px; stroke: currentColor; }
     .contact__item-label { font-size: .75rem; font-weight: 600; color: var(--gray-sub); text-transform: uppercase; letter-spacing: .08em; }
     .contact__item-value { font-size: .95rem; font-weight: 600; color: var(--white); margin-top: 2px; }
     .contact__form { display: flex; flex-direction: column; gap: 14px; }
@@ -1401,42 +1407,42 @@
               <div class="megamenu__header">Nuestros Servicios</div>
               <div class="megamenu__grid">
                 <a href="servicios/marketing-digital.html" class="megamenu__item">
-                  <div class="megamenu__item-icon">📣</div>
+                  <div class="megamenu__item-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 14V10c0-.9.6-1.7 1.4-1.9L15 5v14l-9.6-3.1C4.6 15.7 4 14.9 4 14Z" stroke-width="1.8" stroke-linejoin="round"/><path d="M15 9h2.5a3.5 3.5 0 0 1 0 7H15" stroke-width="1.8" stroke-linecap="round"/><path d="m8 16 1.5 4" stroke-width="1.8" stroke-linecap="round"/></svg></div>
                   <div>
                     <div class="megamenu__item-title">Marketing Digital</div>
                     <div class="megamenu__item-desc">Google, Facebook, TikTok Ads y estrategia digital</div>
                   </div>
                 </a>
                 <a href="servicios/desarrollo-web.html" class="megamenu__item">
-                  <div class="megamenu__item-icon">🌐</div>
+                  <div class="megamenu__item-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="8" stroke-width="1.8"/><path d="M4.5 9.5h15M4.5 14.5h15" stroke-width="1.8" stroke-linecap="round"/><path d="M12 4c2.5 2.2 4 5 4 8s-1.5 5.8-4 8c-2.5-2.2-4-5-4-8s1.5-5.8 4-8Z" stroke-width="1.8" stroke-linejoin="round"/></svg></div>
                   <div>
                     <div class="megamenu__item-title">Desarrollo Web</div>
                     <div class="megamenu__item-desc">Webs, e-commerce, landing pages y marketplaces</div>
                   </div>
                 </a>
                 <a href="servicios/apps-moviles.html" class="megamenu__item">
-                  <div class="megamenu__item-icon">📱</div>
+                  <div class="megamenu__item-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="7" y="3.5" width="10" height="17" rx="2.5" stroke-width="1.8"/><path d="M10.5 6.5h3" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="17.5" r="1" fill="currentColor" stroke="none"/></svg></div>
                   <div>
                     <div class="megamenu__item-title">Apps Móviles</div>
                     <div class="megamenu__item-desc">Apps iOS y Android con Flutter para tu negocio</div>
                   </div>
                 </a>
                 <a href="servicios/automatizacion-ia.html" class="megamenu__item">
-                  <div class="megamenu__item-icon">🤖</div>
+                  <div class="megamenu__item-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="7" y="8" width="10" height="8" rx="2.5" stroke-width="1.8"/><path d="M12 4.5v3" stroke-width="1.8" stroke-linecap="round"/><path d="M9 19h6" stroke-width="1.8" stroke-linecap="round"/><path d="M8 12h.01M16 12h.01" stroke-width="2.2" stroke-linecap="round"/><path d="M5.5 10.5v3M18.5 10.5v3" stroke-width="1.8" stroke-linecap="round"/></svg></div>
                   <div>
                     <div class="megamenu__item-title">Automatización con IA</div>
                     <div class="megamenu__item-desc">Agentes IA y flujos automáticos para tu empresa</div>
                   </div>
                 </a>
                 <a href="servicios/whatsapp-ia.html" class="megamenu__item">
-                  <div class="megamenu__item-icon">💬</div>
+                  <div class="megamenu__item-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 18.5 4.5 20l.7-3A7.5 7.5 0 1 1 19.5 12 7.5 7.5 0 0 1 7 18.5Z" stroke-width="1.8" stroke-linejoin="round"/><path d="M9.2 11.2c.3-.6.6-.7.9-.7h.5c.2 0 .4.2.5.4l.7 1.5c.1.2.1.5-.1.7l-.5.6c.5.9 1.2 1.6 2.1 2.1l.6-.5c.2-.2.5-.2.7-.1l1.5.7c.2.1.4.3.4.5v.5c0 .3-.1.6-.7.9-.5.2-1 .3-1.5.2-2.4-.5-4.8-2.9-5.3-5.3-.1-.5 0-1 .2-1.5Z" stroke-width="1.4" stroke-linejoin="round"/></svg></div>
                   <div>
                     <div class="megamenu__item-title">WhatsApp IA</div>
                     <div class="megamenu__item-desc">Atención y ventas automáticas 24/7 por WhatsApp</div>
                   </div>
                 </a>
                 <a href="servicios/diseno-branding.html" class="megamenu__item">
-                  <div class="megamenu__item-icon">🎨</div>
+                  <div class="megamenu__item-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 4c4.4 0 8 3 8 6.9 0 1.7-.7 3.1-2 4.2-.8.7-1.2 1.7-.9 2.7.2.9-.3 1.7-1.2 1.7h-1.4c-.7 0-1.2-.5-1.2-1.2 0-1.2-.9-2.1-2.1-2.1H9.4A5.4 5.4 0 0 1 4 10.8C4 7 7.6 4 12 4Z" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 9h.01M12 7.5h.01M15 9h.01M8.5 12.5h.01" stroke-width="2.2" stroke-linecap="round"/></svg></div>
                   <div>
                     <div class="megamenu__item-title">Diseño &amp; Branding</div>
                     <div class="megamenu__item-desc">Identidad visual, community y producción audiovisual</div>
@@ -1566,12 +1572,12 @@
   <div class="services-nav" id="servicios">
     <div class="container">
       <div class="services-nav__inner">
-        <a href="#srv-marketing" class="services-nav__item active">📣 Marketing</a>
-        <a href="#srv-web" class="services-nav__item">🌐 Desarrollo Web</a>
-        <a href="#srv-apps" class="services-nav__item">📱 Apps Móviles</a>
-        <a href="#srv-ia" class="services-nav__item">🤖 Automatización IA</a>
-        <a href="#srv-whatsapp" class="services-nav__item">💬 WhatsApp IA</a>
-        <a href="#srv-diseno" class="services-nav__item">🎨 Diseño &amp; Branding</a>
+        <a href="#srv-marketing" class="services-nav__item active"><svg class="services-nav__item-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 14V10c0-.9.6-1.7 1.4-1.9L15 5v14l-9.6-3.1C4.6 15.7 4 14.9 4 14Z" stroke-width="1.8" stroke-linejoin="round"/><path d="M15 9h2.5a3.5 3.5 0 0 1 0 7H15" stroke-width="1.8" stroke-linecap="round"/><path d="m8 16 1.5 4" stroke-width="1.8" stroke-linecap="round"/></svg>Marketing</a>
+        <a href="#srv-web" class="services-nav__item"><svg class="services-nav__item-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="8" stroke-width="1.8"/><path d="M4.5 9.5h15M4.5 14.5h15" stroke-width="1.8" stroke-linecap="round"/><path d="M12 4c2.5 2.2 4 5 4 8s-1.5 5.8-4 8c-2.5-2.2-4-5-4-8s1.5-5.8 4-8Z" stroke-width="1.8" stroke-linejoin="round"/></svg>Desarrollo Web</a>
+        <a href="#srv-apps" class="services-nav__item"><svg class="services-nav__item-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="7" y="3.5" width="10" height="17" rx="2.5" stroke-width="1.8"/><path d="M10.5 6.5h3" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="17.5" r="1" fill="currentColor" stroke="none"/></svg>Apps Móviles</a>
+        <a href="#srv-ia" class="services-nav__item"><svg class="services-nav__item-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="7" y="8" width="10" height="8" rx="2.5" stroke-width="1.8"/><path d="M12 4.5v3" stroke-width="1.8" stroke-linecap="round"/><path d="M9 19h6" stroke-width="1.8" stroke-linecap="round"/><path d="M8 12h.01M16 12h.01" stroke-width="2.2" stroke-linecap="round"/><path d="M5.5 10.5v3M18.5 10.5v3" stroke-width="1.8" stroke-linecap="round"/></svg>Automatización IA</a>
+        <a href="#srv-whatsapp" class="services-nav__item"><svg class="services-nav__item-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 18.5 4.5 20l.7-3A7.5 7.5 0 1 1 19.5 12 7.5 7.5 0 0 1 7 18.5Z" stroke-width="1.8" stroke-linejoin="round"/><path d="M9.2 11.2c.3-.6.6-.7.9-.7h.5c.2 0 .4.2.5.4l.7 1.5c.1.2.1.5-.1.7l-.5.6c.5.9 1.2 1.6 2.1 2.1l.6-.5c.2-.2.5-.2.7-.1l1.5.7c.2.1.4.3.4.5v.5c0 .3-.1.6-.7.9-.5.2-1 .3-1.5.2-2.4-.5-4.8-2.9-5.3-5.3-.1-.5 0-1 .2-1.5Z" stroke-width="1.4" stroke-linejoin="round"/></svg>WhatsApp IA</a>
+        <a href="#srv-diseno" class="services-nav__item"><svg class="services-nav__item-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 4c4.4 0 8 3 8 6.9 0 1.7-.7 3.1-2 4.2-.8.7-1.2 1.7-.9 2.7.2.9-.3 1.7-1.2 1.7h-1.4c-.7 0-1.2-.5-1.2-1.2 0-1.2-.9-2.1-2.1-2.1H9.4A5.4 5.4 0 0 1 4 10.8C4 7 7.6 4 12 4Z" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 9h.01M12 7.5h.01M15 9h.01M8.5 12.5h.01" stroke-width="2.2" stroke-linecap="round"/></svg>Diseño &amp; Branding</a>
       </div>
     </div>
   </div>
@@ -1581,7 +1587,7 @@
     <div class="container">
       <div class="service-section__inner">
         <div class="service-section__content reveal">
-          <div class="service-section__icon">📣</div>
+          <div class="service-section__icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 14V10c0-.9.6-1.7 1.4-1.9L15 5v14l-9.6-3.1C4.6 15.7 4 14.9 4 14Z" stroke-width="1.8" stroke-linejoin="round"/><path d="M15 9h2.5a3.5 3.5 0 0 1 0 7H15" stroke-width="1.8" stroke-linecap="round"/><path d="m8 16 1.5 4" stroke-width="1.8" stroke-linecap="round"/></svg></div>
           <span class="badge">Marketing Digital</span>
           <h2 class="service-section__title">Campañas que <span class="green">convierten</span></h2>
           <p class="service-section__sub">Gestionamos más de 1M USD en pauta mensual. Diseñamos y ejecutamos estrategias de performance marketing en las plataformas que más importan para tu negocio.</p>
@@ -1608,7 +1614,7 @@
         <div class="service-visual reveal">
           <div class="sv-card">
             <div class="sv-card__header">
-              <span class="sv-card__icon">📊</span>
+              <span class="sv-card__icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 19V11M12 19V5M19 19v-8" stroke-width="1.8" stroke-linecap="round"/><path d="M3.5 19.5h17" stroke-width="1.8" stroke-linecap="round"/></svg></span>
               <div><div class="sv-card__title">Rendimiento de Campaña</div><div class="sv-card__sub">Último mes</div></div>
             </div>
             <div class="sv-card__bar"><div class="sv-card__bar-fill" style="width:88%"></div></div>
@@ -1681,7 +1687,7 @@
     <div class="container">
       <div class="service-section__inner reverse">
         <div class="service-section__content reveal">
-          <div class="service-section__icon">🌐</div>
+          <div class="service-section__icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="8" stroke-width="1.8"/><path d="M4.5 9.5h15M4.5 14.5h15" stroke-width="1.8" stroke-linecap="round"/><path d="M12 4c2.5 2.2 4 5 4 8s-1.5 5.8-4 8c-2.5-2.2-4-5-4-8s1.5-5.8 4-8Z" stroke-width="1.8" stroke-linejoin="round"/></svg></div>
           <span class="badge">Desarrollo Web</span>
           <h2 class="service-section__title">Webs que <span class="green">venden</span> solas</h2>
           <p class="service-section__sub">Diseñamos y desarrollamos plataformas digitales de alto rendimiento, desde sitios corporativos hasta e-commerce y marketplaces a medida.</p>
@@ -1749,7 +1755,7 @@
     <div class="container">
       <div class="service-section__inner">
         <div class="service-section__content reveal">
-          <div class="service-section__icon">📱</div>
+          <div class="service-section__icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="7" y="3.5" width="10" height="17" rx="2.5" stroke-width="1.8"/><path d="M10.5 6.5h3" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="17.5" r="1" fill="currentColor" stroke="none"/></svg></div>
           <span class="badge">Apps Móviles</span>
           <h2 class="service-section__title">Apps que tus usuarios <span class="green">aman</span></h2>
           <p class="service-section__sub">Desarrollamos aplicaciones nativas y multiplataforma con Flutter que generan millones de interacciones mensuales. Experiencias que fidelizan.</p>
@@ -1776,7 +1782,7 @@
         <div class="service-visual reveal">
           <div class="sv-card">
             <div class="sv-card__header">
-              <span class="sv-card__icon">📱</span>
+              <span class="sv-card__icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="7" y="3.5" width="10" height="17" rx="2.5" stroke-width="1.8"/><path d="M10.5 6.5h3" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="17.5" r="1" fill="currentColor" stroke="none"/></svg></span>
               <div><div class="sv-card__title">Expreso Andino App</div><div class="sv-card__sub">Caso de éxito</div></div>
             </div>
             <div class="sv-card__grid sv-grid--animated sv-grid--apps">
@@ -1802,7 +1808,7 @@
     <div class="container">
       <div class="service-section__inner reverse">
         <div class="service-section__content reveal">
-          <div class="service-section__icon">🤖</div>
+          <div class="service-section__icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="7" y="8" width="10" height="8" rx="2.5" stroke-width="1.8"/><path d="M12 4.5v3" stroke-width="1.8" stroke-linecap="round"/><path d="M9 19h6" stroke-width="1.8" stroke-linecap="round"/><path d="M8 12h.01M16 12h.01" stroke-width="2.2" stroke-linecap="round"/><path d="M5.5 10.5v3M18.5 10.5v3" stroke-width="1.8" stroke-linecap="round"/></svg></div>
           <span class="badge">Automatización con IA</span>
           <h2 class="service-section__title">Automatiza tu negocio <span class="green">con IA</span></h2>
           <p class="service-section__sub">Implementamos soluciones de inteligencia artificial que eliminan tareas repetitivas, reducen costos operativos y liberan a tu equipo para lo que realmente importa.</p>
@@ -1876,7 +1882,7 @@
     <div class="container">
       <div class="service-section__inner">
         <div class="service-section__content reveal">
-          <div class="service-section__icon">💬</div>
+          <div class="service-section__icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 18.5 4.5 20l.7-3A7.5 7.5 0 1 1 19.5 12 7.5 7.5 0 0 1 7 18.5Z" stroke-width="1.8" stroke-linejoin="round"/><path d="M9.2 11.2c.3-.6.6-.7.9-.7h.5c.2 0 .4.2.5.4l.7 1.5c.1.2.1.5-.1.7l-.5.6c.5.9 1.2 1.6 2.1 2.1l.6-.5c.2-.2.5-.2.7-.1l1.5.7c.2.1.4.3.4.5v.5c0 .3-.1.6-.7.9-.5.2-1 .3-1.5.2-2.4-.5-4.8-2.9-5.3-5.3-.1-.5 0-1 .2-1.5Z" stroke-width="1.4" stroke-linejoin="round"/></svg></div>
           <span class="badge">WhatsApp IA</span>
           <h2 class="service-section__title">Tu equipo de ventas <span class="green">siempre activo</span></h2>
           <p class="service-section__sub">Nuestro software propietario de WhatsApp con IA atiende, califica y convierte prospectos de forma automática, los 7 días de la semana, sin coste de personal adicional.</p>
@@ -1906,7 +1912,7 @@
         <div class="service-visual reveal">
           <div class="sv-card">
             <div class="sv-card__header">
-              <span class="sv-card__icon">💬</span>
+              <span class="sv-card__icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12a8 8 0 0 1 13.2-6.1A7.7 7.7 0 0 1 20 11.7c0 4.4-3.6 7.8-8.1 7.8-1.1 0-2.2-.2-3.2-.7L4 20l1.4-4.2A7.5 7.5 0 0 1 4 12Z" stroke-width="1.8" stroke-linejoin="round"/><path d="M8.5 11.8h.01M12 11.8h.01M15.5 11.8h.01" stroke-width="2.2" stroke-linecap="round"/></svg></span>
               <div><div class="sv-card__title">WhatsApp IA · Sense</div><div class="sv-card__sub">En línea ahora</div></div>
               <span style="width:8px;height:8px;border-radius:50%;background:var(--green);margin-left:auto;box-shadow:0 0 8px var(--green);flex-shrink:0"></span>
             </div>
@@ -1940,7 +1946,7 @@
     <div class="container">
       <div class="service-section__inner reverse">
         <div class="service-section__content reveal">
-          <div class="service-section__icon">🎨</div>
+          <div class="service-section__icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 4c4.4 0 8 3 8 6.9 0 1.7-.7 3.1-2 4.2-.8.7-1.2 1.7-.9 2.7.2.9-.3 1.7-1.2 1.7h-1.4c-.7 0-1.2-.5-1.2-1.2 0-1.2-.9-2.1-2.1-2.1H9.4A5.4 5.4 0 0 1 4 10.8C4 7 7.6 4 12 4Z" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 9h.01M12 7.5h.01M15 9h.01M8.5 12.5h.01" stroke-width="2.2" stroke-linecap="round"/></svg></div>
           <span class="badge">Diseño &amp; Branding</span>
           <h2 class="service-section__title">Una marca que <span class="green">impacta</span></h2>
           <p class="service-section__sub">Creamos identidades visuales poderosas y contenido que conecta emocionalmente con tu audiencia en todas las plataformas.</p>
@@ -2148,19 +2154,19 @@
       <div class="contact__inner">
         <div class="contact__info reveal">
           <div class="contact__item">
-            <div class="contact__item-icon">📍</div>
+            <div class="contact__item-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 20s6-5.4 6-10a6 6 0 1 0-12 0c0 4.6 6 10 6 10Z" stroke-width="1.8" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.5" stroke-width="1.8"/></svg></div>
             <div><div class="contact__item-label">Bogotá, Colombia</div><div class="contact__item-value">Cra. 11 #93-46, Bogotá</div></div>
           </div>
           <div class="contact__item">
-            <div class="contact__item-icon">📍</div>
+            <div class="contact__item-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 20s6-5.4 6-10a6 6 0 1 0-12 0c0 4.6 6 10 6 10Z" stroke-width="1.8" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.5" stroke-width="1.8"/></svg></div>
             <div><div class="contact__item-label">Ciudad de México, México</div><div class="contact__item-value">Av. Insurgentes Sur, CDMX</div></div>
           </div>
           <div class="contact__item">
-            <div class="contact__item-icon">✉️</div>
+            <div class="contact__item-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4" y="6.5" width="16" height="11" rx="2" stroke-width="1.8"/><path d="m6 9 6 4.5L18 9" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
             <div><div class="contact__item-label">Email</div><div class="contact__item-value">hola@sense-digital.co</div></div>
           </div>
           <div class="contact__item">
-            <div class="contact__item-icon">💬</div>
+            <div class="contact__item-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 18.5 4.5 20l.7-3A7.5 7.5 0 1 1 19.5 12 7.5 7.5 0 0 1 7 18.5Z" stroke-width="1.8" stroke-linejoin="round"/><path d="M9.2 11.2c.3-.6.6-.7.9-.7h.5c.2 0 .4.2.5.4l.7 1.5c.1.2.1.5-.1.7l-.5.6c.5.9 1.2 1.6 2.1 2.1l.6-.5c.2-.2.5-.2.7-.1l1.5.7c.2.1.4.3.4.5v.5c0 .3-.1.6-.7.9-.5.2-1 .3-1.5.2-2.4-.5-4.8-2.9-5.3-5.3-.1-.5 0-1 .2-1.5Z" stroke-width="1.4" stroke-linejoin="round"/></svg></div>
             <div><div class="contact__item-label">WhatsApp</div><div class="contact__item-value">+57 300 000 0000</div></div>
           </div>
         </div>
