@@ -108,9 +108,27 @@
     .navbar.scrolled { box-shadow: 0 4px 32px rgba(0,0,0,.4); }
     .navbar__inner { display: flex; align-items: center; justify-content: space-between; height: 88px; }
     .navbar__logo img { height: 72px; width: auto; display: block; mix-blend-mode: screen; }
-    .navbar__links { display: flex; align-items: center; gap: 32px; }
-    .navbar__links a { font-size: .88rem; font-weight: 500; color: var(--gray-sub); transition: color .2s; }
+    .navbar__links { display: flex; align-items: center; gap: 28px; }
+    .navbar__links a { font-size: .88rem; font-weight: 500; color: var(--gray-sub); transition: color .2s, background .2s, border-color .2s; }
     .navbar__links a:hover { color: var(--white); }
+    .navbar__links a.is-active,
+    .nav-item.is-active .nav-item__trigger {
+      color: var(--white);
+    }
+    .nav-home-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 8px 12px; border-radius: 999px;
+      border: 1px solid transparent;
+    }
+    .nav-home-link svg {
+      width: 14px; height: 14px; opacity: .86;
+      stroke: currentColor; flex-shrink: 0;
+    }
+    .nav-home-link.is-active {
+      background: rgba(125,232,138,.10);
+      border-color: rgba(125,232,138,.18);
+      color: var(--green);
+    }
     .navbar__cta { display: flex; gap: 12px; align-items: center; }
     .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
     .hamburger span { width: 24px; height: 2px; background: var(--white); border-radius: 2px; }
@@ -192,13 +210,33 @@
     /* ===== MOBILE MENU ===== */
     .mobile-menu {
       display: none; position: fixed; inset: 0;
-      background: var(--navy); z-index: 999;
-      flex-direction: column; align-items: center; justify-content: center; gap: 32px;
+      background: rgba(7,10,34,.96); z-index: 999;
+      backdrop-filter: blur(20px);
+      flex-direction: column; align-items: stretch; justify-content: flex-start; gap: 14px;
+      padding: 104px 24px 28px;
+      overflow-y: auto;
     }
     .mobile-menu.open { display: flex; }
-    .mobile-menu a { font-size: 1.3rem; font-weight: 700; color: var(--white); }
-    .mobile-menu a:hover { color: var(--green); }
-    .mobile-menu__close { position: absolute; top: 24px; right: 24px; font-size: 1.8rem; cursor: pointer; }
+    .mobile-menu a {
+      font-size: 1.05rem; font-weight: 700; color: var(--white);
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 18px; padding: 16px 18px;
+    }
+    .mobile-menu a:hover,
+    .mobile-menu a.is-active {
+      color: var(--green);
+      border-color: rgba(125,232,138,.2);
+      background: rgba(125,232,138,.08);
+    }
+    .mobile-menu__close {
+      position: absolute; top: 26px; right: 24px;
+      font-size: 1.8rem; cursor: pointer;
+      width: 42px; height: 42px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      border: 1px solid rgba(255,255,255,.1);
+      background: rgba(255,255,255,.05);
+    }
 
     /* ===== HERO ===== */
     .hero {
@@ -790,12 +828,42 @@
       .process__steps { grid-template-columns: 1fr 1fr; }
       .process__steps::before { display: none; }
       .footer__inner { grid-template-columns: 1fr 1fr; }
-      .navbar__links, .navbar__cta .btn--outline { display: none; }
+      .navbar__inner { height: 78px; }
+      .navbar__logo img { height: 58px; }
+      .navbar__links, .navbar__cta { display: none; }
       .hamburger { display: flex; }
+      .hero { min-height: auto; padding-top: 116px; padding-bottom: 54px; }
+      .hero__inner { gap: 40px; }
+      .hero__sub { max-width: none; margin-bottom: 26px; }
+      .hero__highlight-row { gap: 10px; margin: 20px 0 10px; }
+      .hero__stats {
+        display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px 20px; margin-top: 34px; padding-top: 26px;
+      }
+      .trust { padding: 28px 0; }
+      .trust__inner { gap: 18px; }
+      .showcase__shell { padding: 22px; }
     }
     @media (max-width: 600px) {
+      .container { padding: 0 18px; }
       .section { padding: 64px 0; }
-      .hero__stats { flex-wrap: wrap; gap: 24px; }
+      .navbar__inner { height: 72px; }
+      .navbar__logo img { height: 52px; }
+      .hero { padding-top: 104px; padding-bottom: 42px; }
+      .hero__title { font-size: clamp(2.15rem, 12vw, 3rem); line-height: 1.02; }
+      .hero__sub { font-size: .98rem; line-height: 1.7; }
+      .hero__highlight-row { flex-direction: column; align-items: flex-start; }
+      .hero__highlight { width: 100%; justify-content: flex-start; }
+      .hero__actions { gap: 12px; }
+      .hero__actions .btn { width: 100%; justify-content: center; }
+      .hero__stats { grid-template-columns: 1fr 1fr; gap: 16px; }
+      .hero__stat-num { font-size: 1.8rem; }
+      .hero__stat-label { font-size: .74rem; }
+      .trust__label { white-space: normal; line-height: 1.5; }
+      .trust__logo { min-width: 184px; min-height: 84px; }
+      .trust__logo img { height: 62px; max-width: 150px; max-height: 62px; }
+      .showcase__shell { padding: 18px; border-radius: 22px; }
+      .showcase__panel { min-height: auto; padding: 20px; }
       .showcase__stats { grid-template-columns: 1fr; }
       .sv-platforms { grid-template-columns: 1fr; }
       .footer__inner { grid-template-columns: 1fr; }
@@ -813,6 +881,12 @@
       <div class="navbar__inner">
         <a href="#inicio" class="navbar__logo"><img src="logo.png" alt="Sense Digital" /></a>
         <div class="navbar__links">
+          <a href="#inicio" class="nav-home-link is-active" data-nav-target="inicio" aria-label="Inicio">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M3.75 10.5 12 4l8.25 6.5v8.25a1.5 1.5 0 0 1-1.5 1.5h-4.5v-6h-4.5v6h-4.5a1.5 1.5 0 0 1-1.5-1.5V10.5Z" stroke-width="1.8" stroke-linejoin="round"/>
+            </svg>
+            <span>Inicio</span>
+          </a>
           <div class="nav-item">
             <button class="nav-item__trigger">
               Servicios
@@ -872,9 +946,9 @@
               </div>
             </div>
           </div>
-          <a href="#proceso">Proceso</a>
+          <a href="#proceso" data-nav-target="proceso">Proceso</a>
           <a href="nosotros.html">Nosotros</a>
-          <a href="#contacto">Contacto</a>
+          <a href="#contacto" data-nav-target="contacto">Contacto</a>
         </div>
         <div class="navbar__cta">
           <a href="#contacto" class="btn btn--outline" style="padding:10px 20px;font-size:.85rem;">Blog</a>
@@ -888,6 +962,7 @@
   <!-- MOBILE MENU -->
   <div class="mobile-menu" id="mobileMenu">
     <span class="mobile-menu__close" id="menuClose">✕</span>
+    <a href="#inicio" class="is-active">Inicio</a>
     <a href="#servicios">Servicios</a>
     <a href="#proceso">Proceso</a>
     <a href="nosotros.html">Nosotros</a>
@@ -1712,6 +1787,35 @@
     document.getElementById('hamburger').addEventListener('click', () => document.getElementById('mobileMenu').classList.add('open'));
     document.getElementById('menuClose').addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open'));
     document.querySelectorAll('.mobile-menu a').forEach(a => a.addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open')));
+
+    // Home nav active state
+    const homeNavItems = Array.from(document.querySelectorAll('[data-nav-target]'));
+    const homeSections = ['inicio', 'servicios', 'proceso', 'contacto']
+      .map(id => document.getElementById(id))
+      .filter(Boolean);
+
+    function setActiveNav(id) {
+      homeNavItems.forEach(link => {
+        link.classList.toggle('is-active', link.dataset.navTarget === id);
+      });
+      const serviciosNavItem = document.querySelector('.navbar .nav-item');
+      if (serviciosNavItem) {
+        serviciosNavItem.classList.toggle('is-active', id === 'servicios');
+      }
+    }
+
+    const homeNavObserver = new IntersectionObserver((entries) => {
+      const visible = entries
+        .filter(entry => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (visible?.target?.id) setActiveNav(visible.target.id);
+    }, {
+      rootMargin: '-18% 0px -55% 0px',
+      threshold: [0.2, 0.45, 0.7]
+    });
+
+    homeSections.forEach(section => homeNavObserver.observe(section));
+    setActiveNav('inicio');
 
     // Scroll reveal
     const observer = new IntersectionObserver((entries) => {

@@ -39,9 +39,12 @@
     .navbar{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(13,19,71,.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--gray-line)}
     .navbar__inner{display:flex;align-items:center;justify-content:space-between;height:88px}
     .navbar__logo img{height:72px;width:auto;display:block;mix-blend-mode:screen}
-    .navbar__links{display:flex;align-items:center;gap:32px}
-    .navbar__links a{font-size:.88rem;font-weight:500;color:var(--gray-sub);transition:color .2s}
+    .navbar__links{display:flex;align-items:center;gap:28px}
+    .navbar__links a{font-size:.88rem;font-weight:500;color:var(--gray-sub);transition:color .2s,background .2s,border-color .2s}
     .navbar__links a:hover,.navbar__links a.is-active{color:var(--white)}
+    .nav-home-link{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;border:1px solid transparent}
+    .nav-home-link svg{width:14px;height:14px;stroke:currentColor;opacity:.86;flex-shrink:0}
+    .nav-home-link.is-active{background:rgba(125,232,138,.10);border-color:rgba(125,232,138,.18);color:var(--green)!important}
     .navbar__cta{display:flex;gap:12px}
     .page-hero{padding:148px 0 88px;position:relative;overflow:hidden}
     .page-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 75% 25%, rgba(43,69,200,.28), transparent 38%),radial-gradient(circle at 10% 90%, rgba(125,232,138,.09), transparent 28%)}
@@ -92,7 +95,7 @@
     @media (max-width:960px){
       .page-hero__inner,.manifesto{grid-template-columns:1fr}
       .story-grid,.values-grid,.markets-grid,.timeline,.footer__inner{grid-template-columns:1fr 1fr}
-      .navbar__links,.navbar__cta .btn--outline{display:none}
+      .navbar__links,.navbar__cta{display:none}
     }
     @media (max-width:600px){
       .section{padding:68px 0}
@@ -119,7 +122,7 @@
       <div class="navbar__inner">
         <a href="index.html" class="navbar__logo"><img src="logo.png" alt="Sense Digital" /></a>
         <div class="navbar__links">
-          <a href="index.html">Inicio</a>
+          <a href="index.html" class="nav-home-link" aria-label="Inicio"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3.75 10.5 12 4l8.25 6.5v8.25a1.5 1.5 0 0 1-1.5 1.5h-4.5v-6h-4.5v6h-4.5a1.5 1.5 0 0 1-1.5-1.5V10.5Z" stroke-width="1.8" stroke-linejoin="round"/></svg><span>Inicio</span></a>
           <a href="index.html#servicios">Servicios</a>
           <a href="index.html#proceso">Proceso</a>
           <a href="nosotros.html" class="is-active">Nosotros</a>
