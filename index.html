@@ -526,6 +526,171 @@
     .sv-card__grid-item { background: rgba(255,255,255,.03); border-radius: 10px; padding: 14px; text-align: center; }
     .sv-card__grid-num { font-size: 1.4rem; font-weight: 900; color: var(--green); }
     .sv-card__grid-label { font-size: .72rem; color: var(--gray-sub); }
+    .sv-brand-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .sv-brand-tile {
+      position: relative;
+      min-height: 164px;
+      border-radius: 16px;
+      overflow: hidden;
+      padding: 16px;
+      border: 1px solid rgba(255,255,255,.08);
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.04);
+      animation: brandTileFloat 6.2s ease-in-out infinite;
+    }
+    .sv-brand-tile:nth-child(2) { animation-delay: .6s; }
+    .sv-brand-tile:nth-child(3) { animation-delay: 1.2s; }
+    .sv-brand-tile:nth-child(4) { animation-delay: 1.8s; }
+    .sv-brand-tile::after {
+      content: '';
+      position: absolute;
+      inset: -35%;
+      background: radial-gradient(circle, rgba(125,232,138,.16) 0%, rgba(125,232,138,0) 62%);
+      opacity: .65;
+      transform: translate(-28%, -24%);
+      animation: brandGlow 6s ease-in-out infinite;
+      pointer-events: none;
+    }
+    .sv-brand-tile--brand {
+      background: linear-gradient(180deg, rgba(13,19,71,.86), rgba(18,31,100,.94));
+    }
+    .sv-brand-tile--social {
+      background: linear-gradient(180deg, rgba(104,120,255,.18), rgba(59,77,157,.22));
+    }
+    .sv-brand-tile--photo {
+      background: linear-gradient(180deg, rgba(30,52,152,.28), rgba(50,65,145,.36));
+    }
+    .sv-brand-tile--video {
+      background: linear-gradient(180deg, rgba(10,17,56,.9), rgba(21,28,89,.95));
+    }
+    .sv-brand-tile__label {
+      position: relative;
+      z-index: 2;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: .68rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.68);
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.08);
+    }
+    .sv-brand-tile__icon {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1;
+      pointer-events: none;
+    }
+    .sv-brand-tile__icon svg {
+      width: 64px;
+      height: 64px;
+      filter: drop-shadow(0 12px 20px rgba(0,0,0,.18));
+    }
+    .sv-brand-tile--brand svg { width: 72px; height: 72px; }
+    .sv-brand-tile--photo svg { width: 70px; height: 70px; }
+    .sv-brand-tile__line {
+      position: absolute;
+      left: 18px;
+      right: 18px;
+      bottom: 18px;
+      height: 6px;
+      border-radius: 999px;
+      overflow: hidden;
+      background: rgba(255,255,255,.08);
+      z-index: 2;
+    }
+    .sv-brand-tile__line::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      width: 58%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, rgba(125,232,138,.12), var(--green), #aaf4b4);
+      animation: brandLineMove 3.8s ease-in-out infinite;
+    }
+    .sv-brand-tile__spark {
+      position: absolute;
+      right: 18px;
+      top: 18px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #fff 0%, var(--green) 48%, rgba(125,232,138,0) 74%);
+      z-index: 2;
+      animation: brandSpark 2.6s ease-in-out infinite;
+    }
+    .sv-brand-tile__orbit {
+      position: absolute;
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.12);
+      z-index: 1;
+      opacity: .7;
+      animation: orbitRotate 9s linear infinite;
+    }
+    .sv-brand-tile__orbit::after {
+      content: '';
+      position: absolute;
+      top: -4px;
+      left: 50%;
+      width: 8px;
+      height: 8px;
+      margin-left: -4px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 12px rgba(125,232,138,.4);
+    }
+    .sv-brand-tile--social .sv-brand-tile__orbit {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .sv-brand-tile__flash {
+      position: absolute;
+      inset: auto 18px 18px auto;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,255,255,.95) 0%, rgba(255,217,128,.92) 22%, rgba(255,196,92,.16) 64%, rgba(255,196,92,0) 80%);
+      z-index: 2;
+      animation: flashPulse 2.2s ease-in-out infinite;
+    }
+    .sv-brand-tile__play {
+      position: absolute;
+      right: 18px;
+      bottom: 18px;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.12);
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 12px 24px rgba(0,0,0,.18);
+    }
+    .sv-brand-tile__play::before {
+      content: '';
+      border-left: 11px solid var(--green);
+      border-top: 7px solid transparent;
+      border-bottom: 7px solid transparent;
+      margin-left: 3px;
+      animation: playPulse 2.8s ease-in-out infinite;
+    }
     .sv-platforms {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -725,6 +890,34 @@
     @keyframes tagFloat {
       0%,100% { transform: translateY(0); }
       50% { transform: translateY(-4px); }
+    }
+    @keyframes brandTileFloat {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+    @keyframes brandGlow {
+      0%,100% { transform: translate(-28%, -24%) scale(.92); opacity: .4; }
+      50% { transform: translate(-18%, -16%) scale(1.08); opacity: .85; }
+    }
+    @keyframes brandLineMove {
+      0%,100% { width: 46%; transform: translateX(0); }
+      50% { width: 72%; transform: translateX(10%); }
+    }
+    @keyframes brandSpark {
+      0%,100% { transform: scale(.85); opacity: .45; }
+      50% { transform: scale(1.2); opacity: 1; }
+    }
+    @keyframes orbitRotate {
+      0% { transform: translate(-50%, -50%) rotate(0deg); }
+      100% { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+    @keyframes flashPulse {
+      0%,100% { transform: scale(.88); opacity: .58; }
+      50% { transform: scale(1.25); opacity: 1; }
+    }
+    @keyframes playPulse {
+      0%,100% { transform: scale(1); opacity: .9; }
+      50% { transform: scale(1.12); opacity: 1; }
     }
 
     /* ===== PROCESS ===== */
@@ -1498,11 +1691,78 @@
         </div>
         <div class="service-visual reveal">
           <div class="sv-card">
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px">
-              <div style="background:var(--navy);border-radius:10px;aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:2rem;border:1px solid var(--gray-line)">🎯</div>
-              <div style="background:rgba(125,232,138,.1);border-radius:10px;aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:2rem;border:1px solid rgba(125,232,138,.2)">✨</div>
-              <div style="background:rgba(30,52,152,.3);border-radius:10px;aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:2rem;border:1px solid rgba(30,52,152,.5)">📸</div>
-              <div style="background:var(--navy);border-radius:10px;aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:2rem;border:1px solid var(--gray-line)">🎬</div>
+            <div class="sv-brand-grid">
+              <div class="sv-brand-tile sv-brand-tile--brand">
+                <span class="sv-brand-tile__label">Identidad</span>
+                <div class="sv-brand-tile__icon" aria-hidden="true">
+                  <svg viewBox="0 0 80 80" fill="none">
+                    <path d="M18 53L54 17C58.4183 12.5817 65.5817 12.5817 70 17V17C74.4183 21.4183 74.4183 28.5817 70 33L34 69L16 71L18 53Z" fill="url(#brandBrush)" />
+                    <path d="M23 48L39 64" stroke="#F4F8FF" stroke-width="4" stroke-linecap="round"/>
+                    <path d="M50 21L66 37" stroke="#0d1347" stroke-opacity=".25" stroke-width="5" stroke-linecap="round"/>
+                    <defs>
+                      <linearGradient id="brandBrush" x1="18" y1="20" x2="68" y2="67" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#7de88a"/>
+                        <stop offset="1" stop-color="#63d6ff"/>
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                </div>
+                <div class="sv-brand-tile__line"></div>
+              </div>
+              <div class="sv-brand-tile sv-brand-tile--social">
+                <span class="sv-brand-tile__label">Social</span>
+                <div class="sv-brand-tile__icon" aria-hidden="true">
+                  <svg viewBox="0 0 80 80" fill="none">
+                    <rect x="20" y="20" width="40" height="40" rx="14" stroke="#F4F8FF" stroke-width="4"/>
+                    <circle cx="40" cy="40" r="10" fill="url(#socialLens)"/>
+                    <circle cx="53" cy="27" r="3.5" fill="#7de88a"/>
+                    <defs>
+                      <linearGradient id="socialLens" x1="30" y1="30" x2="50" y2="50" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#63d6ff"/>
+                        <stop offset="1" stop-color="#7de88a"/>
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                </div>
+                <div class="sv-brand-tile__orbit"></div>
+              </div>
+              <div class="sv-brand-tile sv-brand-tile--photo">
+                <span class="sv-brand-tile__label">Foto</span>
+                <div class="sv-brand-tile__icon" aria-hidden="true">
+                  <svg viewBox="0 0 80 80" fill="none">
+                    <rect x="14" y="24" width="52" height="34" rx="10" fill="#0d1347" fill-opacity=".24" stroke="#F4F8FF" stroke-width="3"/>
+                    <path d="M24 24L31 16H49L56 24" stroke="#F4F8FF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="40" cy="41" r="11" fill="url(#photoLens)"/>
+                    <circle cx="40" cy="41" r="5" fill="#0d1347" fill-opacity=".25"/>
+                    <defs>
+                      <linearGradient id="photoLens" x1="29" y1="30" x2="50" y2="51" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#7de88a"/>
+                        <stop offset="1" stop-color="#9fc9ff"/>
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                </div>
+                <div class="sv-brand-tile__flash"></div>
+              </div>
+              <div class="sv-brand-tile sv-brand-tile--video">
+                <span class="sv-brand-tile__label">Video</span>
+                <div class="sv-brand-tile__icon" aria-hidden="true">
+                  <svg viewBox="0 0 80 80" fill="none">
+                    <rect x="18" y="20" width="44" height="40" rx="12" fill="#F4F8FF" fill-opacity=".06" stroke="#F4F8FF" stroke-width="3"/>
+                    <path d="M34 31L50 40L34 49V31Z" fill="url(#videoPlay)"/>
+                    <path d="M23 25L29 18" stroke="#7de88a" stroke-width="3" stroke-linecap="round"/>
+                    <path d="M57 25L63 18" stroke="#63d6ff" stroke-width="3" stroke-linecap="round"/>
+                    <defs>
+                      <linearGradient id="videoPlay" x1="34" y1="31" x2="50" y2="49" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#63d6ff"/>
+                        <stop offset="1" stop-color="#7de88a"/>
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                </div>
+                <div class="sv-brand-tile__spark"></div>
+                <div class="sv-brand-tile__play"></div>
+              </div>
             </div>
             <div class="sv-card__tags">
               <span class="sv-card__tag">Branding</span>
