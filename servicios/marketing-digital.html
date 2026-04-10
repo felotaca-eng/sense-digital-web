@@ -119,21 +119,52 @@
     .page-hero__sub strong { color: var(--white); }
     .page-hero__actions { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 48px; }
     .page-hero__stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .stat-box { background: rgba(255,255,255,.05); border: 1px solid var(--gray-line); border-radius: var(--radius); padding: 20px; text-align: center; }
+    .stat-box { background: rgba(255,255,255,.05); border: 1px solid var(--gray-line); border-radius: var(--radius); padding: 20px; text-align: center; animation: reportFloat 5.5s ease-in-out infinite; }
     .stat-box__num { font-size: 2rem; font-weight: 900; color: var(--green); line-height: 1; }
     .stat-box__label { font-size: .75rem; color: var(--gray-sub); margin-top: 4px; }
     .page-hero__visual { display: flex; flex-direction: column; gap: 14px; }
-    .metric-card { background: rgba(255,255,255,.05); border: 1px solid var(--gray-line); border-radius: var(--radius); padding: 20px; }
+    .metric-card { background: rgba(255,255,255,.05); border: 1px solid var(--gray-line); border-radius: var(--radius); padding: 20px; position: relative; overflow: hidden; }
+    .metric-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(100deg, transparent 0%, rgba(255,255,255,.08) 45%, transparent 70%); transform: translateX(-130%); animation: reportSweep 5.8s ease-in-out infinite; pointer-events: none; }
     .metric-card__header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
     .metric-card__title { font-size: .88rem; font-weight: 700; }
-    .metric-card__badge { background: rgba(125,232,138,.15); color: var(--green); font-size: .7rem; font-weight: 700; padding: 3px 9px; border-radius: 99px; }
-    .metric-card__bar { height: 6px; background: rgba(255,255,255,.06); border-radius: 3px; margin-bottom: 6px; }
-    .metric-card__bar-fill { height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--green), var(--blue-light)); }
+    .metric-card__badge { background: rgba(125,232,138,.15); color: var(--green); font-size: .7rem; font-weight: 700; padding: 3px 9px; border-radius: 99px; animation: badgeBlink 2.2s ease-in-out infinite; }
+    .metric-card__bar { height: 6px; background: rgba(255,255,255,.06); border-radius: 3px; margin-bottom: 6px; overflow: hidden; }
+    .metric-card__bar-fill { height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--green), var(--blue-light)); position: relative; animation: reportBarPulse 3.2s ease-in-out infinite; }
+    .metric-card__bar-fill::after { content: ''; position: absolute; top: 0; bottom: 0; width: 72px; right: -72px; background: linear-gradient(90deg, transparent, rgba(255,255,255,.42), transparent); animation: reportBarGlow 2.8s linear infinite; }
     .metric-card__label { display: flex; justify-content: space-between; font-size: .75rem; color: var(--gray-sub); }
     .metric-card__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-    .metric-card__item { text-align: center; background: rgba(255,255,255,.03); border-radius: 10px; padding: 12px 8px; }
+    .metric-card__item { text-align: center; background: rgba(255,255,255,.03); border-radius: 10px; padding: 12px 8px; animation: reportTilePulse 4.6s ease-in-out infinite; }
+    .metric-card__item:nth-child(2) { animation-delay: .35s; }
+    .metric-card__item:nth-child(3) { animation-delay: .7s; }
     .metric-card__item-num { font-size: 1.2rem; font-weight: 900; color: var(--green); }
     .metric-card__item-label { font-size: .68rem; color: var(--gray-sub); margin-top: 2px; }
+    .metric-card__ticker { margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,.06); display: flex; align-items: center; justify-content: space-between; gap: 16px; font-size: .72rem; color: var(--gray-sub); }
+    .metric-card__ticker-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 14px rgba(125,232,138,.55); animation: badgeBlink 1.8s ease-in-out infinite; }
+    .metric-card__ticker-right { color: var(--green); font-weight: 800; letter-spacing: .04em; }
+    @keyframes reportFloat {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+    @keyframes reportSweep {
+      0%, 18% { transform: translateX(-130%); }
+      45%, 100% { transform: translateX(130%); }
+    }
+    @keyframes reportBarPulse {
+      0%,100% { opacity: .92; filter: saturate(1); }
+      50% { opacity: 1; filter: saturate(1.18); }
+    }
+    @keyframes reportBarGlow {
+      0% { transform: translateX(-180px); }
+      100% { transform: translateX(280px); }
+    }
+    @keyframes badgeBlink {
+      0%,100% { opacity: .72; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.05); }
+    }
+    @keyframes reportTilePulse {
+      0%,100% { transform: translateY(0); border-color: transparent; }
+      50% { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(0,0,0,.18); }
+    }
 
     /* PLATFORMS */
     .platforms__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
@@ -350,33 +381,37 @@
             <a href="#plataformas" class="btn btn--outline">Ver plataformas</a>
           </div>
           <div class="page-hero__stats">
-            <div class="stat-box"><div class="stat-box__num">1M+</div><div class="stat-box__label">USD en pauta/mes</div></div>
-            <div class="stat-box"><div class="stat-box__num">4.8x</div><div class="stat-box__label">ROAS promedio</div></div>
-            <div class="stat-box"><div class="stat-box__num">-60%</div><div class="stat-box__label">Costo por lead</div></div>
+            <div class="stat-box"><div class="stat-box__num countup" data-target="1" data-prefix="" data-suffix="M+">1M+</div><div class="stat-box__label">USD en pauta/mes</div></div>
+            <div class="stat-box"><div class="stat-box__num countup" data-target="4.8" data-prefix="" data-suffix="x">4.8x</div><div class="stat-box__label">ROAS promedio</div></div>
+            <div class="stat-box"><div class="stat-box__num countup" data-target="-60" data-prefix="" data-suffix="%">-60%</div><div class="stat-box__label">Costo por lead</div></div>
           </div>
         </div>
         <div class="page-hero__visual reveal">
           <div class="metric-card">
             <div class="metric-card__header">
-              <span class="metric-card__title">📊 Rendimiento de Campañas</span>
+              <span class="metric-card__title">Reporte de Campañas</span>
               <span class="metric-card__badge">↑ Este mes</span>
             </div>
             <div class="metric-card__bar"><div class="metric-card__bar-fill" style="width:88%"></div></div>
-            <div class="metric-card__label"><span>Google Ads · ROAS</span><span style="color:var(--green);font-weight:700">5.2x</span></div>
+            <div class="metric-card__label"><span>Google Ads · ROAS</span><span class="countup" data-target="5.2" data-suffix="x" style="color:var(--green);font-weight:700">5.2x</span></div>
             <div style="margin-top:12px">
               <div class="metric-card__bar" style="margin-bottom:6px"><div class="metric-card__bar-fill" style="width:75%"></div></div>
-              <div class="metric-card__label"><span>Facebook Ads · CTR</span><span style="color:var(--green);font-weight:700">3.8%</span></div>
+              <div class="metric-card__label"><span>Facebook Ads · CTR</span><span class="countup" data-target="3.8" data-suffix="%" style="color:var(--green);font-weight:700">3.8%</span></div>
             </div>
             <div style="margin-top:12px">
               <div class="metric-card__bar" style="margin-bottom:6px"><div class="metric-card__bar-fill" style="width:92%"></div></div>
-              <div class="metric-card__label"><span>TikTok Ads · Alcance</span><span style="color:var(--green);font-weight:700">+340%</span></div>
+              <div class="metric-card__label"><span>TikTok Ads · Alcance</span><span class="countup" data-target="340" data-prefix="+" data-suffix="%" style="color:var(--green);font-weight:700">+340%</span></div>
+            </div>
+            <div class="metric-card__ticker">
+              <span style="display:flex;align-items:center;gap:10px"><span class="metric-card__ticker-dot"></span>Actualizando conversiones e impresiones</span>
+              <span class="metric-card__ticker-right">LIVE REPORT</span>
             </div>
           </div>
           <div class="metric-card" style="margin-top:14px">
             <div class="metric-card__grid">
-              <div class="metric-card__item"><div class="metric-card__item-num">7K+</div><div class="metric-card__item-label">Clientes activos</div></div>
-              <div class="metric-card__item"><div class="metric-card__item-num">340%</div><div class="metric-card__item-label">ROI promedio</div></div>
-              <div class="metric-card__item"><div class="metric-card__item-num">24h</div><div class="metric-card__item-label">Onboarding</div></div>
+              <div class="metric-card__item"><div class="metric-card__item-num countup" data-target="7" data-suffix="K+">7K+</div><div class="metric-card__item-label">Clientes activos</div></div>
+              <div class="metric-card__item"><div class="metric-card__item-num countup" data-target="340" data-suffix="%">340%</div><div class="metric-card__item-label">ROI promedio</div></div>
+              <div class="metric-card__item"><div class="metric-card__item-num countup" data-target="24" data-suffix="h">24h</div><div class="metric-card__item-label">Onboarding</div></div>
             </div>
           </div>
         </div>
@@ -700,6 +735,43 @@
         if (!wasOpen) item.classList.add('open');
       });
     });
+
+    const formatMetricValue = (value, prefix = '', suffix = '') => {
+      const hasDecimal = Math.abs(value % 1) > 0.001;
+      const formatted = hasDecimal ? value.toFixed(1) : Math.round(value).toString();
+      return `${prefix}${formatted}${suffix}`;
+    };
+
+    const animateCount = (el) => {
+      if (el.dataset.counted === 'true') return;
+      el.dataset.counted = 'true';
+      const target = parseFloat(el.dataset.target || '0');
+      const prefix = el.dataset.prefix || '';
+      const suffix = el.dataset.suffix || '';
+      const duration = 1400;
+      const start = performance.now();
+
+      const tick = (now) => {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const current = target * eased;
+        el.textContent = formatMetricValue(current, prefix, suffix);
+        if (progress < 1) requestAnimationFrame(tick);
+        else el.textContent = formatMetricValue(target, prefix, suffix);
+      };
+
+      requestAnimationFrame(tick);
+    };
+
+    const metricObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.querySelectorAll('.countup').forEach(animateCount);
+        metricObserver.unobserve(entry.target);
+      });
+    }, { threshold: 0.35 });
+
+    document.querySelectorAll('.page-hero__visual, .page-hero__stats').forEach((el) => metricObserver.observe(el));
   </script>
 </body>
 </html>
