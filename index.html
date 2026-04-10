@@ -545,6 +545,167 @@
     .sv-card__grid-item { background: rgba(255,255,255,.03); border-radius: 10px; padding: 14px; text-align: center; }
     .sv-card__grid-num { font-size: 1.4rem; font-weight: 900; color: var(--green); }
     .sv-card__grid-label { font-size: .72rem; color: var(--gray-sub); }
+    .sv-query-shell {
+      position: relative;
+      min-height: 380px;
+      overflow: hidden;
+      border-radius: 24px;
+      padding: 18px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.03)),
+        radial-gradient(circle at top left, rgba(125,232,138,.12), rgba(125,232,138,0) 32%),
+        radial-gradient(circle at bottom right, rgba(99,214,255,.14), rgba(99,214,255,0) 34%);
+      border: 1px solid rgba(255,255,255,.08);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.04);
+    }
+    .sv-query-shell::after {
+      content: '';
+      position: absolute;
+      inset: 0 auto 0 -30%;
+      width: 44%;
+      background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.12), rgba(255,255,255,0));
+      transform: skewX(-18deg);
+      animation: queryShine 7.8s ease-in-out infinite;
+      pointer-events: none;
+    }
+    .sv-query-topbar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      position: relative;
+      z-index: 2;
+      margin-bottom: 16px;
+      padding: 10px 14px;
+      border-radius: 16px;
+      background: rgba(7,12,42,.32);
+      border: 1px solid rgba(255,255,255,.08);
+      backdrop-filter: blur(10px);
+    }
+    .sv-query-dots {
+      display: flex;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+    .sv-query-dots span {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: block;
+    }
+    .sv-query-dots span:nth-child(1) { background: #ff705f; }
+    .sv-query-dots span:nth-child(2) { background: #ffbf44; }
+    .sv-query-dots span:nth-child(3) { background: #39d98a; }
+    .sv-query-url {
+      flex: 1;
+      min-width: 0;
+      font-size: .84rem;
+      font-weight: 700;
+      color: rgba(255,255,255,.9);
+      text-align: center;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .sv-query-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(125,232,138,.12);
+      border: 1px solid rgba(125,232,138,.16);
+      color: var(--green);
+      font-size: .74rem;
+      font-weight: 800;
+      white-space: nowrap;
+      box-shadow: 0 0 0 1px rgba(125,232,138,.04);
+    }
+    .sv-query-stage {
+      position: relative;
+      z-index: 1;
+      border-radius: 22px;
+      overflow: hidden;
+      background: rgba(7,12,42,.22);
+      border: 1px solid rgba(255,255,255,.08);
+      min-height: 246px;
+    }
+    .sv-query-shot {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      transform: scale(1.02);
+    }
+    .sv-query-floating {
+      position: absolute;
+      z-index: 3;
+      min-width: 174px;
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(16,23,75,.82);
+      border: 1px solid rgba(255,255,255,.1);
+      box-shadow: 0 22px 42px rgba(0,0,0,.24);
+      backdrop-filter: blur(16px);
+      animation: queryFloat 5.4s ease-in-out infinite;
+    }
+    .sv-query-floating--modules {
+      top: 74px;
+      right: 18px;
+    }
+    .sv-query-floating--ops {
+      left: 18px;
+      bottom: 86px;
+      animation-delay: 1.2s;
+    }
+    .sv-query-floating__label {
+      font-size: .72rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--gray-sub);
+      margin-bottom: 4px;
+    }
+    .sv-query-floating__value {
+      font-size: 2rem;
+      line-height: 1;
+      font-weight: 900;
+      color: var(--green);
+      margin-bottom: 4px;
+    }
+    .sv-query-floating__copy {
+      font-size: .78rem;
+      line-height: 1.5;
+      color: rgba(255,255,255,.82);
+    }
+    .sv-query-footer {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .sv-query-mini {
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.08);
+      animation: queryMiniPulse 4.6s ease-in-out infinite;
+    }
+    .sv-query-mini:nth-child(2) { animation-delay: .35s; }
+    .sv-query-mini:nth-child(3) { animation-delay: .7s; }
+    .sv-query-mini strong {
+      display: block;
+      font-size: 1.18rem;
+      line-height: 1.1;
+      color: var(--green);
+      margin-bottom: 4px;
+    }
+    .sv-query-mini span {
+      display: block;
+      font-size: .78rem;
+      color: var(--gray-sub);
+      line-height: 1.45;
+    }
     .sv-erp-shell {
       position: relative;
       display: grid;
@@ -1582,6 +1743,20 @@
       0%,100% { transform: translateY(0); }
       50% { transform: translateY(-5px); }
     }
+    @keyframes queryShine {
+      0%, 16% { transform: translateX(-120%) skewX(-18deg); opacity: 0; }
+      24% { opacity: .7; }
+      46% { transform: translateX(280%) skewX(-18deg); opacity: 0; }
+      100% { transform: translateX(280%) skewX(-18deg); opacity: 0; }
+    }
+    @keyframes queryFloat {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    @keyframes queryMiniPulse {
+      0%,100% { transform: translateY(0); border-color: rgba(255,255,255,.08); }
+      50% { transform: translateY(-3px); border-color: rgba(125,232,138,.16); }
+    }
     @keyframes erpSidebarPulse {
       0%,100% { transform: translateX(0); border-color: rgba(255,255,255,.06); }
       50% { transform: translateX(4px); border-color: rgba(125,232,138,.14); }
@@ -1698,6 +1873,7 @@
       .hero__inner, .service-section__inner, .service-section__inner.reverse, .contact__inner, .why__inner { grid-template-columns: 1fr; direction: ltr; }
       .sv-erp-shell, .sv-erp-flow { grid-template-columns: 1fr; }
       .sv-erp-kpis { grid-template-columns: 1fr; }
+      .sv-query-footer { grid-template-columns: 1fr; }
       .hero__visual { display: none; }
       .trust__inner, .showcase__shell { grid-template-columns: 1fr; }
       .testimonials__grid { grid-template-columns: 1fr; }
@@ -2288,94 +2464,37 @@
         </div>
         <div class="service-visual reveal">
           <div class="sv-card">
-            <div class="sv-erp-shell">
-              <div class="sv-erp-sidebar">
-                <div class="sv-erp-sidebar__brand">
-                  <span class="sv-erp-sidebar__brand-mark">Q</span>
-                  <div class="sv-erp-sidebar__brand-copy">
-                    <strong>Query ERP</strong>
-                    <span>Operación centralizada</span>
-                  </div>
-                </div>
-                <div class="sv-erp-sidebar__item is-active"><span>CRM &amp; Ventas</span><span class="sv-erp-sidebar__status"></span></div>
-                <div class="sv-erp-sidebar__item"><span>Operaciones</span><span class="sv-erp-sidebar__status"></span></div>
-                <div class="sv-erp-sidebar__item"><span>Inventario</span><span class="sv-erp-sidebar__status"></span></div>
-                <div class="sv-erp-sidebar__item"><span>Finanzas</span><span class="sv-erp-sidebar__status"></span></div>
-                <div class="sv-erp-sidebar__item"><span>RRHH</span><span class="sv-erp-sidebar__status"></span></div>
-                <div class="sv-erp-sidebar__item"><span>Aprobaciones</span><span class="sv-erp-sidebar__status"></span></div>
+            <div class="sv-query-shell">
+              <div class="sv-query-topbar">
+                <div class="sv-query-dots"><span></span><span></span><span></span></div>
+                <div class="sv-query-url">query.sensedigital.co / dashboard</div>
+                <span class="sv-query-badge">En operación</span>
               </div>
-              <div class="sv-erp-main">
-                <div class="sv-erp-topbar">
-                  <div>
-                    <div class="sv-erp-topbar__title">Vista ejecutiva de la operación</div>
-                    <div class="sv-erp-topbar__copy">Procesos, módulos y trazabilidad en un solo lugar</div>
-                  </div>
-                  <span class="sv-erp-topbar__badge">Activo</span>
+              <div class="sv-query-stage">
+                <img src="assets/images/services/query_dashboard_hd.svg" alt="Dashboard de Query ERP" class="sv-query-shot">
+              </div>
+              <div class="sv-query-floating sv-query-floating--modules">
+                <div class="sv-query-floating__label">Módulos activos</div>
+                <div class="sv-query-floating__value">14</div>
+                <div class="sv-query-floating__copy">Ventas, operaciones, finanzas y equipos en un mismo ecosistema.</div>
+              </div>
+              <div class="sv-query-floating sv-query-floating--ops">
+                <div class="sv-query-floating__label">Operación conectada</div>
+                <div class="sv-query-floating__value">50+</div>
+                <div class="sv-query-floating__copy">Usuarios sincronizados con flujos y datos centralizados.</div>
+              </div>
+              <div class="sv-query-footer">
+                <div class="sv-query-mini">
+                  <strong>CRM</strong>
+                  <span>Clientes, pipeline y seguimiento comercial.</span>
                 </div>
-                <div class="sv-erp-kpis">
-                  <div class="sv-erp-kpi">
-                    <div class="sv-erp-kpi__label">Módulos activos</div>
-                    <div class="sv-erp-kpi__value">14</div>
-                    <div class="sv-erp-kpi__meta"><span>Operación conectada</span><span class="sv-erp-kpi__delta">+6</span></div>
-                  </div>
-                  <div class="sv-erp-kpi">
-                    <div class="sv-erp-kpi__label">Ahorro operativo</div>
-                    <div class="sv-erp-kpi__value">30%</div>
-                    <div class="sv-erp-kpi__meta"><span>Menos reprocesos</span><span class="sv-erp-kpi__delta">↗</span></div>
-                  </div>
-                  <div class="sv-erp-kpi">
-                    <div class="sv-erp-kpi__label">Usuarios</div>
-                    <div class="sv-erp-kpi__value">50+</div>
-                    <div class="sv-erp-kpi__meta"><span>Equipos sincronizados</span><span class="sv-erp-kpi__delta">24/7</span></div>
-                  </div>
+                <div class="sv-query-mini">
+                  <strong>Live</strong>
+                  <span>Dashboards y módulos operando en tiempo real.</span>
                 </div>
-                <div class="sv-erp-flow">
-                  <div class="sv-erp-flow__panel">
-                    <div class="sv-erp-flow__header">
-                      <div>
-                        <strong>Flujo operativo</strong>
-                        <span>Tareas automáticas y aprobaciones</span>
-                      </div>
-                      <span class="sv-erp-flow__pill">En proceso</span>
-                    </div>
-                    <div class="sv-erp-flow__list">
-                      <div class="sv-erp-flow__item">
-                        <div class="sv-erp-flow__item-left">
-                          <span class="sv-erp-flow__item-bullet"></span>
-                          <div><strong>Facturas y comprobantes</strong><span>Control y trazabilidad por estado</span></div>
-                        </div>
-                        <span class="sv-erp-flow__item-metric">247</span>
-                      </div>
-                      <div class="sv-erp-flow__item">
-                        <div class="sv-erp-flow__item-left">
-                          <span class="sv-erp-flow__item-bullet"></span>
-                          <div><strong>Checklist de campo</strong><span>Equipos registrando y validando desde móvil</span></div>
-                        </div>
-                        <span class="sv-erp-flow__item-metric">89</span>
-                      </div>
-                      <div class="sv-erp-flow__item">
-                        <div class="sv-erp-flow__item-left">
-                          <span class="sv-erp-flow__item-bullet"></span>
-                          <div><strong>Flujos de aprobación</strong><span>Decisiones más rápidas y menos fricción</span></div>
-                        </div>
-                        <span class="sv-erp-flow__item-metric">12</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="sv-erp-flow__side">
-                    <div class="sv-erp-flow__mini-grid">
-                      <div class="sv-erp-mini">
-                        <div class="sv-erp-mini__label">CRM</div>
-                        <div class="sv-erp-mini__value">360°</div>
-                        <div class="sv-erp-mini__copy">Clientes, postventa y seguimiento comercial</div>
-                      </div>
-                      <div class="sv-erp-mini">
-                        <div class="sv-erp-mini__label">Dashboards</div>
-                        <div class="sv-erp-mini__value">Live</div>
-                        <div class="sv-erp-mini__copy">Indicadores por área, usuarios y operación</div>
-                      </div>
-                    </div>
-                  </div>
+                <div class="sv-query-mini">
+                  <strong>360°</strong>
+                  <span>Query conecta ventas, RRHH, finanzas y operación.</span>
                 </div>
               </div>
             </div>
