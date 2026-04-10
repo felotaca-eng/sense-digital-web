@@ -480,6 +480,24 @@
     .service-section { padding: 74px 0; scroll-margin-top: 132px; }
     .service-section:nth-child(even) { background: var(--navy-mid); }
     .service-section__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+    .service-section.is-linkable .service-section__inner {
+      cursor: pointer;
+      transition: transform .24s ease, filter .24s ease;
+    }
+    .service-section.is-linkable .service-section__inner:hover {
+      transform: translateY(-3px);
+      filter: saturate(1.03);
+    }
+    .service-section.is-linkable .service-section__inner:focus-visible {
+      outline: 2px solid rgba(125,232,138,.65);
+      outline-offset: 10px;
+      border-radius: 28px;
+    }
+    .service-section.is-linkable .service-section__inner:hover .sv-card,
+    .service-section.is-linkable .service-section__inner:hover .service-section__icon {
+      border-color: rgba(125,232,138,.28);
+      box-shadow: 0 16px 38px rgba(0,0,0,.18);
+    }
     .service-section__inner.reverse .service-section__content { order: 2; }
     .service-section__inner.reverse .service-visual { order: 1; }
     .service-section__content { display: flex; flex-direction: column; gap: 0; }
@@ -2145,7 +2163,7 @@
   </div>
 
   <!-- SERVICE 1: MARKETING -->
-  <section class="service-section" id="srv-marketing">
+  <section class="service-section is-linkable" id="srv-marketing" data-service-url="servicios/marketing-digital.html">
     <div class="container">
       <div class="service-section__inner">
         <div class="service-section__content reveal">
@@ -2245,7 +2263,7 @@
   </section>
 
   <!-- SERVICE 2: WEB -->
-  <section class="service-section" id="srv-web">
+  <section class="service-section is-linkable" id="srv-web" data-service-url="servicios/desarrollo-web.html">
     <div class="container">
       <div class="service-section__inner reverse">
         <div class="service-section__content reveal">
@@ -2313,7 +2331,7 @@
   </section>
 
   <!-- SERVICE 3: APPS -->
-  <section class="service-section" id="srv-apps">
+  <section class="service-section is-linkable" id="srv-apps" data-service-url="servicios/apps-moviles.html">
     <div class="container">
       <div class="service-section__inner">
         <div class="service-section__content reveal">
@@ -2366,7 +2384,7 @@
   </section>
 
   <!-- SERVICE 4: IA AUTOMATIZACIÓN -->
-  <section class="service-section" id="srv-ia">
+  <section class="service-section is-linkable" id="srv-ia" data-service-url="servicios/automatizacion-ia.html">
     <div class="container">
       <div class="service-section__inner reverse">
         <div class="service-section__content reveal">
@@ -2440,7 +2458,7 @@
   </section>
 
   <!-- SERVICE 5: ERP -->
-  <section class="service-section" id="srv-erp">
+  <section class="service-section is-linkable" id="srv-erp" data-service-url="servicios/query-erp.html">
     <div class="container">
       <div class="service-section__inner">
         <div class="service-section__content reveal">
@@ -2514,7 +2532,7 @@
   </section>
 
   <!-- SERVICE 6: WHATSAPP IA -->
-  <section class="service-section" id="srv-whatsapp">
+  <section class="service-section is-linkable" id="srv-whatsapp" data-service-url="servicios/whatsapp-ia.html">
     <div class="container">
       <div class="service-section__inner">
         <div class="service-section__content reveal">
@@ -2578,7 +2596,7 @@
   </section>
 
   <!-- SERVICE 6: DISEÑO -->
-  <section class="service-section" id="srv-diseno">
+  <section class="service-section is-linkable" id="srv-diseno" data-service-url="servicios/diseno-branding.html">
     <div class="container">
       <div class="service-section__inner reverse">
         <div class="service-section__content reveal">
@@ -3023,6 +3041,31 @@
       }, { threshold: 0.4 });
       serviceSections.forEach(s => srvObserver.observe(s));
     }
+
+    const linkableServiceSections = document.querySelectorAll('.service-section.is-linkable[data-service-url]');
+    linkableServiceSections.forEach(section => {
+      const clickableArea = section.querySelector('.service-section__inner');
+      if (!clickableArea) return;
+      clickableArea.setAttribute('tabindex', '0');
+      clickableArea.setAttribute('role', 'link');
+      clickableArea.setAttribute('aria-label', `Abrir ${section.querySelector('.badge')?.textContent?.trim() || 'servicio'}`);
+
+      const goToService = () => {
+        const destination = section.dataset.serviceUrl;
+        if (destination) window.location.href = destination;
+      };
+
+      clickableArea.addEventListener('click', (event) => {
+        if (event.target.closest('a, button, input, textarea, select, label')) return;
+        goToService();
+      });
+
+      clickableArea.addEventListener('keydown', (event) => {
+        if (event.key !== 'Enter' && event.key !== ' ') return;
+        event.preventDefault();
+        goToService();
+      });
+    });
 
     // Interactive showcase
     const showcaseButtons = document.querySelectorAll('.showcase__menu-btn');
