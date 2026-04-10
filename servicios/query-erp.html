@@ -53,6 +53,9 @@
     .btn--green:hover{background:var(--green-dark);transform:translateY(-2px)}
     .btn--outline{border-color:rgba(255,255,255,.3);color:var(--white)}
     .btn--outline:hover{border-color:var(--green);color:var(--green);transform:translateY(-2px)}
+    .btn__brand{display:inline-flex;align-items:center;gap:8px}
+    .btn__brand img{height:18px;width:auto;display:block;object-fit:contain;filter:drop-shadow(0 3px 8px rgba(0,0,0,.14))}
+    .btn__brand .query-lockup__erp{font-size:.95em;color:inherit}
     .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s,transform .6s}
     .reveal.visible{opacity:1;transform:translateY(0)}
 
@@ -108,6 +111,14 @@
     .page-hero__eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:20px}
     .page-hero__eyebrow-line{width:28px;height:2px;background:var(--green)}
     .page-hero__eyebrow span{color:var(--green);font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+    .query-wordmark,.query-lockup{display:inline-flex;align-items:center;vertical-align:middle}
+    .query-wordmark img,.query-lockup img{display:block;object-fit:contain;filter:drop-shadow(0 4px 12px rgba(0,0,0,.16))}
+    .query-wordmark{height:1.15em}
+    .query-wordmark img{height:100%;width:auto}
+    .query-lockup{gap:.38em;white-space:nowrap}
+    .query-lockup--hero{height:1.05em}
+    .query-lockup--hero img{height:100%;width:auto}
+    .query-lockup__erp{font-weight:inherit;letter-spacing:inherit;color:inherit}
     .page-hero__title{font-size:clamp(2.4rem,5vw,3.6rem);font-weight:900;line-height:1.05;margin-bottom:20px}
     .page-hero__title .green{color:var(--green)}
     .page-hero__sub{font-size:1.05rem;color:var(--gray-sub);margin-bottom:36px;line-height:1.75}
@@ -307,11 +318,11 @@
     <div class="container">
       <div class="page-hero__inner">
         <div class="reveal">
-          <div class="page-hero__eyebrow"><div class="page-hero__eyebrow-line"></div><span>QUERY - ERP · Operación</span></div>
+          <div class="page-hero__eyebrow"><div class="page-hero__eyebrow-line"></div><span><span class="query-lockup query-lockup--hero"><img src="../assets/images/services/query_logo_hd.svg" alt="Query" /><span class="query-lockup__erp">ERP</span></span> · Operación</span></div>
           <h1 class="page-hero__title">Un ERP que <span class="green">conecta</span> áreas, procesos y decisiones</h1>
-          <p class="page-hero__sub">Implementamos <strong>QUERY - ERP</strong> para empresas que necesitan centralizar ventas, CRM, inventarios, operaciones, finanzas, RRHH y aprobaciones sin seguir trabajando en silos.</p>
+          <p class="page-hero__sub">Implementamos <strong><span class="query-lockup query-lockup--hero"><img src="../assets/images/services/query_logo_hd.svg" alt="Query" /><span class="query-lockup__erp">ERP</span></span></strong> para empresas que necesitan centralizar ventas, CRM, inventarios, operaciones, finanzas, RRHH y aprobaciones sin seguir trabajando en silos.</p>
           <div class="page-hero__actions">
-            <a href="https://landing.itsquery.com/" target="_blank" rel="noopener noreferrer" class="btn btn--green">Ver software →</a>
+            <a href="https://landing.itsquery.com/" target="_blank" rel="noopener noreferrer" class="btn btn--green"><span class="btn__brand"><img src="../assets/images/services/query_logo_hd.svg" alt="Query" /><span class="query-lockup__erp">ERP</span></span> →</a>
             <a href="https://wa.me/573244089755?text=Hola%2C%20vengo%20de%20la%20landing%20de%20QUERY%20-%20ERP%20y%20quiero%20una%20demo." target="_blank" rel="noopener noreferrer" class="btn btn--outline">Solicitar demo</a>
           </div>
           <div class="page-hero__stats">
@@ -326,7 +337,7 @@
               <div class="erp-stage__sidebar">
                 <div class="erp-stage__brand">
                   <span class="erp-stage__brand-mark"><img src="../assets/images/services/query_logo_hd.svg" alt="Logo de Query" /></span>
-                  <div class="erp-stage__brand-copy"><strong>QUERY - ERP</strong><span>Backoffice y operación</span></div>
+                  <div class="erp-stage__brand-copy"><span>Backoffice y operación</span></div>
                 </div>
                 <div class="erp-stage__nav-item is-active"><span>CRM &amp; Ventas</span><span class="erp-stage__nav-status"></span></div>
                 <div class="erp-stage__nav-item"><span>Operaciones</span><span class="erp-stage__nav-status"></span></div>
@@ -408,7 +419,7 @@
       <div class="section-header centered reveal">
         <span class="badge">Módulos</span>
         <h2 class="section-title">Un sistema que aterriza la operación en <span class="green">módulos reales</span></h2>
-        <p class="section-sub">QUERY - ERP se adapta a la lógica del negocio y a los equipos que sí lo van a operar todos los días.</p>
+        <p class="section-sub"><span class="query-lockup"><img src="../assets/images/services/query_logo_hd.svg" alt="Query" /><span class="query-lockup__erp">ERP</span></span> se adapta a la lógica del negocio y a los equipos que sí lo van a operar todos los días.</p>
       </div>
       <div class="modules-grid">
         <div class="module-card reveal"><div class="module-card__icon"><svg viewBox="0 0 24 24" fill="none"><path d="M6 7.5h12M6 12h7M6 16.5h10" stroke-width="1.8" stroke-linecap="round"/><rect x="4" y="4.5" width="16" height="15" rx="2.5" stroke-width="1.8"/></svg></div><div class="module-card__title">CRM & Ventas</div><div class="module-card__desc">Pipeline, oportunidades, seguimiento comercial, tareas y trazabilidad por ejecutivo.</div></div>
@@ -438,7 +449,7 @@
     <div class="container">
       <div class="section-header centered reveal">
         <span class="badge">Casos</span>
-        <h2 class="section-title">Dónde hace sentido implementar <span class="green">QUERY - ERP</span></h2>
+        <h2 class="section-title">Dónde hace sentido implementar <span class="green"><span class="query-lockup"><img src="../assets/images/services/query_logo_hd.svg" alt="Query" /><span class="query-lockup__erp">ERP</span></span></span></h2>
       </div>
       <div class="use-cases">
         <div class="use-case reveal">
@@ -452,7 +463,7 @@
         </div>
         <div class="use-case reveal">
           <div class="use-case__title">Operaciones con checklists, campo y aprobaciones</div>
-          <div class="use-case__desc">QUERY funciona muy bien cuando hay equipos móviles, validaciones por etapa y necesidad de evidencia para seguimiento, auditoría o control interno.</div>
+          <div class="use-case__desc"><span class="query-wordmark"><img src="../assets/images/services/query_logo_hd.svg" alt="Query" /></span> funciona muy bien cuando hay equipos móviles, validaciones por etapa y necesidad de evidencia para seguimiento, auditoría o control interno.</div>
           <div class="use-case__points">
             <div class="use-case__point">Registros en tiempo real desde el equipo operativo.</div>
             <div class="use-case__point">Aprobaciones automatizadas con responsables claros.</div>
@@ -467,7 +478,7 @@
     <div class="container">
       <div class="section-header centered reveal">
         <span class="badge">Integración</span>
-        <h2 class="section-title">QUERY - ERP se conecta con lo que ya <span class="green">usas</span></h2>
+        <h2 class="section-title"><span class="query-lockup"><img src="../assets/images/services/query_logo_hd.svg" alt="Query" /><span class="query-lockup__erp">ERP</span></span> se conecta con lo que ya <span class="green">usas</span></h2>
         <p class="section-sub">No se trata de cambiar todo de golpe, sino de unificar la operación con criterio.</p>
       </div>
       <div class="integrations-grid">
@@ -483,7 +494,7 @@
     <div class="container">
       <div class="section-header centered reveal">
         <span class="badge">Implementación</span>
-        <h2 class="section-title">Cómo aterrizamos QUERY - ERP sin frenar la <span class="green">operación</span></h2>
+        <h2 class="section-title">Cómo aterrizamos <span class="query-lockup"><img src="../assets/images/services/query_logo_hd.svg" alt="Query" /><span class="query-lockup__erp">ERP</span></span> sin frenar la <span class="green">operación</span></h2>
       </div>
       <div class="process reveal">
         <div class="process__item"><div class="process__num">01</div><div class="process__title">Diagnóstico</div><div class="process__desc">Mapeamos áreas, cuellos de botella y qué módulos tienen más impacto primero.</div></div>
@@ -497,10 +508,10 @@
   <section class="section">
     <div class="container">
       <div class="cta-banner reveal">
-        <h2 class="cta-banner__title">¿Quieres ver si <span class="green">QUERY - ERP</span> encaja en tu empresa?</h2>
+        <h2 class="cta-banner__title">¿Quieres ver si <span class="green"><span class="query-lockup"><img src="../assets/images/services/query_logo_hd.svg" alt="Query" /><span class="query-lockup__erp">ERP</span></span></span> encaja en tu empresa?</h2>
         <p class="cta-banner__sub">Te mostramos cómo se adapta a tu operación y qué módulos vale la pena activar primero.</p>
         <div class="cta-banner__actions">
-          <a href="https://landing.itsquery.com/" target="_blank" rel="noopener noreferrer" class="btn btn--green">Ver software</a>
+          <a href="https://landing.itsquery.com/" target="_blank" rel="noopener noreferrer" class="btn btn--green"><span class="btn__brand"><img src="../assets/images/services/query_logo_hd.svg" alt="Query" /><span class="query-lockup__erp">ERP</span></span></a>
           <a href="https://wa.me/573244089755?text=Hola%2C%20quiero%20agendar%20una%20demo%20de%20QUERY%20-%20ERP." target="_blank" rel="noopener noreferrer" class="btn btn--outline">Agendar demo</a>
         </div>
       </div>
@@ -512,7 +523,7 @@
       <div class="footer__inner">
         <div>
           <div class="footer__logo"><img src="../logo.png" alt="Sense Digital" /></div>
-          <p class="footer__desc">Implementamos QUERY - ERP para ordenar la operación y conectar ventas, inventario, finanzas y ejecución real.</p>
+          <p class="footer__desc">Implementamos <span class="query-lockup"><img src="../assets/images/services/query_logo_hd.svg" alt="Query" /><span class="query-lockup__erp">ERP</span></span> para ordenar la operación y conectar ventas, inventario, finanzas y ejecución real.</p>
           <div class="footer__social"><a class="footer__social-link" href="#">in</a><a class="footer__social-link" href="#">f</a><a class="footer__social-link" href="#">tt</a><a class="footer__social-link" href="#">li</a></div>
         </div>
         <div>
