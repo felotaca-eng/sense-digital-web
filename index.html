@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sense Digital | Innovación Digital al Alcance de tu Empresa</title>
-  <meta name="description" content="Agencia digital especializada en marketing, desarrollo web, apps móviles, automatización con IA y WhatsApp IA. Colombia y México." />
+  <meta name="description" content="Agencia digital especializada en marketing, desarrollo web, apps móviles, automatización con IA, ERP y WhatsApp IA. Colombia y México." />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-TT0ZVC86L6"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -545,6 +545,354 @@
     .sv-card__grid-item { background: rgba(255,255,255,.03); border-radius: 10px; padding: 14px; text-align: center; }
     .sv-card__grid-num { font-size: 1.4rem; font-weight: 900; color: var(--green); }
     .sv-card__grid-label { font-size: .72rem; color: var(--gray-sub); }
+    .sv-erp-shell {
+      position: relative;
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 16px;
+      min-height: 360px;
+      overflow: hidden;
+      background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.04));
+    }
+    .sv-erp-shell::before {
+      content: '';
+      position: absolute;
+      inset: -30% auto auto -18%;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(125,232,138,.18), rgba(125,232,138,0) 70%);
+      pointer-events: none;
+      filter: blur(8px);
+    }
+    .sv-erp-shell::after {
+      content: '';
+      position: absolute;
+      inset: auto -16% -34% auto;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(99,214,255,.16), rgba(99,214,255,0) 72%);
+      pointer-events: none;
+      filter: blur(10px);
+    }
+    .sv-erp-sidebar {
+      position: relative;
+      z-index: 1;
+      border-radius: 18px;
+      padding: 18px 14px;
+      background: rgba(7,12,42,.42);
+      border: 1px solid rgba(255,255,255,.07);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .sv-erp-sidebar__brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding-bottom: 10px;
+      margin-bottom: 4px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .sv-erp-sidebar__brand-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(145deg, rgba(125,232,138,.24), rgba(99,214,255,.2));
+      color: var(--white);
+      font-size: .8rem;
+      font-weight: 900;
+      letter-spacing: .08em;
+    }
+    .sv-erp-sidebar__brand-copy strong {
+      display: block;
+      font-size: .94rem;
+      line-height: 1.1;
+    }
+    .sv-erp-sidebar__brand-copy span {
+      display: block;
+      font-size: .72rem;
+      color: var(--gray-sub);
+      margin-top: 2px;
+    }
+    .sv-erp-sidebar__item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.06);
+      background: rgba(255,255,255,.03);
+      color: rgba(255,255,255,.86);
+      font-size: .76rem;
+      font-weight: 600;
+      animation: erpSidebarPulse 6.4s ease-in-out infinite;
+    }
+    .sv-erp-sidebar__item:nth-child(2) { animation-delay: .2s; }
+    .sv-erp-sidebar__item:nth-child(3) { animation-delay: .5s; }
+    .sv-erp-sidebar__item:nth-child(4) { animation-delay: .8s; }
+    .sv-erp-sidebar__item:nth-child(5) { animation-delay: 1.1s; }
+    .sv-erp-sidebar__item:nth-child(6) { animation-delay: 1.4s; }
+    .sv-erp-sidebar__item:nth-child(7) { animation-delay: 1.7s; }
+    .sv-erp-sidebar__item.is-active {
+      color: var(--white);
+      border-color: rgba(125,232,138,.18);
+      background: rgba(125,232,138,.1);
+      box-shadow: 0 12px 24px rgba(0,0,0,.18);
+    }
+    .sv-erp-sidebar__status {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      background: var(--green);
+      box-shadow: 0 0 12px rgba(125,232,138,.48);
+    }
+    .sv-erp-main {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .sv-erp-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 10px 14px;
+      border-radius: 16px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.06);
+    }
+    .sv-erp-topbar__title {
+      font-size: .86rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+    .sv-erp-topbar__copy {
+      font-size: .72rem;
+      color: var(--gray-sub);
+    }
+    .sv-erp-topbar__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 12px;
+      border-radius: 999px;
+      background: rgba(125,232,138,.12);
+      border: 1px solid rgba(125,232,138,.2);
+      color: var(--green);
+      font-size: .72rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+    .sv-erp-topbar__badge::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 12px rgba(125,232,138,.42);
+      animation: badgeBlink 2.6s ease-in-out infinite;
+    }
+    .sv-erp-kpis {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .sv-erp-kpi {
+      position: relative;
+      overflow: hidden;
+      border-radius: 16px;
+      padding: 16px 16px 14px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.06);
+      animation: erpCardFloat 6.2s ease-in-out infinite;
+    }
+    .sv-erp-kpi:nth-child(2) { animation-delay: .5s; }
+    .sv-erp-kpi:nth-child(3) { animation-delay: 1s; }
+    .sv-erp-kpi::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(110deg, transparent 18%, rgba(255,255,255,.14) 44%, transparent 72%);
+      transform: translateX(-120%);
+      animation: erpScan 5.8s ease-in-out infinite;
+    }
+    .sv-erp-kpi__label {
+      position: relative;
+      z-index: 1;
+      font-size: .7rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--gray-sub);
+      margin-bottom: 10px;
+    }
+    .sv-erp-kpi__value {
+      position: relative;
+      z-index: 1;
+      font-size: 1.95rem;
+      font-weight: 900;
+      line-height: 1;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+    .sv-erp-kpi__meta {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      font-size: .72rem;
+      color: var(--gray-sub);
+    }
+    .sv-erp-kpi__delta {
+      color: var(--green);
+      font-weight: 800;
+    }
+    .sv-erp-flow {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 12px;
+    }
+    .sv-erp-flow__panel,
+    .sv-erp-flow__side {
+      border-radius: 16px;
+      padding: 16px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.06);
+    }
+    .sv-erp-flow__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .sv-erp-flow__header strong {
+      font-size: .88rem;
+      color: var(--white);
+    }
+    .sv-erp-flow__header span {
+      font-size: .72rem;
+      color: var(--gray-sub);
+    }
+    .sv-erp-flow__pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(99,214,255,.12);
+      color: var(--cyan);
+      font-size: .68rem;
+      font-weight: 800;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .sv-erp-flow__list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .sv-erp-flow__item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.06);
+      animation: erpRowPulse 5.6s ease-in-out infinite;
+    }
+    .sv-erp-flow__item:nth-child(2) { animation-delay: .5s; }
+    .sv-erp-flow__item:nth-child(3) { animation-delay: 1s; }
+    .sv-erp-flow__item:nth-child(4) { animation-delay: 1.5s; }
+    .sv-erp-flow__item-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+    }
+    .sv-erp-flow__item-bullet {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      background: linear-gradient(135deg, var(--green), var(--cyan));
+      box-shadow: 0 0 12px rgba(99,214,255,.28);
+    }
+    .sv-erp-flow__item-left strong {
+      display: block;
+      font-size: .8rem;
+      color: var(--white);
+      line-height: 1.1;
+    }
+    .sv-erp-flow__item-left span {
+      display: block;
+      font-size: .69rem;
+      color: var(--gray-sub);
+      margin-top: 2px;
+    }
+    .sv-erp-flow__item-metric {
+      color: var(--green);
+      font-size: .78rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+    .sv-erp-flow__mini-grid {
+      display: grid;
+      gap: 10px;
+    }
+    .sv-erp-mini {
+      position: relative;
+      overflow: hidden;
+      border-radius: 14px;
+      padding: 14px;
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.06);
+    }
+    .sv-erp-mini::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, transparent 25%, rgba(255,255,255,.12) 48%, transparent 72%);
+      transform: translateX(-130%);
+      animation: erpScan 6.2s ease-in-out infinite;
+    }
+    .sv-erp-mini__label {
+      position: relative;
+      z-index: 1;
+      font-size: .68rem;
+      color: var(--gray-sub);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-bottom: 8px;
+    }
+    .sv-erp-mini__value {
+      position: relative;
+      z-index: 1;
+      font-size: 1.55rem;
+      font-weight: 900;
+      line-height: 1;
+      color: var(--green);
+      margin-bottom: 6px;
+    }
+    .sv-erp-mini__copy {
+      position: relative;
+      z-index: 1;
+      font-size: .72rem;
+      color: var(--gray-sub);
+      line-height: 1.45;
+    }
     .sv-brand-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -1234,6 +1582,22 @@
       0%,100% { transform: translateY(0); }
       50% { transform: translateY(-5px); }
     }
+    @keyframes erpSidebarPulse {
+      0%,100% { transform: translateX(0); border-color: rgba(255,255,255,.06); }
+      50% { transform: translateX(4px); border-color: rgba(125,232,138,.14); }
+    }
+    @keyframes erpCardFloat {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+    @keyframes erpScan {
+      0%, 16% { transform: translateX(-130%); }
+      48%, 100% { transform: translateX(130%); }
+    }
+    @keyframes erpRowPulse {
+      0%,100% { transform: scale(1); border-color: rgba(255,255,255,.06); }
+      50% { transform: scale(1.015); border-color: rgba(99,214,255,.16); }
+    }
 
     /* ===== PROCESS ===== */
     .process__steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; position: relative; }
@@ -1332,6 +1696,8 @@
     /* ===== RESPONSIVE ===== */
     @media (max-width: 960px) {
       .hero__inner, .service-section__inner, .service-section__inner.reverse, .contact__inner, .why__inner { grid-template-columns: 1fr; direction: ltr; }
+      .sv-erp-shell, .sv-erp-flow { grid-template-columns: 1fr; }
+      .sv-erp-kpis { grid-template-columns: 1fr; }
       .hero__visual { display: none; }
       .trust__inner, .showcase__shell { grid-template-columns: 1fr; }
       .testimonials__grid { grid-template-columns: 1fr; }
@@ -1442,6 +1808,13 @@
                   <div>
                     <div class="megamenu__item-title">WhatsApp IA</div>
                     <div class="megamenu__item-desc">Atención y ventas automáticas 24/7 por WhatsApp</div>
+                  </div>
+                </a>
+                <a href="#srv-erp" class="megamenu__item">
+                  <div class="megamenu__item-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4.5" y="5" width="15" height="14" rx="2.5" stroke-width="1.8"/><path d="M8 9h8M8 13h4" stroke-width="1.8" stroke-linecap="round"/><path d="M15.5 13h.01M15.5 16h.01" stroke-width="2.2" stroke-linecap="round"/></svg></div>
+                  <div>
+                    <div class="megamenu__item-title">ERP</div>
+                    <div class="megamenu__item-desc">Operación, CRM, inventario y finanzas en un solo sistema</div>
                   </div>
                 </a>
                 <a href="servicios/diseno-branding.html" class="megamenu__item">
@@ -1579,6 +1952,7 @@
         <a href="#srv-web" class="services-nav__item"><svg class="services-nav__item-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="8" stroke-width="1.8"/><path d="M4.5 9.5h15M4.5 14.5h15" stroke-width="1.8" stroke-linecap="round"/><path d="M12 4c2.5 2.2 4 5 4 8s-1.5 5.8-4 8c-2.5-2.2-4-5-4-8s1.5-5.8 4-8Z" stroke-width="1.8" stroke-linejoin="round"/></svg>Desarrollo Web</a>
         <a href="#srv-apps" class="services-nav__item"><svg class="services-nav__item-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="7" y="3.5" width="10" height="17" rx="2.5" stroke-width="1.8"/><path d="M10.5 6.5h3" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="17.5" r="1" fill="currentColor" stroke="none"/></svg>Apps Móviles</a>
         <a href="#srv-ia" class="services-nav__item"><svg class="services-nav__item-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="7" y="8" width="10" height="8" rx="2.5" stroke-width="1.8"/><path d="M12 4.5v3" stroke-width="1.8" stroke-linecap="round"/><path d="M9 19h6" stroke-width="1.8" stroke-linecap="round"/><path d="M8 12h.01M16 12h.01" stroke-width="2.2" stroke-linecap="round"/><path d="M5.5 10.5v3M18.5 10.5v3" stroke-width="1.8" stroke-linecap="round"/></svg>Automatización IA</a>
+        <a href="#srv-erp" class="services-nav__item"><svg class="services-nav__item-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4.5" y="5" width="15" height="14" rx="2.5" stroke-width="1.8"/><path d="M8 9h8M8 13h4" stroke-width="1.8" stroke-linecap="round"/><path d="M15.5 13h.01M15.5 16h.01" stroke-width="2.2" stroke-linecap="round"/></svg>ERP</a>
         <a href="#srv-whatsapp" class="services-nav__item"><svg class="services-nav__item-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 18.5 4.5 20l.7-3A7.5 7.5 0 1 1 19.5 12 7.5 7.5 0 0 1 7 18.5Z" stroke-width="1.8" stroke-linejoin="round"/><path d="M9.2 11.2c.3-.6.6-.7.9-.7h.5c.2 0 .4.2.5.4l.7 1.5c.1.2.1.5-.1.7l-.5.6c.5.9 1.2 1.6 2.1 2.1l.6-.5c.2-.2.5-.2.7-.1l1.5.7c.2.1.4.3.4.5v.5c0 .3-.1.6-.7.9-.5.2-1 .3-1.5.2-2.4-.5-4.8-2.9-5.3-5.3-.1-.5 0-1 .2-1.5Z" stroke-width="1.4" stroke-linejoin="round"/></svg>WhatsApp IA</a>
         <a href="#srv-diseno" class="services-nav__item"><svg class="services-nav__item-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 4c4.4 0 8 3 8 6.9 0 1.7-.7 3.1-2 4.2-.8.7-1.2 1.7-.9 2.7.2.9-.3 1.7-1.2 1.7h-1.4c-.7 0-1.2-.5-1.2-1.2 0-1.2-.9-2.1-2.1-2.1H9.4A5.4 5.4 0 0 1 4 10.8C4 7 7.6 4 12 4Z" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 9h.01M12 7.5h.01M15 9h.01M8.5 12.5h.01" stroke-width="2.2" stroke-linecap="round"/></svg>Diseño &amp; Branding</a>
       </div>
@@ -1880,7 +2254,138 @@
     </div>
   </section>
 
-  <!-- SERVICE 5: WHATSAPP IA -->
+  <!-- SERVICE 5: ERP -->
+  <section class="service-section" id="srv-erp">
+    <div class="container">
+      <div class="service-section__inner">
+        <div class="service-section__content reveal">
+          <div class="service-section__icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4.5" y="5" width="15" height="14" rx="2.5" stroke-width="1.8"/><path d="M8 9h8M8 13h4" stroke-width="1.8" stroke-linecap="round"/><path d="M15.5 13h.01M15.5 16h.01" stroke-width="2.2" stroke-linecap="round"/></svg></div>
+          <span class="badge">ERP</span>
+          <h2 class="service-section__title">Un ERP que <span class="green">ordena</span> y acelera tu operación</h2>
+          <p class="service-section__sub">Implementamos Query como una capa de control para empresas que necesitan centralizar operaciones, ventas, recursos, inventario, aprobaciones y reportes en un solo sistema.</p>
+          <div class="service-section__features">
+            <div class="service-section__feature">
+              <div class="service-section__feature-dot">✓</div>
+              <div class="service-section__feature-text"><strong>Operación centralizada</strong> — Proyectos, CRM, inventarios, compras y tareas conectadas en una sola vista</div>
+            </div>
+            <div class="service-section__feature">
+              <div class="service-section__feature-dot">✓</div>
+              <div class="service-section__feature-text"><strong>Módulos configurables</strong> — Checklists en campo, documentación, aprobaciones, activos, RRHH y finanzas según tu industria</div>
+            </div>
+            <div class="service-section__feature">
+              <div class="service-section__feature-dot">✓</div>
+              <div class="service-section__feature-text"><strong>ERP + IA</strong> — Automatiza procesos y convierte tu operación en una fuente real de datos para decisiones</div>
+            </div>
+            <div class="service-section__feature">
+              <div class="service-section__feature-dot">✓</div>
+              <div class="service-section__feature-text"><strong>Implementación acompañada</strong> — No solo te entregamos software: te ayudamos a adaptarlo y ponerlo a trabajar</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:12px;flex-wrap:wrap">
+            <a href="https://landing.itsquery.com/" target="_blank" rel="noopener noreferrer" class="btn btn--green">Ver software ERP →</a>
+            <a href="https://wa.me/573244089755?text=Hola%2C%20vengo%20del%20Home%20de%20Sense%20Digital%20y%20estoy%20interesado%20en%20el%20ERP%20Query." target="_blank" rel="noopener noreferrer" class="btn btn--outline-green">Solicitar demo</a>
+          </div>
+        </div>
+        <div class="service-visual reveal">
+          <div class="sv-card">
+            <div class="sv-erp-shell">
+              <div class="sv-erp-sidebar">
+                <div class="sv-erp-sidebar__brand">
+                  <span class="sv-erp-sidebar__brand-mark">Q</span>
+                  <div class="sv-erp-sidebar__brand-copy">
+                    <strong>Query ERP</strong>
+                    <span>Operación centralizada</span>
+                  </div>
+                </div>
+                <div class="sv-erp-sidebar__item is-active"><span>CRM &amp; Ventas</span><span class="sv-erp-sidebar__status"></span></div>
+                <div class="sv-erp-sidebar__item"><span>Operaciones</span><span class="sv-erp-sidebar__status"></span></div>
+                <div class="sv-erp-sidebar__item"><span>Inventario</span><span class="sv-erp-sidebar__status"></span></div>
+                <div class="sv-erp-sidebar__item"><span>Finanzas</span><span class="sv-erp-sidebar__status"></span></div>
+                <div class="sv-erp-sidebar__item"><span>RRHH</span><span class="sv-erp-sidebar__status"></span></div>
+                <div class="sv-erp-sidebar__item"><span>Aprobaciones</span><span class="sv-erp-sidebar__status"></span></div>
+              </div>
+              <div class="sv-erp-main">
+                <div class="sv-erp-topbar">
+                  <div>
+                    <div class="sv-erp-topbar__title">Vista ejecutiva de la operación</div>
+                    <div class="sv-erp-topbar__copy">Procesos, módulos y trazabilidad en un solo lugar</div>
+                  </div>
+                  <span class="sv-erp-topbar__badge">Activo</span>
+                </div>
+                <div class="sv-erp-kpis">
+                  <div class="sv-erp-kpi">
+                    <div class="sv-erp-kpi__label">Módulos activos</div>
+                    <div class="sv-erp-kpi__value">14</div>
+                    <div class="sv-erp-kpi__meta"><span>Operación conectada</span><span class="sv-erp-kpi__delta">+6</span></div>
+                  </div>
+                  <div class="sv-erp-kpi">
+                    <div class="sv-erp-kpi__label">Ahorro operativo</div>
+                    <div class="sv-erp-kpi__value">30%</div>
+                    <div class="sv-erp-kpi__meta"><span>Menos reprocesos</span><span class="sv-erp-kpi__delta">↗</span></div>
+                  </div>
+                  <div class="sv-erp-kpi">
+                    <div class="sv-erp-kpi__label">Usuarios</div>
+                    <div class="sv-erp-kpi__value">50+</div>
+                    <div class="sv-erp-kpi__meta"><span>Equipos sincronizados</span><span class="sv-erp-kpi__delta">24/7</span></div>
+                  </div>
+                </div>
+                <div class="sv-erp-flow">
+                  <div class="sv-erp-flow__panel">
+                    <div class="sv-erp-flow__header">
+                      <div>
+                        <strong>Flujo operativo</strong>
+                        <span>Tareas automáticas y aprobaciones</span>
+                      </div>
+                      <span class="sv-erp-flow__pill">En proceso</span>
+                    </div>
+                    <div class="sv-erp-flow__list">
+                      <div class="sv-erp-flow__item">
+                        <div class="sv-erp-flow__item-left">
+                          <span class="sv-erp-flow__item-bullet"></span>
+                          <div><strong>Facturas y comprobantes</strong><span>Control y trazabilidad por estado</span></div>
+                        </div>
+                        <span class="sv-erp-flow__item-metric">247</span>
+                      </div>
+                      <div class="sv-erp-flow__item">
+                        <div class="sv-erp-flow__item-left">
+                          <span class="sv-erp-flow__item-bullet"></span>
+                          <div><strong>Checklist de campo</strong><span>Equipos registrando y validando desde móvil</span></div>
+                        </div>
+                        <span class="sv-erp-flow__item-metric">89</span>
+                      </div>
+                      <div class="sv-erp-flow__item">
+                        <div class="sv-erp-flow__item-left">
+                          <span class="sv-erp-flow__item-bullet"></span>
+                          <div><strong>Flujos de aprobación</strong><span>Decisiones más rápidas y menos fricción</span></div>
+                        </div>
+                        <span class="sv-erp-flow__item-metric">12</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="sv-erp-flow__side">
+                    <div class="sv-erp-flow__mini-grid">
+                      <div class="sv-erp-mini">
+                        <div class="sv-erp-mini__label">CRM</div>
+                        <div class="sv-erp-mini__value">360°</div>
+                        <div class="sv-erp-mini__copy">Clientes, postventa y seguimiento comercial</div>
+                      </div>
+                      <div class="sv-erp-mini">
+                        <div class="sv-erp-mini__label">Dashboards</div>
+                        <div class="sv-erp-mini__value">Live</div>
+                        <div class="sv-erp-mini__copy">Indicadores por área, usuarios y operación</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE 6: WHATSAPP IA -->
   <section class="service-section" id="srv-whatsapp">
     <div class="container">
       <div class="service-section__inner">
@@ -2202,6 +2707,7 @@
               <option>Desarrollo Web</option>
               <option>App Móvil</option>
               <option>Automatización con IA</option>
+              <option>ERP</option>
               <option>WhatsApp IA</option>
               <option>Diseño &amp; Branding</option>
               <option>Solución integral</option>
@@ -2238,6 +2744,7 @@
             <a href="#srv-web">Desarrollo Web</a>
             <a href="#srv-apps">Apps Móviles</a>
             <a href="#srv-ia">Automatización IA</a>
+            <a href="#srv-erp">ERP</a>
             <a href="#srv-whatsapp">WhatsApp IA</a>
             <a href="#srv-diseno">Diseño &amp; Branding</a>
           </div>
