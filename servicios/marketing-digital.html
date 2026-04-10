@@ -141,6 +141,10 @@
     .metric-card__ticker { margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,.06); display: flex; align-items: center; justify-content: space-between; gap: 16px; font-size: .72rem; color: var(--gray-sub); }
     .metric-card__ticker-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 14px rgba(125,232,138,.55); animation: badgeBlink 1.8s ease-in-out infinite; }
     .metric-card__ticker-right { color: var(--green); font-weight: 800; letter-spacing: .04em; }
+    .metric-card__ticker-text,
+    .metric-card__ticker-right { transition: opacity .22s ease, transform .22s ease; }
+    .metric-card__ticker-text.is-switching,
+    .metric-card__ticker-right.is-switching { opacity: .15; transform: translateY(4px); }
     @keyframes reportFloat {
       0%,100% { transform: translateY(0); }
       50% { transform: translateY(-4px); }
@@ -403,7 +407,7 @@
               <div class="metric-card__label"><span>TikTok Ads · Alcance</span><span class="countup live-metric" data-target="340" data-start="180" data-step="28" data-prefix="+" data-suffix="%" style="color:var(--green);font-weight:700">+340%</span></div>
             </div>
             <div class="metric-card__ticker">
-              <span style="display:flex;align-items:center;gap:10px"><span class="metric-card__ticker-dot"></span>Actualizando conversiones e impresiones</span>
+              <span style="display:flex;align-items:center;gap:10px"><span class="metric-card__ticker-dot"></span><span class="metric-card__ticker-text">Actualizando conversiones e impresiones</span></span>
               <span class="metric-card__ticker-right">LIVE REPORT</span>
             </div>
           </div>
@@ -808,6 +812,34 @@
       }, 1800 + Math.random() * 500);
     };
 
+    const startLiveTicker = () => {
+      const tickerText = document.querySelector('.metric-card__ticker-text');
+      const tickerRight = document.querySelector('.metric-card__ticker-right');
+      if (!tickerText || !tickerRight) return;
+
+      const states = [
+        { left: 'Actualizando conversiones e impresiones', right: 'LIVE REPORT' },
+        { left: 'Monitoreando CTR y costo por clic', right: 'CTR / CPC' },
+        { left: 'Comparando CPA contra objetivo', right: 'CPA TRACK' },
+        { left: 'Leyendo alcance e impresiones en tiempo real', right: 'IMPRESIONES' },
+        { left: 'Detectando picos de conversion en campaña', right: 'CONVERSIONES' }
+      ];
+
+      let index = 0;
+      setInterval(() => {
+        index = (index + 1) % states.length;
+        tickerText.classList.add('is-switching');
+        tickerRight.classList.add('is-switching');
+
+        setTimeout(() => {
+          tickerText.textContent = states[index].left;
+          tickerRight.textContent = states[index].right;
+          tickerText.classList.remove('is-switching');
+          tickerRight.classList.remove('is-switching');
+        }, 220);
+      }, 2400);
+    };
+
     const metricObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
@@ -817,6 +849,7 @@
     }, { threshold: 0.35 });
 
     document.querySelectorAll('.page-hero__visual, .page-hero__stats').forEach((el) => metricObserver.observe(el));
+    startLiveTicker();
   </script>
 </body>
 </html>
