@@ -547,10 +547,10 @@
     .sv-card__grid-label { font-size: .72rem; color: var(--gray-sub); }
     .sv-query-shell {
       position: relative;
-      min-height: 420px;
+      min-height: 432px;
       overflow: hidden;
       border-radius: 24px;
-      padding: 18px 18px 20px;
+      padding: 14px 14px 16px;
       background:
         linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.03)),
         radial-gradient(circle at top left, rgba(125,232,138,.12), rgba(125,232,138,0) 32%),
@@ -574,8 +574,8 @@
       gap: 12px;
       position: relative;
       z-index: 2;
-      margin-bottom: 18px;
-      padding: 10px 14px;
+      margin-bottom: 12px;
+      padding: 9px 12px;
       border-radius: 16px;
       background: rgba(7,12,42,.32);
       border: 1px solid rgba(255,255,255,.08);
@@ -627,16 +627,18 @@
       overflow: hidden;
       background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
       border: 1px solid rgba(255,255,255,.08);
-      min-height: 278px;
-      padding: 16px;
+      min-height: 304px;
+      padding: 8px;
     }
     .sv-query-shot {
       display: block;
-      width: 100%;
+      width: 118%;
       height: auto;
       object-fit: contain;
       border-radius: 18px;
       box-shadow: 0 20px 40px rgba(0,0,0,.18);
+      max-width: none;
+      margin-left: -8%;
     }
     .sv-query-floating {
       position: absolute;
@@ -652,12 +654,12 @@
       animation: queryFloat 5.4s ease-in-out infinite;
     }
     .sv-query-floating--modules {
-      top: 86px;
-      right: -6px;
+      top: 78px;
+      right: -10px;
     }
     .sv-query-floating--ops {
-      left: -6px;
-      bottom: 92px;
+      left: -10px;
+      bottom: 86px;
       animation-delay: 1.2s;
     }
     .sv-query-floating__label {
@@ -684,11 +686,11 @@
       z-index: 2;
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 12px;
-      margin-top: 18px;
+      gap: 10px;
+      margin-top: 12px;
     }
     .sv-query-mini {
-      padding: 12px 14px;
+      padding: 10px 12px;
       border-radius: 16px;
       background: rgba(255,255,255,.04);
       border: 1px solid rgba(255,255,255,.08);
@@ -698,7 +700,7 @@
     .sv-query-mini:nth-child(3) { animation-delay: .7s; }
     .sv-query-mini strong {
       display: block;
-      font-size: 1.05rem;
+      font-size: .98rem;
       line-height: 1.1;
       color: var(--green);
       margin-bottom: 4px;
@@ -1878,7 +1880,8 @@
       .sv-erp-kpis { grid-template-columns: 1fr; }
       .sv-query-footer { grid-template-columns: 1fr; }
       .sv-query-shell { min-height: auto; }
-      .sv-query-stage { min-height: 0; padding: 10px; }
+      .sv-query-stage { min-height: 0; padding: 8px; }
+      .sv-query-shot { width: 100%; max-width: 100%; margin-left: 0; }
       .sv-query-floating { position: static; max-width: none; margin-top: 12px; }
       .hero__visual { display: none; }
       .trust__inner, .showcase__shell { grid-template-columns: 1fr; }
