@@ -393,14 +393,14 @@
               <span class="metric-card__badge">↑ Este mes</span>
             </div>
             <div class="metric-card__bar"><div class="metric-card__bar-fill" style="width:88%"></div></div>
-            <div class="metric-card__label"><span>Google Ads · ROAS</span><span class="countup" data-target="5.2" data-suffix="x" style="color:var(--green);font-weight:700">5.2x</span></div>
+            <div class="metric-card__label"><span>Google Ads · ROAS</span><span class="countup live-metric" data-target="5.2" data-start="3.4" data-step="0.4" data-suffix="x" style="color:var(--green);font-weight:700">5.2x</span></div>
             <div style="margin-top:12px">
               <div class="metric-card__bar" style="margin-bottom:6px"><div class="metric-card__bar-fill" style="width:75%"></div></div>
-              <div class="metric-card__label"><span>Facebook Ads · CTR</span><span class="countup" data-target="3.8" data-suffix="%" style="color:var(--green);font-weight:700">3.8%</span></div>
+              <div class="metric-card__label"><span>Facebook Ads · CTR</span><span class="countup live-metric" data-target="3.8" data-start="2.1" data-step="0.32" data-suffix="%" style="color:var(--green);font-weight:700">3.8%</span></div>
             </div>
             <div style="margin-top:12px">
               <div class="metric-card__bar" style="margin-bottom:6px"><div class="metric-card__bar-fill" style="width:92%"></div></div>
-              <div class="metric-card__label"><span>TikTok Ads · Alcance</span><span class="countup" data-target="340" data-prefix="+" data-suffix="%" style="color:var(--green);font-weight:700">+340%</span></div>
+              <div class="metric-card__label"><span>TikTok Ads · Alcance</span><span class="countup live-metric" data-target="340" data-start="180" data-step="28" data-prefix="+" data-suffix="%" style="color:var(--green);font-weight:700">+340%</span></div>
             </div>
             <div class="metric-card__ticker">
               <span style="display:flex;align-items:center;gap:10px"><span class="metric-card__ticker-dot"></span>Actualizando conversiones e impresiones</span>
@@ -409,9 +409,9 @@
           </div>
           <div class="metric-card" style="margin-top:14px">
             <div class="metric-card__grid">
-              <div class="metric-card__item"><div class="metric-card__item-num countup" data-target="7" data-suffix="K+">7K+</div><div class="metric-card__item-label">Clientes activos</div></div>
-              <div class="metric-card__item"><div class="metric-card__item-num countup" data-target="340" data-suffix="%">340%</div><div class="metric-card__item-label">ROI promedio</div></div>
-              <div class="metric-card__item"><div class="metric-card__item-num countup" data-target="24" data-suffix="h">24h</div><div class="metric-card__item-label">Onboarding</div></div>
+              <div class="metric-card__item"><div class="metric-card__item-num countup live-metric" data-target="7" data-start="4.2" data-step="0.45" data-suffix="K+">7K+</div><div class="metric-card__item-label">Clientes activos</div></div>
+              <div class="metric-card__item"><div class="metric-card__item-num countup live-metric" data-target="340" data-start="220" data-step="18" data-suffix="%">340%</div><div class="metric-card__item-label">ROI promedio</div></div>
+              <div class="metric-card__item"><div class="metric-card__item-num countup live-metric" data-target="24" data-start="12" data-step="2" data-suffix="h">24h</div><div class="metric-card__item-label">Onboarding</div></div>
             </div>
           </div>
         </div>
@@ -746,6 +746,7 @@
       if (el.dataset.counted === 'true') return;
       el.dataset.counted = 'true';
       const target = parseFloat(el.dataset.target || '0');
+      const startValue = parseFloat(el.dataset.start || '0');
       const prefix = el.dataset.prefix || '';
       const suffix = el.dataset.suffix || '';
       const duration = 1400;
@@ -754,13 +755,57 @@
       const tick = (now) => {
         const progress = Math.min((now - start) / duration, 1);
         const eased = 1 - Math.pow(1 - progress, 3);
-        const current = target * eased;
+        const current = startValue + ((target - startValue) * eased);
         el.textContent = formatMetricValue(current, prefix, suffix);
         if (progress < 1) requestAnimationFrame(tick);
-        else el.textContent = formatMetricValue(target, prefix, suffix);
+        else {
+          el.textContent = formatMetricValue(target, prefix, suffix);
+          if (el.classList.contains('live-metric')) startLiveMetric(el);
+        }
       };
 
       requestAnimationFrame(tick);
+    };
+
+    const animateMetricStep = (el, from, to, duration = 900) => {
+      const prefix = el.dataset.prefix || '';
+      const suffix = el.dataset.suffix || '';
+      const start = performance.now();
+
+      const tick = (now) => {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = progress < 0.5
+          ? 4 * progress * progress * progress
+          : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+        const current = from + ((to - from) * eased);
+        el.textContent = formatMetricValue(current, prefix, suffix);
+        if (progress < 1) requestAnimationFrame(tick);
+      };
+
+      requestAnimationFrame(tick);
+    };
+
+    const startLiveMetric = (el) => {
+      if (el.dataset.liveStarted === 'true') return;
+      el.dataset.liveStarted = 'true';
+
+      const target = parseFloat(el.dataset.target || '0');
+      const startValue = parseFloat(el.dataset.start || (target * 0.72).toString());
+      const configuredStep = parseFloat(el.dataset.step || '');
+      const step = Number.isFinite(configuredStep) ? configuredStep : Math.max((target - startValue) / 4, 0.2);
+      let current = target;
+
+      setInterval(() => {
+        let next = current + step * (0.75 + Math.random() * 0.7);
+        if (next >= target) {
+          current = startValue + (Math.random() * step * 0.8);
+          animateMetricStep(el, parseFloat(el.textContent.replace(/[^\d.-]/g, '')) || target, current, 520);
+          return;
+        }
+
+        animateMetricStep(el, current, next);
+        current = next;
+      }, 1800 + Math.random() * 500);
     };
 
     const metricObserver = new IntersectionObserver((entries) => {
