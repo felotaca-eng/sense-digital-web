@@ -2052,6 +2052,15 @@
     .contact__item-label { font-size: .75rem; font-weight: 600; color: var(--gray-sub); text-transform: uppercase; letter-spacing: .08em; }
     .contact__item-value { font-size: .95rem; font-weight: 600; color: var(--white); margin-top: 2px; }
     .contact__form { display: flex; flex-direction: column; gap: 14px; }
+    .contact__embed {
+      padding: 20px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.08);
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.025));
+      box-shadow: 0 20px 40px rgba(0,0,0,.14);
+      min-height: 520px;
+    }
+    .contact__embed > div { min-height: 480px; }
     .form__row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
     .form__group { display: flex; flex-direction: column; gap: 6px; }
     .form__label { font-size: .78rem; font-weight: 600; color: var(--gray-sub); }
@@ -3112,56 +3121,10 @@
             <div><div class="contact__item-label">WhatsApp</div><div class="contact__item-value">+57 324 408 9755</div></div>
           </div>
         </div>
-        <div class="reveal" id="contactFormWrapper">
-          <form class="contact__form" id="contactForm" onsubmit="handleSubmit(event)">
-            <div class="form__row">
-              <div class="form__group">
-                <label class="form__label" for="f-nombre">Nombre *</label>
-                <input class="form__input" id="f-nombre" type="text" placeholder="Tu nombre" required />
-              </div>
-              <div class="form__group">
-                <label class="form__label" for="f-empresa">Empresa</label>
-                <input class="form__input" id="f-empresa" type="text" placeholder="Tu empresa" />
-              </div>
-            </div>
-            <div class="form__row">
-              <div class="form__group">
-                <label class="form__label" for="f-email">Email *</label>
-                <input class="form__input" id="f-email" type="email" placeholder="tu@email.com" required />
-              </div>
-              <div class="form__group">
-                <label class="form__label" for="f-wa">WhatsApp</label>
-                <input class="form__input" id="f-wa" type="tel" placeholder="+57 324 408 9755" />
-              </div>
-            </div>
-            <div class="form__group">
-              <label class="form__label" for="f-servicio">Servicio de interés *</label>
-              <select class="form__select" id="f-servicio" required>
-                <option value="">Selecciona un servicio...</option>
-                <option>Marketing Digital</option>
-                <option>Desarrollo Web</option>
-                <option>App Móvil</option>
-                <option>Automatización con IA</option>
-                <option>QUERY - ERP</option>
-                <option>WhatsApp IA</option>
-                <option>Diseño &amp; Branding</option>
-                <option>Solución integral</option>
-              </select>
-            </div>
-            <div class="form__group">
-              <label class="form__label" for="f-msg">Cuéntanos sobre tu proyecto *</label>
-              <textarea class="form__textarea" id="f-msg" placeholder="Describe tu proyecto, objetivos y presupuesto estimado..." required></textarea>
-            </div>
-            <button type="submit" id="formSubmitBtn" class="btn btn--green" style="width:100%;justify-content:center;padding:16px;font-size:1rem;">Enviar mensaje →</button>
-          </form>
-          <div class="form__success" id="formSuccess">
-            <div class="form__success-icon">
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4.5 12.75l6 6 9-13.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <div class="form__success-title">¡Mensaje recibido!</div>
-            <p class="form__success-sub">Gracias por escribirnos. Un especialista te contactará en menos de 24 horas para hablar de tu proyecto.</p>
-            <button class="form__success-back" onclick="resetContactForm()">Enviar otro mensaje</button>
-          </div>
+        <div class="reveal contact__embed" id="contactFormWrapper">
+          <div id="kommo-form-1439547"></div>
+          <script>!function(a,m,o,c,r,m){a[o+c]=a[o+c]||{setMeta:function(p){this.params=(this.params||[]).concat([p])}},a[o+r]=a[o+r]||function(f){a[o+r].f=(a[o+r].f||[]).concat([f])},a[o+r]({id:"1439547",hash:"ab4849a58988ac481eba6f5675c39613",locale:"es"}),a[o+m]=a[o+m]||function(f,k){a[o+m].f=(a[o+m].f||[]).concat([[f,k]])}}(window,0,"amo_forms_","params","load","loaded");</script>
+          <script id="amoforms_script_1439547" async="async" charset="utf-8" src="https://forms.kommo.com/forms/assets/js/amoforms.js?1776049578"></script>
         </div>
       </div>
     </div>
@@ -3442,24 +3405,6 @@
     }
 
     // Form submit
-    function handleSubmit(e) {
-      e.preventDefault();
-      const btn = document.getElementById('formSubmitBtn');
-      btn.textContent = 'Enviando...';
-      btn.disabled = true;
-      setTimeout(() => {
-        document.getElementById('contactForm').style.display = 'none';
-        document.getElementById('formSuccess').classList.add('visible');
-      }, 600);
-    }
-    function resetContactForm() {
-      document.getElementById('contactForm').reset();
-      document.getElementById('contactForm').style.display = '';
-      document.getElementById('formSuccess').classList.remove('visible');
-      const btn = document.getElementById('formSubmitBtn');
-      btn.textContent = 'Enviar mensaje →';
-      btn.disabled = false;
-    }
   </script>
 </body>
 </html>
