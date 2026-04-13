@@ -563,6 +563,179 @@
     .sv-card__grid-item { background: rgba(255,255,255,.03); border-radius: 10px; padding: 14px; text-align: center; }
     .sv-card__grid-num { font-size: 1.4rem; font-weight: 900; color: var(--green); }
     .sv-card__grid-label { font-size: .72rem; color: var(--gray-sub); }
+    .sv-app-visual {
+      position: relative;
+      min-height: 244px;
+      margin-bottom: 18px;
+      border-radius: 18px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 20% 18%, rgba(125,232,138,.14), rgba(125,232,138,0) 24%),
+        radial-gradient(circle at 82% 22%, rgba(99,214,255,.14), rgba(99,214,255,0) 26%),
+        linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border: 1px solid rgba(255,255,255,.08);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.04);
+    }
+    .sv-app-visual::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+      background-size: 26px 26px;
+      opacity: .42;
+      pointer-events: none;
+    }
+    .sv-app-visual::after {
+      content: '';
+      position: absolute;
+      top: -24%;
+      left: -36%;
+      width: 46%;
+      height: 150%;
+      background: linear-gradient(120deg, rgba(255,255,255,0), rgba(255,255,255,.15), rgba(255,255,255,0));
+      transform: rotate(14deg);
+      animation: appShine 6.6s ease-in-out infinite;
+      pointer-events: none;
+    }
+    .sv-app-phone {
+      position: absolute;
+      left: 50%;
+      top: 22px;
+      width: 170px;
+      aspect-ratio: 0.48;
+      transform: translateX(-50%);
+      border-radius: 34px;
+      background: linear-gradient(180deg, #0f173f, #1f2d86 58%, #12194e);
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow:
+        0 24px 50px rgba(0,0,0,.35),
+        0 0 0 8px rgba(255,255,255,.02);
+      animation: appFloat 5.8s ease-in-out infinite;
+      overflow: hidden;
+    }
+    .sv-app-phone::before {
+      content: '';
+      position: absolute;
+      top: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 42%;
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.14);
+    }
+    .sv-app-screen {
+      position: absolute;
+      inset: 18px 10px 14px;
+      border-radius: 24px;
+      padding: 18px 14px;
+      background:
+        radial-gradient(circle at top, rgba(125,232,138,.12), rgba(125,232,138,0) 24%),
+        linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .sv-app-screen__hero {
+      height: 74px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(125,232,138,.18), rgba(99,214,255,.1));
+      border: 1px solid rgba(255,255,255,.08);
+      position: relative;
+      overflow: hidden;
+    }
+    .sv-app-screen__hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(110deg, transparent 22%, rgba(255,255,255,.18) 48%, transparent 72%);
+      transform: translateX(-120%);
+      animation: dataSweep 5.2s ease-in-out infinite;
+    }
+    .sv-app-screen__hero-badge {
+      position: absolute;
+      left: 12px;
+      bottom: 12px;
+      font-size: .63rem;
+      font-weight: 800;
+      letter-spacing: .06em;
+      color: var(--white);
+      text-transform: uppercase;
+    }
+    .sv-app-screen__row {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 10px;
+    }
+    .sv-app-screen__card,
+    .sv-app-screen__stat {
+      min-height: 48px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.07);
+      background: rgba(255,255,255,.04);
+    }
+    .sv-app-screen__card {
+      position: relative;
+      padding: 12px;
+    }
+    .sv-app-screen__card::before,
+    .sv-app-screen__card::after {
+      content: '';
+      display: block;
+      border-radius: 999px;
+      background: rgba(255,255,255,.1);
+    }
+    .sv-app-screen__card::before {
+      width: 68%;
+      height: 8px;
+      margin-bottom: 10px;
+    }
+    .sv-app-screen__card::after {
+      width: 44%;
+      height: 8px;
+    }
+    .sv-app-screen__stat {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      font-weight: 900;
+      color: var(--green);
+      text-shadow: 0 0 12px rgba(125,232,138,.16);
+      animation: appPulse 3.8s ease-in-out infinite;
+    }
+    .sv-app-chip {
+      position: absolute;
+      z-index: 2;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.1);
+      background: rgba(12,18,59,.8);
+      color: var(--white);
+      font-size: .72rem;
+      font-weight: 700;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 12px 24px rgba(0,0,0,.18);
+    }
+    .sv-app-chip--ios {
+      top: 22px;
+      left: 22px;
+      animation: appChipFloat 4.2s ease-in-out infinite;
+    }
+    .sv-app-chip--android {
+      right: 18px;
+      bottom: 18px;
+      animation: appChipFloat 4.6s ease-in-out infinite .4s;
+    }
+    .sv-app-chip strong {
+      display: block;
+      color: var(--green);
+      font-size: .92rem;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
     .sv-query-shell {
       position: relative;
       min-height: 432px;
@@ -1426,6 +1599,10 @@
     .sv-grid--automation .sv-card__grid-num {
       text-shadow: 0 0 16px rgba(125,232,138,.12);
     }
+    .sv-grid--apps {
+      position: relative;
+      z-index: 1;
+    }
     .sv-ai-visual {
       position: relative;
       min-height: 272px;
@@ -1725,6 +1902,24 @@
     @keyframes dataSweep {
       0%, 14% { transform: translateX(-140%); }
       48%, 100% { transform: translateX(140%); }
+    }
+    @keyframes appFloat {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(-10px); }
+    }
+    @keyframes appPulse {
+      0%, 100% { opacity: .86; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.04); }
+    }
+    @keyframes appChipFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+    @keyframes appShine {
+      0%, 100% { transform: translateX(-25%) rotate(14deg); opacity: 0; }
+      18% { opacity: .72; }
+      52% { transform: translateX(210%) rotate(14deg); opacity: .72; }
+      60% { opacity: 0; }
     }
     @keyframes platformFloat {
       0%,100% { transform: translateY(0); }
@@ -2364,6 +2559,27 @@
             <div class="sv-card__header">
               <span class="sv-card__icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="7" y="3.5" width="10" height="17" rx="2.5" stroke-width="1.8"/><path d="M10.5 6.5h3" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="17.5" r="1" fill="currentColor" stroke="none"/></svg></span>
               <div><div class="sv-card__title">Expreso Andino App</div><div class="sv-card__sub">Caso de éxito</div></div>
+            </div>
+            <div class="sv-app-visual" aria-hidden="true">
+              <div class="sv-app-chip sv-app-chip--ios"><strong>iOS</strong>App Store</div>
+              <div class="sv-app-chip sv-app-chip--android"><strong>4.8★</strong>rating vivo</div>
+              <div class="sv-app-phone">
+                <div class="sv-app-screen">
+                  <div class="sv-app-screen__hero"><span class="sv-app-screen__hero-badge">Tracking + pedidos</span></div>
+                  <div class="sv-app-screen__row">
+                    <div class="sv-app-screen__card"></div>
+                    <div class="sv-app-screen__stat">3M</div>
+                  </div>
+                  <div class="sv-app-screen__row">
+                    <div class="sv-app-screen__stat">24/7</div>
+                    <div class="sv-app-screen__card"></div>
+                  </div>
+                  <div class="sv-app-screen__row">
+                    <div class="sv-app-screen__card"></div>
+                    <div class="sv-app-screen__stat">UX</div>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="sv-card__grid sv-grid--animated sv-grid--apps">
               <div class="sv-card__grid-item"><div class="sv-card__grid-num">3M</div><div class="sv-card__grid-label">Usuarios/mes</div></div>
