@@ -66,6 +66,21 @@
     .contact-mini__kicker{font-size:.72rem;color:var(--green);text-transform:uppercase;letter-spacing:.1em;font-weight:800}
     .contact-mini__value{font-size:.94rem;color:var(--white);margin-top:7px}
 
+    .offices-section{background:#ececf3;padding:86px 0}
+    .offices-wrap{max-width:980px;margin:0 auto}
+    .offices-head{text-align:center;margin-bottom:36px}
+    .offices-kicker{font-size:.98rem;letter-spacing:.14em;text-transform:uppercase;color:#4955b8;font-weight:700}
+    .offices-title{font-size:clamp(2rem,4.2vw,3.2rem);line-height:1.06;margin-top:10px;color:#1f2361;font-weight:900}
+    .offices-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px}
+    .office-card{background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 12px 34px rgba(14,19,65,.09)}
+    .office-card__image{height:220px;overflow:hidden}
+    .office-card__image img{width:100%;height:100%;object-fit:cover}
+    .office-card__body{padding:22px 24px 24px}
+    .office-card__country{display:flex;align-items:center;gap:8px;color:#4b53b5;font-size:.95rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700}
+    .office-card__dot{width:9px;height:9px;background:#30c76a;border-radius:50%}
+    .office-card__city{font-size:2rem;color:#1f2361;font-weight:900;line-height:1.1;margin-top:8px}
+    .office-card__address{margin-top:10px;color:#5f6778;line-height:1.55;font-size:1.05rem}
+
     .contact__inner{display:grid;grid-template-columns:1fr 1.2fr;gap:64px;align-items:start}
     .contact__info{display:flex;flex-direction:column;gap:24px}
     .contact__item{display:flex;gap:16px;align-items:flex-start}
@@ -98,6 +113,7 @@
       .hamburger{display:flex}
       .page-hero__inner,.contact__inner,.footer__inner{grid-template-columns:1fr}
       .contact-cards{grid-template-columns:1fr}
+      .offices-grid{grid-template-columns:1fr}
     }
     @media (max-width:600px){
       .section{padding:68px 0}
@@ -107,6 +123,11 @@
       .footer__bottom{flex-direction:column}
       .contact__embed{padding:14px}
       .contact__embed-body{padding:10px}
+      .offices-section{padding:70px 0}
+      .offices-title{font-size:2.2rem}
+      .office-card__image{height:190px}
+      .office-card__city{font-size:1.9rem}
+      .office-card__address{font-size:1rem}
     }
   </style>
 </head>
@@ -146,7 +167,7 @@
           <h1 class="page-hero__title">Conversemos sobre tu próximo <span class="green">proyecto digital</span>.</h1>
           <p class="page-hero__sub">Si buscas crecer ventas, mejorar tu web, automatizar procesos o lanzar una nueva solución digital, estamos listos para ayudarte a definir la mejor ruta.</p>
           <div class="page-hero__actions">
-            <a href="#formulario" class="btn btn--green">Agendar asesoría →</a>
+            <a href="#oficinas" class="btn btn--green">Ver oficinas →</a>
             <a href="index.html#servicios" class="btn btn--outline">Ver servicios</a>
           </div>
         </div>
@@ -155,6 +176,39 @@
           <div class="contact-mini"><div class="contact-mini__kicker">Canal preferido</div><div class="contact-mini__value">Formulario, email o WhatsApp.</div></div>
           <div class="contact-mini"><div class="contact-mini__kicker">Cobertura</div><div class="contact-mini__value">Colombia y México.</div></div>
           <div class="contact-mini"><div class="contact-mini__kicker">Enfoque</div><div class="contact-mini__value">Estrategia, ejecución y resultados.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="offices-section" id="oficinas">
+    <div class="container">
+      <div class="offices-wrap">
+        <div class="offices-head">
+          <div class="offices-kicker">Presencia Regional</div>
+          <h2 class="offices-title">Nuestras oficinas</h2>
+        </div>
+        <div class="offices-grid">
+          <article class="office-card">
+            <div class="office-card__image">
+              <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=1200&q=80" alt="Oficina de Sense Digital en Bogotá" loading="lazy" />
+            </div>
+            <div class="office-card__body">
+              <div class="office-card__country"><span class="office-card__dot"></span>Colombia</div>
+              <h3 class="office-card__city">Bogotá</h3>
+              <p class="office-card__address">Torre Empresarial Pacific<br/>Cl. 110 #9-25 Of 901<br/>+57 305 3076281</p>
+            </div>
+          </article>
+          <article class="office-card">
+            <div class="office-card__image">
+              <img src="https://images.unsplash.com/photo-1512813382947-6d17fcf8f8a6?auto=format&fit=crop&w=1200&q=80" alt="Oficina de Sense Digital en Ciudad de México" loading="lazy" />
+            </div>
+            <div class="office-card__body">
+              <div class="office-card__country"><span class="office-card__dot"></span>México</div>
+              <h3 class="office-card__city">Ciudad de México</h3>
+              <p class="office-card__address">Ejército Nacional 373<br/>Miguel Hidalgo<br/>Ciudad de México</p>
+            </div>
+          </article>
         </div>
       </div>
     </div>
