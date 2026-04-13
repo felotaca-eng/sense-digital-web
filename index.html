@@ -2044,8 +2044,8 @@
 
     /* ===== CONTACT ===== */
     .section--alt#contacto { padding-top: 70px; padding-bottom: 32px; }
-    .contact__inner { display: grid; grid-template-columns: 1fr 1.2fr; gap: 64px; }
-    .contact__info { display: flex; flex-direction: column; gap: 28px; }
+    .contact__inner { display: grid; grid-template-columns: 1fr 1.2fr; gap: 64px; align-items: start; }
+    .contact__info { display: flex; flex-direction: column; gap: 28px; padding-top: 32px; }
     .contact__item { display: flex; gap: 16px; align-items: flex-start; }
     .contact__item-icon { width: 46px; height: 46px; background: rgba(125,232,138,.1); border: 1px solid rgba(125,232,138,.2); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--green); flex-shrink: 0; }
     .contact__item-icon svg { width: 20px; height: 20px; stroke: currentColor; }
@@ -2053,14 +2053,63 @@
     .contact__item-value { font-size: .95rem; font-weight: 600; color: var(--white); margin-top: 2px; }
     .contact__form { display: flex; flex-direction: column; gap: 14px; }
     .contact__embed {
-      padding: 20px;
+      margin-top: 54px;
+      padding: 24px;
       border-radius: 18px;
       border: 1px solid rgba(255,255,255,.08);
-      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.025));
-      box-shadow: 0 20px 40px rgba(0,0,0,.14);
-      min-height: 520px;
+      background:
+        radial-gradient(circle at top right, rgba(125,232,138,.12), transparent 28%),
+        linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      box-shadow: 0 24px 48px rgba(0,0,0,.18);
+      min-height: 580px;
     }
-    .contact__embed > div { min-height: 480px; }
+    .contact__embed::before {
+      content: "";
+      display: block;
+      height: 1px;
+      width: 100%;
+      margin-bottom: 20px;
+      background: linear-gradient(90deg, rgba(125,232,138,.45), rgba(255,255,255,0));
+      opacity: .8;
+    }
+    .contact__embed-intro {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+    .contact__embed-badge {
+      align-self: flex-start;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(125,232,138,.22);
+      background: rgba(125,232,138,.08);
+      color: var(--green);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .contact__embed-title {
+      font-size: clamp(1.35rem, 2vw, 1.8rem);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.1;
+    }
+    .contact__embed-sub {
+      max-width: 560px;
+      font-size: .98rem;
+      color: var(--gray-sub);
+      line-height: 1.65;
+    }
+    .contact__embed-body {
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(10, 16, 58, .42);
+      border: 1px solid rgba(255,255,255,.06);
+      min-height: 430px;
+    }
+    .contact__embed-body > div { min-height: 392px; }
     .form__row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
     .form__group { display: flex; flex-direction: column; gap: 6px; }
     .form__label { font-size: .78rem; font-weight: 600; color: var(--gray-sub); }
@@ -2226,6 +2275,10 @@
       .showcase__stats { grid-template-columns: 1fr; }
       .sv-platforms { grid-template-columns: 1fr; }
       .footer__inner { grid-template-columns: 1fr; }
+      .contact__info { padding-top: 0; }
+      .contact__embed { margin-top: 18px; padding: 18px; min-height: auto; }
+      .contact__embed-intro { margin-bottom: 18px; }
+      .contact__embed-body { padding: 12px; min-height: auto; }
       .form__row { grid-template-columns: 1fr; }
       .cta-banner { padding: 40px 24px; }
       .testimonials__grid { grid-template-columns: 1fr; }
@@ -3122,9 +3175,16 @@
           </div>
         </div>
         <div class="reveal contact__embed" id="contactFormWrapper">
-          <div id="kommo-form-1439547"></div>
-          <script>!function(a,m,o,c,r,m){a[o+c]=a[o+c]||{setMeta:function(p){this.params=(this.params||[]).concat([p])}},a[o+r]=a[o+r]||function(f){a[o+r].f=(a[o+r].f||[]).concat([f])},a[o+r]({id:"1439547",hash:"ab4849a58988ac481eba6f5675c39613",locale:"es"}),a[o+m]=a[o+m]||function(f,k){a[o+m].f=(a[o+m].f||[]).concat([[f,k]])}}(window,0,"amo_forms_","params","load","loaded");</script>
-          <script id="amoforms_script_1439547" async="async" charset="utf-8" src="https://forms.kommo.com/forms/assets/js/amoforms.js?1776049578"></script>
+          <div class="contact__embed-intro">
+            <span class="contact__embed-badge">Agenda una asesoría</span>
+            <h3 class="contact__embed-title">Cuéntanos qué quieres construir y lo llevamos a Kommo directo.</h3>
+            <p class="contact__embed-sub">Déjanos tus datos y una breve descripción. La lógica de captura sigue conectada a Kommo, pero el bloque ahora respira mucho mejor visualmente.</p>
+          </div>
+          <div class="contact__embed-body">
+            <div id="kommo-form-1439547"></div>
+            <script>!function(a,m,o,c,r,m){a[o+c]=a[o+c]||{setMeta:function(p){this.params=(this.params||[]).concat([p])}},a[o+r]=a[o+r]||function(f){a[o+r].f=(a[o+r].f||[]).concat([f])},a[o+r]({id:"1439547",hash:"ab4849a58988ac481eba6f5675c39613",locale:"es"}),a[o+m]=a[o+m]||function(f,k){a[o+m].f=(a[o+m].f||[]).concat([[f,k]])}}(window,0,"amo_forms_","params","load","loaded");</script>
+            <script id="amoforms_script_1439547" async="async" charset="utf-8" src="https://forms.kommo.com/forms/assets/js/amoforms.js?1776049578"></script>
+          </div>
         </div>
       </div>
     </div>
