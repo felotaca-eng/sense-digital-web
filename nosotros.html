@@ -47,6 +47,13 @@
     .nav-home-link svg{width:14px;height:14px;stroke:currentColor;opacity:.86;flex-shrink:0}
     .nav-home-link.is-active{background:rgba(125,232,138,.10);border-color:rgba(125,232,138,.18);color:var(--green)!important}
     .navbar__cta{display:flex;gap:12px}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+    .hamburger span{width:24px;height:2px;background:var(--white);border-radius:2px}
+    .mobile-menu{position:fixed;inset:0;z-index:1200;background:rgba(8,12,44,.98);display:none;flex-direction:column;padding:96px 28px 28px;gap:16px}
+    .mobile-menu.open{display:flex}
+    .mobile-menu a{font-size:1.05rem;font-weight:600;color:var(--gray-sub)}
+    .mobile-menu a:hover,.mobile-menu a.is-active{color:var(--green)}
+    .mobile-menu__close{position:absolute;top:30px;right:28px;font-size:2rem;line-height:1;cursor:pointer;color:var(--white)}
     .page-hero{padding:148px 0 88px;position:relative;overflow:hidden}
     .page-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 75% 25%, rgba(43,69,200,.28), transparent 38%),radial-gradient(circle at 10% 90%, rgba(125,232,138,.09), transparent 28%)}
     .page-hero__inner{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;position:relative;z-index:1}
@@ -97,9 +104,14 @@
       .page-hero__inner,.manifesto{grid-template-columns:1fr}
       .story-grid,.values-grid,.markets-grid,.timeline,.footer__inner{grid-template-columns:1fr 1fr}
       .navbar__links,.navbar__cta{display:none}
+      .navbar__inner{height:78px}
+      .navbar__logo img{height:58px}
+      .hamburger{display:flex}
     }
     @media (max-width:600px){
       .section{padding:68px 0}
+      .navbar__inner{height:72px}
+      .navbar__logo img{height:52px}
       .page-hero{padding:128px 0 68px}
       .page-hero__stats,.story-grid,.values-grid,.markets-grid,.timeline,.footer__inner{grid-template-columns:1fr}
       .footer__bottom{flex-direction:column}
@@ -132,9 +144,18 @@
           <a href="#" class="btn btn--outline" style="padding:10px 20px;font-size:.85rem;">Blog</a>
           <a href="https://wa.me/573244089755" target="_blank" rel="noopener noreferrer" class="btn btn--green" style="padding:10px 20px;font-size:.85rem;">¡Hablemos!</a>
         </div>
+        <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
       </div>
     </div>
   </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <span class="mobile-menu__close" id="menuClose">✕</span>
+    <a href="index.html">Inicio</a>
+    <a href="index.html#servicios">Servicios</a>
+    <a href="nosotros.html" class="is-active">Nosotros</a>
+    <a href="contacto.html">Contacto</a>
+    <a href="https://wa.me/573244089755" target="_blank" rel="noopener noreferrer" class="btn btn--green">¡Hablemos!</a>
+  </div>
 
   <section class="page-hero">
     <div class="container">
@@ -290,5 +311,15 @@
       </div>
     </div>
   </footer>
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuClose = document.getElementById('menuClose');
+    if (hamburger && mobileMenu && menuClose) {
+      hamburger.addEventListener('click', () => mobileMenu.classList.add('open'));
+      menuClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
+      mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
+    }
+  </script>
 </body>
 </html>
