@@ -2065,6 +2065,35 @@
     .form__textarea { resize: vertical; min-height: 120px; }
     .form__select { appearance: none; cursor: pointer; }
     .form__select option { background: var(--navy-mid); }
+    .form__success {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      text-align: center;
+      padding: 48px 32px;
+      border-radius: 16px;
+      background: rgba(125,232,138,.06);
+      border: 1px solid rgba(125,232,138,.2);
+    }
+    .form__success.visible { display: flex; }
+    .form__success-icon {
+      width: 64px; height: 64px; border-radius: 50%;
+      background: rgba(125,232,138,.14);
+      border: 2px solid var(--green);
+      display: flex; align-items: center; justify-content: center;
+      animation: successPop .4s cubic-bezier(.34,1.56,.64,1);
+    }
+    .form__success-icon svg { width: 30px; height: 30px; stroke: var(--green); }
+    .form__success-title { font-size: 1.3rem; font-weight: 900; color: var(--white); }
+    .form__success-sub { font-size: .92rem; color: var(--gray-sub); line-height: 1.65; max-width: 320px; }
+    .form__success-back { font-size: .85rem; font-weight: 700; color: var(--green); cursor: pointer; text-decoration: underline; background: none; border: none; font-family: inherit; }
+    .form__success-back:hover { color: var(--green-dark); }
+    @keyframes successPop {
+      0% { transform: scale(0); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
 
     /* ===== FOOTER ===== */
     .footer { background: #090d30; color: var(--gray-sub); padding: 30px 0 0; }
@@ -2085,6 +2114,50 @@
     /* ===== SCROLL REVEAL ===== */
     .reveal { opacity: 0; transform: translateY(28px); transition: opacity .6s ease, transform .6s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ===== WHY US ===== */
+    .why__inner { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .why-card {
+      background: rgba(255,255,255,.04);
+      border: 1px solid var(--gray-line);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      transition: border-color .25s, transform .25s, box-shadow .25s;
+    }
+    .why-card:hover {
+      border-color: rgba(125,232,138,.28);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0,0,0,.22);
+    }
+    .why-card__icon {
+      width: 52px; height: 52px; border-radius: 14px;
+      background: rgba(125,232,138,.1);
+      border: 1px solid rgba(125,232,138,.2);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--green); margin-bottom: 20px;
+    }
+    .why-card__icon svg { width: 24px; height: 24px; stroke: currentColor; }
+    .why-card__title { font-size: 1rem; font-weight: 800; color: var(--white); margin-bottom: 10px; }
+    .why-card__desc { font-size: .84rem; color: var(--gray-sub); line-height: 1.65; }
+    .why-card__metric {
+      display: inline-block; margin-top: 16px;
+      font-size: .78rem; font-weight: 700;
+      color: var(--green); background: rgba(125,232,138,.1);
+      border: 1px solid rgba(125,232,138,.18);
+      padding: 4px 12px; border-radius: 99px;
+    }
+    @media (max-width: 960px) { .why__inner { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 600px) { .why__inner { grid-template-columns: 1fr; } }
+
+    /* ===== REDUCED MOTION ===== */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+      html { scroll-behavior: auto; }
+    }
 
     /* ===== RESPONSIVE ===== */
     @media (max-width: 960px) {
@@ -2234,7 +2307,7 @@
           <a href="#contacto" data-nav-target="contacto">Contacto</a>
         </div>
         <div class="navbar__cta">
-          <a href="#contacto" class="btn btn--outline" style="padding:10px 20px;font-size:.85rem;">Blog</a>
+          <a href="#" class="btn btn--outline" style="padding:10px 20px;font-size:.85rem;">Blog</a>
           <a href="https://wa.me/573244089755?text=Hola%2C%20vengo%20del%20Home%20de%20Sense%20Digital%20y%20estoy%20interesado%20en%20sus%20servicios." target="_blank" rel="noopener noreferrer" class="btn btn--green" style="padding:10px 20px;font-size:.85rem;">¡Hablemos!</a>
         </div>
         <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
@@ -2960,8 +3033,51 @@
     </div>
   </section>
 
-  <!-- TECH STACK -->
-  <section class="section" id="tecnologia">
+  <!-- WHY US -->
+  <section class="section section--light" id="por-que">
+    <div class="container">
+      <div class="section-header centered reveal">
+        <span class="badge">¿Por qué elegirnos?</span>
+        <h2 class="section-title">Lo que nos hace <span class="green">diferentes</span></h2>
+        <p class="section-sub">No somos una agencia genérica. Combinamos tecnología propia, equipo especializado y una obsesión real por los resultados.</p>
+      </div>
+      <div class="why__inner">
+        <div class="why-card reveal">
+          <div class="why-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6h16M4 10h16M4 14h10" stroke-width="1.8" stroke-linecap="round"/><circle cx="18" cy="17" r="3" stroke-width="1.8"/><path d="m20.5 19.5 1.5 1.5" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </div>
+          <div class="why-card__title">Todo en una sola mesa</div>
+          <p class="why-card__desc">Marketing, desarrollo, apps, IA y diseño bajo un único equipo coordinado. Sin silos, sin fricción entre agencias.</p>
+          <span class="why-card__metric">7 servicios · 1 socio</span>
+        </div>
+        <div class="why-card reveal">
+          <div class="why-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="7" y="8" width="10" height="8" rx="2.5" stroke-width="1.8"/><path d="M12 4.5v3" stroke-width="1.8" stroke-linecap="round"/><path d="M9 19h6" stroke-width="1.8" stroke-linecap="round"/><path d="M8 12h.01M16 12h.01" stroke-width="2.2" stroke-linecap="round"/><path d="M5.5 10.5v3M18.5 10.5v3" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </div>
+          <div class="why-card__title">Tecnología propia</div>
+          <p class="why-card__desc">Desarrollamos WhatsApp IA y QUERY ERP internamente. No revendemos herramientas de terceros: construimos las nuestras.</p>
+          <span class="why-card__metric">Software 100% propio</span>
+        </div>
+        <div class="why-card reveal">
+          <div class="why-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 19V11M12 19V5M19 19v-8" stroke-width="1.8" stroke-linecap="round"/><path d="M3.5 19.5h17" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </div>
+          <div class="why-card__title">Orientados a resultados</div>
+          <p class="why-card__desc">Cada proyecto arranca con KPIs claros. Reportes semanales, acceso a dashboards en tiempo real y cero letra pequeña.</p>
+          <span class="why-card__metric">+1M USD gestionados/mes</span>
+        </div>
+        <div class="why-card reveal">
+          <div class="why-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="8" stroke-width="1.8"/><path d="M9 12l2 2 4-4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="why-card__title">Presencia regional real</div>
+          <p class="why-card__desc">Equipos en Bogotá y Ciudad de México. Conocemos el mercado LATAM, sus canales, regulaciones y comportamiento del consumidor.</p>
+          <span class="why-card__metric">Colombia · México</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- TESTIMONIALS -->
   <section class="section section--alt" id="testimonios">
     <div class="container">
@@ -3040,47 +3156,57 @@
             <div><div class="contact__item-label">WhatsApp</div><div class="contact__item-value">+57 324 408 9755</div></div>
           </div>
         </div>
-        <form class="contact__form reveal" onsubmit="handleSubmit(event)">
-          <div class="form__row">
-            <div class="form__group">
-              <label class="form__label">Nombre *</label>
-              <input class="form__input" type="text" placeholder="Tu nombre" required />
+        <div class="reveal" id="contactFormWrapper">
+          <form class="contact__form" id="contactForm" onsubmit="handleSubmit(event)">
+            <div class="form__row">
+              <div class="form__group">
+                <label class="form__label" for="f-nombre">Nombre *</label>
+                <input class="form__input" id="f-nombre" type="text" placeholder="Tu nombre" required />
+              </div>
+              <div class="form__group">
+                <label class="form__label" for="f-empresa">Empresa</label>
+                <input class="form__input" id="f-empresa" type="text" placeholder="Tu empresa" />
+              </div>
+            </div>
+            <div class="form__row">
+              <div class="form__group">
+                <label class="form__label" for="f-email">Email *</label>
+                <input class="form__input" id="f-email" type="email" placeholder="tu@email.com" required />
+              </div>
+              <div class="form__group">
+                <label class="form__label" for="f-wa">WhatsApp</label>
+                <input class="form__input" id="f-wa" type="tel" placeholder="+57 324 408 9755" />
+              </div>
             </div>
             <div class="form__group">
-              <label class="form__label">Empresa</label>
-              <input class="form__input" type="text" placeholder="Tu empresa" />
+              <label class="form__label" for="f-servicio">Servicio de interés *</label>
+              <select class="form__select" id="f-servicio" required>
+                <option value="">Selecciona un servicio...</option>
+                <option>Marketing Digital</option>
+                <option>Desarrollo Web</option>
+                <option>App Móvil</option>
+                <option>Automatización con IA</option>
+                <option>QUERY - ERP</option>
+                <option>WhatsApp IA</option>
+                <option>Diseño &amp; Branding</option>
+                <option>Solución integral</option>
+              </select>
             </div>
-          </div>
-          <div class="form__row">
             <div class="form__group">
-              <label class="form__label">Email *</label>
-              <input class="form__input" type="email" placeholder="tu@email.com" required />
+              <label class="form__label" for="f-msg">Cuéntanos sobre tu proyecto *</label>
+              <textarea class="form__textarea" id="f-msg" placeholder="Describe tu proyecto, objetivos y presupuesto estimado..." required></textarea>
             </div>
-            <div class="form__group">
-              <label class="form__label">WhatsApp</label>
-              <input class="form__input" type="tel" placeholder="+57 324 408 9755" />
+            <button type="submit" id="formSubmitBtn" class="btn btn--green" style="width:100%;justify-content:center;padding:16px;font-size:1rem;">Enviar mensaje →</button>
+          </form>
+          <div class="form__success" id="formSuccess">
+            <div class="form__success-icon">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4.5 12.75l6 6 9-13.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
+            <div class="form__success-title">¡Mensaje recibido!</div>
+            <p class="form__success-sub">Gracias por escribirnos. Un especialista te contactará en menos de 24 horas para hablar de tu proyecto.</p>
+            <button class="form__success-back" onclick="resetContactForm()">Enviar otro mensaje</button>
           </div>
-          <div class="form__group">
-            <label class="form__label">Servicio de interés *</label>
-            <select class="form__select" required>
-              <option value="">Selecciona un servicio...</option>
-              <option>Marketing Digital</option>
-              <option>Desarrollo Web</option>
-              <option>App Móvil</option>
-              <option>Automatización con IA</option>
-              <option>QUERY - ERP</option>
-              <option>WhatsApp IA</option>
-              <option>Diseño &amp; Branding</option>
-              <option>Solución integral</option>
-            </select>
-          </div>
-          <div class="form__group">
-            <label class="form__label">Cuéntanos sobre tu proyecto *</label>
-            <textarea class="form__textarea" placeholder="Describe tu proyecto, objetivos y presupuesto estimado..." required></textarea>
-          </div>
-          <button type="submit" class="btn btn--green" style="width:100%;justify-content:center;padding:16px;font-size:1rem;">Enviar mensaje →</button>
-        </form>
+        </div>
       </div>
     </div>
   </section>
@@ -3131,7 +3257,7 @@
         </div>
       </div>
       <div class="footer__bottom">
-        <span>© 2024 Sense Digital. Todos los derechos reservados.</span>
+        <span>© 2025 Sense Digital. Todos los derechos reservados.</span>
         <div class="footer__bottom-links">
           <a href="#">Privacidad</a>
           <a href="#">Términos</a>
@@ -3358,10 +3484,21 @@
     // Form submit
     function handleSubmit(e) {
       e.preventDefault();
-      const btn = e.target.querySelector('button[type="submit"]');
-      btn.textContent = '¡Mensaje enviado! ✓';
-      btn.style.background = '#55c965';
-      setTimeout(() => { btn.textContent = 'Enviar mensaje →'; btn.style.background = ''; e.target.reset(); }, 3000);
+      const btn = document.getElementById('formSubmitBtn');
+      btn.textContent = 'Enviando...';
+      btn.disabled = true;
+      setTimeout(() => {
+        document.getElementById('contactForm').style.display = 'none';
+        document.getElementById('formSuccess').classList.add('visible');
+      }, 600);
+    }
+    function resetContactForm() {
+      document.getElementById('contactForm').reset();
+      document.getElementById('contactForm').style.display = '';
+      document.getElementById('formSuccess').classList.remove('visible');
+      const btn = document.getElementById('formSubmitBtn');
+      btn.textContent = 'Enviar mensaje →';
+      btn.disabled = false;
     }
   </script>
 </body>
