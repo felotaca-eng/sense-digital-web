@@ -2067,23 +2067,10 @@
       box-shadow: 0 24px 48px rgba(0,0,0,.18);
       min-height: auto;
     }
-    .contact__embed::before {
-      content: "";
-      display: block;
-      height: 1px;
-      width: 100%;
-      margin-bottom: 14px;
-      background: linear-gradient(90deg, rgba(125,232,138,.45), rgba(255,255,255,0));
-      opacity: .8;
-    }
-    .contact__embed-intro {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      margin-bottom: 12px;
-    }
     .contact__embed-badge {
-      align-self: flex-start;
+      display: inline-flex;
+      align-items: center;
+      margin-bottom: 12px;
       padding: 6px 12px;
       border-radius: 999px;
       border: 1px solid rgba(125,232,138,.22);
@@ -2094,20 +2081,8 @@
       letter-spacing: .08em;
       text-transform: uppercase;
     }
-    .contact__embed-title {
-      font-size: clamp(1.05rem, 1.6vw, 1.32rem);
-      font-weight: 900;
-      color: var(--white);
-      line-height: 1.1;
-    }
-    .contact__embed-sub {
-      max-width: 560px;
-      font-size: .9rem;
-      color: var(--gray-sub);
-      line-height: 1.5;
-    }
     .contact__embed-body {
-      padding: 10px;
+      padding: 8px;
       border-radius: 16px;
       background: rgba(10, 16, 58, .42);
       border: 1px solid rgba(255,255,255,.06);
@@ -2284,7 +2259,7 @@
       .contact__lead { margin-bottom: 0; }
       .contact__lead .section-title { max-width: none; }
       .contact__embed { margin-top: 10px; padding: 16px; min-height: auto; }
-      .contact__embed-intro { margin-bottom: 12px; }
+      .contact__embed-badge { margin-bottom: 10px; }
       .contact__embed-body { padding: 12px; min-height: auto; }
       .form__row { grid-template-columns: 1fr; }
       .cta-banner { padding: 40px 24px; }
@@ -3182,11 +3157,7 @@
           </div>
         </div>
         <div class="reveal contact__embed" id="contactFormWrapper">
-          <div class="contact__embed-intro">
-            <span class="contact__embed-badge">Agenda una asesoría</span>
-            <h3 class="contact__embed-title">Cuéntanos tu proyecto y te contactamos.</h3>
-            <p class="contact__embed-sub">Déjanos tus datos y una breve descripción para proponerte el mejor siguiente paso.</p>
-          </div>
+          <span class="contact__embed-badge">Agenda una asesoría</span>
           <div class="contact__embed-body">
             <div id="kommo-form-1439547"></div>
             <script>!function(a,m,o,c,r,m){a[o+c]=a[o+c]||{setMeta:function(p){this.params=(this.params||[]).concat([p])}},a[o+r]=a[o+r]||function(f){a[o+r].f=(a[o+r].f||[]).concat([f])},a[o+r]({id:"1439547",hash:"ab4849a58988ac481eba6f5675c39613",locale:"es"}),a[o+m]=a[o+m]||function(f,k){a[o+m].f=(a[o+m].f||[]).concat([[f,k]])}}(window,0,"amo_forms_","params","load","loaded");</script>
