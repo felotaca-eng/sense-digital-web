@@ -1,0 +1,20 @@
+[
+  {
+    "slug": "automatizacion-whatsapp-ventas",
+    "title": "Automatizacion de WhatsApp para ventas: que si funciona en 2026",
+    "excerpt": "Una guia concreta para pasar de respuestas manuales a una operacion conversacional que califica leads y agenda oportunidades.",
+    "category": "Automatizacion IA",
+    "publishAt": "2026-04-10T08:00:00-05:00",
+    "coverImage": "../assets/images/services/automatizacion-ia-limpio-web.svg",
+    "url": "posts/automatizacion-whatsapp-ventas.html"
+  },
+  {
+    "slug": "como-elegir-crm-pyme",
+    "title": "Como elegir CRM para una pyme sin frenar al equipo comercial",
+    "excerpt": "Checklist rapido para elegir un CRM que ordene pipeline, seguimiento y reportes sin volver compleja la operacion.",
+    "category": "Ventas y CRM",
+    "publishAt": "2026-04-05T08:00:00-05:00",
+    "coverImage": "../assets/images/services/query_dashboard_hd.svg",
+    "url": "posts/como-elegir-crm-pyme.html"
+  }
+]
