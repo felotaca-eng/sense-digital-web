@@ -7,6 +7,7 @@ const draftsManifestPath = path.join(blogDir, 'drafts-manifest.json');
 const postsManifestPath = path.join(blogDir, 'posts-manifest.json');
 const draftsDir = path.join(blogDir, 'drafts');
 const postsDir = path.join(blogDir, 'posts');
+const SITE_URL = 'https://sense-digital.co';
 
 async function readJson(filePath, fallback = []) {
   try {
@@ -15,6 +16,43 @@ async function readJson(filePath, fallback = []) {
   } catch {
     return fallback;
   }
+}
+
+function toAbsoluteUrl(url = '') {
+  if (!url) return `${SITE_URL}/logo.png`;
+  if (/^https?:\/\//i.test(url)) return url;
+  const clean = String(url).replace(/^\.?\//, '').replace(/^(\.\.\/)+/, '');
+  return `${SITE_URL}/${clean}`;
+}
+
+function upsertMeta(html, pattern, replacement, fallbackInsert) {
+  if (pattern.test(html)) return html.replace(pattern, replacement);
+  return html.replace('</head>', `${fallbackInsert}\n</head>`);
+}
+
+function normalizePostHtml(html, coverUrl) {
+  let next = html;
+
+  // Normaliza dominio viejo y logo del navbar.
+  next = next.replace(/https:\/\/sensedigital\.co/g, SITE_URL);
+  next = next.replace(/(<a[^>]*class="nav-logo"[^>]*>\s*<img[^>]*src=")[^"]+(")/g, `$1/logo.png$2`);
+
+  // Sincroniza portada para SEO/social.
+  next = upsertMeta(
+    next,
+    /<meta\s+property="og:image"\s+content="[^"]*"\s*\/?>/i,
+    `<meta property="og:image" content="${coverUrl}" />`,
+    `<meta property="og:image" content="${coverUrl}" />`
+  );
+  next = upsertMeta(
+    next,
+    /<meta\s+name="twitter:image"\s+content="[^"]*"\s*\/?>/i,
+    `<meta name="twitter:image" content="${coverUrl}" />`,
+    `<meta name="twitter:image" content="${coverUrl}" />`
+  );
+  next = next.replace(/("image"\s*:\s*")[^"]+(")/, `$1${coverUrl}$2`);
+
+  return next;
 }
 
 async function main() {
@@ -38,9 +76,12 @@ async function main() {
     const target = path.join(postsDir, targetFile);
 
     try {
-      await fs.copyFile(source, target);
+      const rawDraft = await fs.readFile(source, 'utf8');
+      const coverUrl = toAbsoluteUrl(draft.coverImage);
+      const normalized = normalizePostHtml(rawDraft, coverUrl);
+      await fs.writeFile(target, normalized, 'utf8');
     } catch (err) {
-      console.warn(`No se pudo copiar draft ${draft.draftFile}: ${err.message}`);
+      console.warn(`No se pudo publicar draft ${draft.draftFile}: ${err.message}`);
       continue;
     }
 
