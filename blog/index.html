@@ -3,8 +3,66 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Blog | Sense Digital</title>
-  <meta name="description" content="Ideas, guias y tendencias sobre marketing, tecnologia, IA y crecimiento digital para empresas." />
+  <title>Blog de Marketing, IA y Automatizacion | Sense Digital</title>
+  <meta name="description" content="Articulos practicos de marketing digital, IA, CRM y automatizacion para empresas que quieren crecer con procesos y conversion real." />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <link rel="canonical" href="https://sense-digital.co/blog/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Sense Digital" />
+  <meta property="og:title" content="Blog de Marketing, IA y Automatizacion | Sense Digital" />
+  <meta property="og:description" content="Articulos practicos de marketing digital, IA, CRM y automatizacion para empresas que quieren crecer con procesos y conversion real." />
+  <meta property="og:url" content="https://sense-digital.co/blog/" />
+  <meta property="og:image" content="https://sense-digital.co/logo.png" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Blog de Marketing, IA y Automatizacion | Sense Digital" />
+  <meta name="twitter:description" content="Articulos practicos de marketing digital, IA, CRM y automatizacion para empresas que quieren crecer con procesos y conversion real." />
+  <meta name="twitter:image" content="https://sense-digital.co/logo.png" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Blog Sense Digital",
+    "url": "https://sense-digital.co/blog/",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Sense Digital",
+      "url": "https://sense-digital.co/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://sense-digital.co/logo.png"
+      }
+    },
+    "inLanguage": "es"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Que tipo de temas publica el blog de Sense Digital?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Publicamos guias de marketing digital, automatizacion con IA, CRM, crecimiento comercial y ejecucion web para empresas." 
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Con que frecuencia publican articulos nuevos?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tenemos un flujo de publicacion programada con cron diario. Los articulos salen segun calendario editorial a las 8:00 a. m. hora de Bogota." 
+        }
+      }
+    ]
+  }
+  </script>
+
   <link rel="icon" type="image/png" href="../logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -23,7 +81,7 @@
     .kicker{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:#7de88a;font-weight:800}
     h1{font-size:clamp(2.2rem,5vw,4.1rem);line-height:1.05;margin-top:12px;max-width:12ch}
     .sub{margin-top:14px;color:#a8b3d8;max-width:62ch;line-height:1.75}
-    .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;padding:26px 0 72px}
+    .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;padding:26px 0 44px}
     .card{display:flex;flex-direction:column;background:#131b57;border:1px solid rgba(255,255,255,.08);border-radius:18px;overflow:hidden;min-height:100%}
     .card img{width:100%;height:190px;object-fit:cover;background:#0c1242}
     .card__body{padding:18px 18px 20px;display:flex;flex-direction:column;gap:10px;flex:1}
@@ -31,6 +89,9 @@
     .card h2{font-size:1.2rem;line-height:1.3}
     .card p{color:#a8b3d8;line-height:1.65;font-size:.94rem}
     .card__cta{margin-top:auto;color:#7de88a;font-weight:700}
+    .faq{padding:0 0 72px}
+    .faq h2{font-size:1.65rem;margin-bottom:12px}
+    .faq p{color:#a8b3d8;line-height:1.75}
     .empty{padding:22px;border:1px dashed rgba(255,255,255,.28);border-radius:14px;color:#a8b3d8}
     @media (max-width:980px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
     @media (max-width:640px){.grid{grid-template-columns:1fr}.hero{padding-top:46px}}
@@ -48,12 +109,18 @@
 
   <main class="container">
     <section class="hero">
-      <div class="kicker">Blog Sense Digital</div>
+      <p class="kicker">Blog Sense Digital</p>
       <h1>Contenido para crecer con criterio digital.</h1>
       <p class="sub">Publicamos guias practicas sobre marketing, IA, automatizacion, desarrollo y operacion comercial para empresas en crecimiento.</p>
     </section>
 
-    <section id="posts" class="grid"></section>
+    <section id="posts" class="grid" aria-label="Listado de articulos"></section>
+
+    <section class="faq" aria-label="Preguntas frecuentes del blog">
+      <h2>Preguntas frecuentes</h2>
+      <p><strong>Que publicamos:</strong> contenidos accionables para marketing, ventas, CRM y automatizacion.</p>
+      <p><strong>Para quien:</strong> equipos comerciales y lideres que quieren escalar sin improvisar.</p>
+    </section>
   </main>
 
   <script>
