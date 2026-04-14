@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¿Qué es un agente de IA para WhatsApp y cómo funciona? | Sense Digital</title>
+  <meta name="description" content="Un agente de IA para WhatsApp es un sistema que responde, califica y convierte clientes automáticamente 24/7. Aquí cómo funciona, cuánto cuesta y cómo implementarlo en tu negocio.">
+
+  <meta property="og:title" content="¿Qué es un agente de IA para WhatsApp y cómo funciona?">
+  <meta property="og:description" content="Guía completa: cómo funciona un agente IA en WhatsApp, diferencias con un chatbot, costos y casos de uso reales en Colombia.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://sense-digital.co/blog/que-es-agente-ia-whatsapp">
+  <meta property="og:image" content="https://sense-digital.co/assets/images/blog/portada-agente-ia-whatsapp.png">
+  <meta name="twitter:image" content="https://sense-digital.co/assets/images/blog/portada-agente-ia-whatsapp.png">
+  <link rel="canonical" href="https://sense-digital.co/blog/que-es-agente-ia-whatsapp">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "¿Qué es un agente de IA para WhatsApp y cómo funciona?",
+    "description": "Un agente de IA para WhatsApp responde, califica y convierte clientes automáticamente 24/7. Guía completa: funcionamiento, costos e implementación.",
+    "author": { "@type": "Organization", "name": "Sense Digital", "url": "https://sense-digital.co" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Sense Digital",
+      "logo": { "@type": "ImageObject", "url": "https://sense-digital.co/logo.png" }
+    },
+    "datePublished": "2026-04-14",
+    "dateModified": "2026-04-14",
+    "mainEntityOfPage": "https://sense-digital.co/blog/que-es-agente-ia-whatsapp"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Qué es un agente de IA para WhatsApp?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Un agente de IA para WhatsApp es un sistema automatizado que usa inteligencia artificial para atender conversaciones en WhatsApp de forma autónoma. A diferencia de un chatbot con respuestas fijas, un agente de IA entiende el contexto de la conversación, genera respuestas naturales, califica leads y puede ejecutar acciones como agendar citas o registrar datos en un CRM, todo sin intervención humana."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuál es la diferencia entre un chatbot y un agente de IA en WhatsApp?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Un chatbot responde según menús o palabras clave predefinidas, sin entender el contexto. Un agente de IA usa modelos de lenguaje para comprender la intención del usuario, mantener el hilo de la conversación, adaptarse a respuestas inesperadas y tomar decisiones según las reglas del negocio. Es mucho más flexible y genera conversaciones naturales."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuánto cuesta implementar un agente de IA en WhatsApp en Colombia?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "En Colombia, la implementación de un agente de IA para WhatsApp cuesta entre $3.000.000 y $15.000.000 COP como inversión inicial, más un costo mensual de operación entre $500.000 y $3.000.000 COP según el volumen de conversaciones y funcionalidades activas."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Necesito la API oficial de WhatsApp Business para tener un agente de IA?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Para operaciones de alto volumen y con integraciones a CRM, sí se recomienda la API oficial de WhatsApp Business (Meta). Para volúmenes menores existe la posibilidad de operar con WhatsApp Business App, aunque con limitaciones de automatización. La API oficial permite enviar mensajes masivos, integraciones y reportes avanzados."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Un agente de IA puede reemplazar a un vendedor humano en WhatsApp?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No reemplaza al vendedor, lo potencia. El agente atiende el 80% de consultas repetitivas, califica el lead y lo entrega listo al asesor humano cuando detecta alta intención de compra o casos complejos. Esto permite que los vendedores se enfoquen en cerrar, no en filtrar."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cyan: #00E5CC;
+      --cyan-dim: #00B8A4;
+      --cyan-glow: rgba(0,229,204,0.08);
+      --dark:    #0A0E12;
+      --dark2:   #0F141A;
+      --dark3:   #141B23;
+      --surface: #161D27;
+      --surface2:#1B2535;
+      --surface3:#1F2B3D;
+      --text:      #E6EDF4;
+      --text-muted:#8A9BB0;
+      --text-faint:#3E5068;
+      --border:        rgba(0,229,204,0.14);
+      --border-subtle: rgba(255,255,255,0.055);
+      --green-wa: #25D366;
+      --font-display: 'Syne', sans-serif;
+      --font-body:    'DM Sans', sans-serif;
+      --max: 780px;
+      --gutter: clamp(1.2rem, 5vw, 2.5rem);
+      --radius: 10px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--dark);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 17px;
+      line-height: 1.78;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── HEADER ─── */
+    .site-header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(10,14,18,0.94);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .site-header__inner {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 58px; padding: 0 var(--gutter);
+    }
+    .logo {
+      font-family: var(--font-display); font-weight: 800;
+      font-size: 1.1rem; letter-spacing: -0.02em;
+      color: var(--text); text-decoration: none;
+    }
+    .logo span { color: var(--cyan); }
+    .btn-cta {
+      display: inline-flex; align-items: center; gap: .4rem;
+      background: var(--cyan); color: var(--dark);
+      font-family: var(--font-display); font-weight: 700; font-size: .8rem;
+      letter-spacing: .02em; padding: .44rem 1.1rem; border-radius: 6px;
+      text-decoration: none; transition: opacity .2s;
+    }
+    .btn-cta:hover { opacity: .85; }
+
+    /* ─── HERO ─── */
+    .hero {
+      max-width: calc(var(--max) + var(--gutter)*2);
+      margin: 0 auto;
+      padding: clamp(3rem,8vw,5.5rem) var(--gutter) clamp(2rem,5vw,3rem);
+    }
+    .breadcrumb {
+      display: flex; align-items: center; gap: .45rem;
+      font-size: .78rem; color: var(--text-muted);
+      font-family: var(--font-display); letter-spacing: .04em; margin-bottom: 1.8rem;
+    }
+    .breadcrumb a { color: var(--cyan); text-decoration: none; }
+    .breadcrumb span { color: var(--text-faint); }
+
+    .tag {
+      display: inline-block;
+      background: rgba(37,211,102,.1); border: 1px solid rgba(37,211,102,.28);
+      color: var(--green-wa);
+      font-family: var(--font-display); font-size: .7rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      padding: .28rem .75rem; border-radius: 4px; margin-bottom: 1.3rem;
+    }
+
+    h1 {
+      font-family: var(--font-display); font-weight: 800;
+      font-size: clamp(2rem, 5.5vw, 3.1rem); line-height: 1.1;
+      letter-spacing: -.03em; color: var(--text); margin-bottom: 1.3rem;
+    }
+    h1 em { font-style: normal; color: var(--cyan); }
+
+    .article-meta {
+      display: flex; flex-wrap: wrap; align-items: center; gap: 1.2rem;
+      font-size: .81rem; color: var(--text-muted);
+      padding-bottom: 2rem; border-bottom: 1px solid var(--border-subtle);
+    }
+    .meta-author {
+      display: flex; align-items: center; gap: .5rem;
+    }
+    .meta-avatar {
+      width: 27px; height: 27px; border-radius: 50%;
+      background: var(--surface2); border: 1.5px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display); font-size: .68rem; font-weight: 700; color: var(--cyan);
+    }
+    .dot { color: var(--text-faint); }
+
+    /* ─── BODY ─── */
+    .article-wrap {
+      max-width: calc(var(--max) + var(--gutter)*2);
+      margin: 0 auto; padding: 0 var(--gutter);
+    }
+    .article {
+      padding: 2.8rem 0 4.5rem;
+    }
+    .article p {
+      color: #C4D2DF; margin-bottom: 1.45rem;
+    }
+    .article p strong { color: var(--text); font-weight: 500; }
+
+    h2 {
+      font-family: var(--font-display); font-weight: 700;
+      font-size: clamp(1.3rem,3vw,1.75rem); letter-spacing: -.025em;
+      color: var(--text); margin: 3rem 0 1rem; line-height: 1.22;
+    }
+    h2::before {
+      content: ''; display: block;
+      width: 26px; height: 2px; background: var(--cyan); margin-bottom: .7rem;
+    }
+    h3 {
+      font-family: var(--font-display); font-weight: 600;
+      font-size: 1.08rem; color: var(--text);
+      margin: 2.2rem 0 .65rem; letter-spacing: -.01em;
+    }
+
+    /* ─── ANSWER BOX ─── */
+    .answer-box {
+      background: linear-gradient(135deg, rgba(0,229,204,.07), rgba(0,229,204,.02));
+      border: 1px solid rgba(0,229,204,.28); border-left: 3px solid var(--cyan);
+      border-radius: var(--radius); padding: 1.5rem 1.8rem; margin: 2.2rem 0;
+    }
+    .answer-box__label {
+      font-family: var(--font-display); font-size: .68rem; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase; color: var(--cyan); margin-bottom: .55rem;
+    }
+    .answer-box p { color: var(--text) !important; font-size: 1.03rem; line-height: 1.65; margin: 0 !important; }
+
+    /* ─── CHAT MOCKUP ─── */
+    .chat-demo {
+      background: var(--dark3); border: 1px solid var(--border-subtle);
+      border-radius: 14px; overflow: hidden; margin: 2rem 0 2.6rem;
+    }
+    .chat-demo__bar {
+      background: #075E54; padding: .75rem 1.1rem;
+      display: flex; align-items: center; gap: .7rem;
+    }
+    .chat-demo__avatar {
+      width: 34px; height: 34px; border-radius: 50%; background: var(--green-wa);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+    }
+    .chat-demo__info strong {
+      font-family: var(--font-display); font-size: .88rem; font-weight: 700; color: #fff; display: block;
+    }
+    .chat-demo__info span { font-size: .72rem; color: rgba(255,255,255,.65); }
+    .chat-demo__badge {
+      margin-left: auto; background: var(--green-wa); color: #fff;
+      font-family: var(--font-display); font-size: .6rem; font-weight: 700;
+      padding: .2rem .55rem; border-radius: 20px; letter-spacing: .04em;
+    }
+    .chat-demo__body { padding: 1.2rem 1.1rem 1.4rem; display: flex; flex-direction: column; gap: .7rem; }
+    .bubble {
+      max-width: 78%; padding: .65rem .9rem; border-radius: 10px; font-size: .88rem; line-height: 1.55;
+    }
+    .bubble.user {
+      align-self: flex-end; background: #1F3C2A; color: #D4EDD9; border-radius: 10px 10px 2px 10px;
+    }
+    .bubble.bot {
+      align-self: flex-start; background: var(--surface2); color: var(--text); border-radius: 10px 10px 10px 2px;
+    }
+    .bubble .time { font-size: .68rem; color: var(--text-faint); margin-top: .3rem; text-align: right; }
+
+    /* ─── DIFF TABLE ─── */
+    .diff-table { width: 100%; border-collapse: collapse; font-size: .9rem; margin: 1.6rem 0 2.4rem; }
+    .diff-table th {
+      font-family: var(--font-display); font-size: .72rem; font-weight: 700;
+      letter-spacing: .06em; text-transform: uppercase;
+      padding: .8rem 1rem; background: var(--surface2);
+      border-bottom: 1px solid var(--border); text-align: left;
+    }
+    .diff-table th:first-child { color: var(--text-muted); }
+    .diff-table th:nth-child(2) { color: #888; }
+    .diff-table th:nth-child(3) { color: var(--cyan); }
+    .diff-table td {
+      padding: .85rem 1rem; border-bottom: 1px solid var(--border-subtle);
+      color: #C4D2DF; vertical-align: top;
+    }
+    .diff-table tr:last-child td { border-bottom: none; }
+    .diff-table .feature { font-family: var(--font-display); font-weight: 600; color: var(--text); }
+    .diff-table .old { color: var(--text-faint); }
+    .diff-table .new { color: var(--cyan); font-weight: 500; }
+
+    /* ─── USE CASE GRID ─── */
+    .usecase-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(220px,1fr));
+      gap: .9rem; margin: 1.5rem 0 2.4rem;
+    }
+    .usecase-card {
+      background: var(--surface); border: 1px solid var(--border-subtle);
+      border-radius: var(--radius); padding: 1.15rem 1.2rem; transition: border-color .2s;
+    }
+    .usecase-card:hover { border-color: var(--border); }
+    .usecase-card__icon { font-size: 1.25rem; margin-bottom: .55rem; display: block; }
+    .usecase-card__title {
+      font-family: var(--font-display); font-weight: 600; font-size: .88rem;
+      color: var(--text); margin-bottom: .3rem;
+    }
+    .usecase-card__desc { font-size: .8rem; color: var(--text-muted); line-height: 1.55; }
+
+    /* ─── STEP LIST ─── */
+    .step-list { counter-reset: steps; list-style: none; padding: 0; margin: 1.4rem 0 2.4rem; }
+    .step-list li {
+      counter-increment: steps; position: relative;
+      padding: 1.2rem 1.2rem 1.2rem 4rem;
+      background: var(--surface); border: 1px solid var(--border-subtle);
+      border-radius: var(--radius); margin-bottom: .6rem;
+    }
+    .step-list li::before {
+      content: counter(steps);
+      position: absolute; left: 1.2rem; top: 50%; transform: translateY(-50%);
+      width: 28px; height: 28px; border-radius: 50%;
+      background: var(--cyan-glow); border: 1.5px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display); font-weight: 700; font-size: .8rem; color: var(--cyan);
+      line-height: 1;
+    }
+    .step-list li strong { font-family: var(--font-display); font-weight: 600; color: var(--text); display: block; margin-bottom: .25rem; }
+    .step-list li p { color: var(--text-muted); font-size: .88rem; margin: 0; line-height: 1.6; }
+
+    /* ─── PRICING CARDS ─── */
+    .plan-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(220px,1fr));
+      gap: 1rem; margin: 1.6rem 0 2.4rem;
+    }
+    .plan-card {
+      background: var(--surface); border: 1px solid var(--border-subtle);
+      border-radius: 12px; padding: 1.5rem 1.3rem; transition: border-color .2s;
+    }
+    .plan-card.featured {
+      border-color: rgba(0,229,204,.35);
+      background: linear-gradient(160deg, rgba(0,229,204,.06), var(--surface));
+    }
+    .plan-card__badge {
+      font-family: var(--font-display); font-size: .65rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--cyan); background: rgba(0,229,204,.1); border: 1px solid rgba(0,229,204,.2);
+      padding: .2rem .6rem; border-radius: 4px; display: inline-block; margin-bottom: .8rem;
+    }
+    .plan-card__name {
+      font-family: var(--font-display); font-weight: 700; font-size: 1.05rem;
+      color: var(--text); margin-bottom: .3rem;
+    }
+    .plan-card__price {
+      font-family: var(--font-display); font-weight: 800; font-size: 1.4rem;
+      color: var(--cyan); margin-bottom: .25rem; line-height: 1.2;
+    }
+    .plan-card__price span { font-size: .8rem; font-weight: 400; color: var(--text-muted); }
+    .plan-card__desc { font-size: .8rem; color: var(--text-muted); margin-bottom: 1rem; line-height: 1.5; }
+    .plan-card ul { list-style: none; padding: 0; }
+    .plan-card ul li {
+      font-size: .82rem; color: #C4D2DF; padding: .28rem 0 .28rem 1.3rem; position: relative;
+    }
+    .plan-card ul li::before { content: '✓'; position: absolute; left: 0; color: var(--cyan); font-weight: 700; }
+
+    /* ─── FAQ ─── */
+    .faq-list { margin: 1.5rem 0 2.4rem; }
+    .faq-item { border: 1px solid var(--border-subtle); border-radius: var(--radius); margin-bottom: .55rem; overflow: hidden; }
+    .faq-question {
+      width: 100%; background: var(--surface); border: none;
+      padding: 1.05rem 1.35rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+      cursor: pointer; text-align: left;
+      font-family: var(--font-display); font-weight: 600; font-size: .93rem; color: var(--text);
+      transition: background .15s;
+    }
+    .faq-question:hover { background: var(--surface2); }
+    .faq-icon {
+      width: 21px; height: 21px; border: 1px solid var(--border); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; color: var(--cyan); font-size: 1rem; transition: transform .25s;
+    }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-answer {
+      max-height: 0; overflow: hidden; transition: max-height .3s ease, padding .2s;
+      background: var(--dark2); padding: 0 1.35rem;
+    }
+    .faq-item.open .faq-answer { max-height: 500px; padding: 1rem 1.35rem 1.3rem; }
+    .faq-answer p { font-size: .9rem; color: var(--text-muted) !important; margin: 0 !important; line-height: 1.72; }
+
+    /* ─── STATS ROW ─── */
+    .stats-row {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(140px,1fr));
+      gap: .8rem; margin: 1.6rem 0 2.4rem;
+    }
+    .stat-box {
+      background: var(--surface); border: 1px solid var(--border-subtle);
+      border-radius: var(--radius); padding: 1.1rem; text-align: center;
+    }
+    .stat-box__num {
+      font-family: var(--font-display); font-weight: 800;
+      font-size: 1.8rem; line-height: 1; color: var(--cyan); margin-bottom: .3rem;
+    }
+    .stat-box__label { font-size: .78rem; color: var(--text-muted); line-height: 1.4; }
+
+    /* ─── CTA ─── */
+    .cta-block {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 14px; padding: 2.4rem 2rem; text-align: center; margin: 3rem 0 1rem;
+    }
+    .cta-block__eyebrow {
+      font-family: var(--font-display); font-size: .7rem; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase; color: var(--green-wa); margin-bottom: .7rem;
+    }
+    .cta-block h2 { font-size: clamp(1.3rem,3vw,1.8rem); margin: 0 0 .75rem; }
+    .cta-block h2::before { display: none; }
+    .cta-block p { color: var(--text-muted); font-size: .92rem; max-width: 440px; margin: 0 auto 1.8rem !important; }
+    .cta-wa {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: var(--green-wa); color: #fff;
+      font-family: var(--font-display); font-weight: 700; font-size: .93rem;
+      padding: .85rem 2rem; border-radius: 8px; text-decoration: none;
+      transition: opacity .2s, transform .15s;
+    }
+    .cta-wa:hover { opacity: .88; transform: translateY(-1px); }
+
+    /* ─── RELATED ─── */
+    .related { margin: 3.5rem 0 2rem; }
+    .related h2 { margin-top: 0; }
+    .related-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px,1fr)); gap: .9rem; margin-top: 1.3rem; }
+    .related-card {
+      background: var(--surface); border: 1px solid var(--border-subtle);
+      border-radius: var(--radius); padding: 1.15rem 1.2rem;
+      text-decoration: none; transition: border-color .2s, transform .15s; display: block;
+    }
+    .related-card:hover { border-color: var(--border); transform: translateY(-2px); }
+    .related-card__tag {
+      font-family: var(--font-display); font-size: .67rem; font-weight: 700;
+      letter-spacing: .08em; text-transform: uppercase; color: var(--cyan); margin-bottom: .45rem;
+    }
+    .related-card__title {
+      font-family: var(--font-display); font-weight: 600; font-size: .86rem; color: var(--text); line-height: 1.4;
+    }
+
+    /* ─── FOOTER ─── */
+    .site-footer {
+      background: var(--dark2); border-top: 1px solid var(--border-subtle);
+      padding: 2.4rem var(--gutter); text-align: center;
+      font-size: .8rem; color: var(--text-faint);
+    }
+    .site-footer a { color: var(--cyan); text-decoration: none; }
+
+    /* ─── UTILS ─── */
+    ul.check { list-style: none; padding: 0; margin: .9rem 0 1.7rem; }
+    ul.check li { padding: .32rem 0 .32rem 1.55rem; position: relative; color: #C4D2DF; font-size: .93rem; }
+    ul.check li::before { content: '→'; position: absolute; left: 0; color: var(--cyan); font-weight: 700; }
+
+    @media (max-width: 600px) {
+      .diff-table th:nth-child(2), .diff-table td:nth-child(2) { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── HEADER ─── -->
+<header class="site-header">
+  <div class="site-header__inner">
+    <a href="https://sense-digital.co" class="logo">Sense<span>Digital</span></a>
+    <a href="https://wa.me/573244089755?text=Hola%2C%20quiero%20implementar%20WhatsApp%20IA%20en%20mi%20empresa" class="btn-cta" target="_blank" rel="noopener">Quiero mi WhatsApp IA →</a>
+  </div>
+</header>
+
+<!-- ─── HERO ─── -->
+<div class="hero">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="https://sense-digital.co">Inicio</a><span>›</span>
+    <a href="https://sense-digital.co/blog">Blog</a><span>›</span>
+    WhatsApp IA
+  </nav>
+  <div class="tag">WhatsApp IA</div>
+  <h1>¿Qué es un agente de <em>IA para WhatsApp</em> y cómo funciona?</h1>
+
+  <!-- IMAGEN DE PORTADA -->
+  <div style="margin: 1.6rem 0 1.8rem; border-radius: 14px; overflow: hidden; border: 1px solid var(--border-subtle); line-height: 0;">
+    <img
+      src="/assets/images/blog/portada-agente-ia-whatsapp.png"
+      alt="Chat de WhatsApp con IA – Sense Digital. Respuestas instantáneas con inteligencia artificial"
+      width="1320" height="990"
+      style="display:block; width:100%; height:auto; object-fit:cover;"
+      loading="eager"
+      fetchpriority="high"
+    >
+  </div>
+
+  <div class="article-meta">
+    <div class="meta-author">
+      <div class="meta-avatar">SD</div>
+      <span>Equipo Sense Digital</span>
+    </div>
+    <span class="dot">·</span>
+    <time datetime="2026-04-14">14 de abril, 2026</time>
+    <span class="dot">·</span>
+    <span>9 min de lectura</span>
+  </div>
+</div>
+
+<!-- ─── ARTICLE ─── -->
+<main class="article-wrap">
+  <article class="article" itemscope itemtype="https://schema.org/Article">
+
+    <p>WhatsApp es el canal de mensajería más usado en Colombia y América Latina. Y sin embargo, la mayoría de empresas lo sigue atendiendo manualmente: un asesor responde cuando puede, pierde conversaciones fuera de horario y no tiene forma de escalar. Los agentes de IA cambian eso por completo.</p>
+
+    <div class="answer-box" role="note">
+      <div class="answer-box__label">Respuesta directa</div>
+      <p>Un <strong>agente de IA para WhatsApp</strong> es un sistema automatizado que usa inteligencia artificial para atender conversaciones de forma autónoma: responde preguntas, califica leads, agenda citas y registra datos en el CRM, <strong>24 horas al día sin intervención humana</strong>. A diferencia de un chatbot con menús fijos, el agente entiende el contexto y genera respuestas naturales.</p>
+    </div>
+
+    <!-- DEMO VISUAL -->
+    <div class="chat-demo" role="img" aria-label="Ejemplo de conversación con agente de IA en WhatsApp">
+      <div class="chat-demo__bar">
+        <div class="chat-demo__avatar">🤖</div>
+        <div class="chat-demo__info">
+          <strong>Sense IA · Ventas</strong>
+          <span>En línea · Responde en segundos</span>
+        </div>
+        <div class="chat-demo__badge">EN VIVO</div>
+      </div>
+      <div class="chat-demo__body">
+        <div class="bubble user">
+          Hola, necesito info sobre sus planes de automatización para mi empresa de 30 personas
+          <div class="time">10:42 ✓✓</div>
+        </div>
+        <div class="bubble bot">
+          ¡Hola! Perfecto, puedo ayudarte. Para darte la opción que mejor se ajusta, ¿cuál es el área que más quieres automatizar: ventas, soporte o ambas?
+          <div class="time">10:42</div>
+        </div>
+        <div class="bubble user">
+          Principalmente ventas, tenemos muchos leads que se pierden por las noches
+          <div class="time">10:43 ✓✓</div>
+        </div>
+        <div class="bubble bot">
+          Entendido. Ese es exactamente el caso que más resolvemos: leads entrando de noche sin respuesta inmediata = oportunidades perdidas. Para 30 personas te recomendaría el <strong>Sales Bot</strong> con recuperación de conversaciones activa. ¿Te agendo una demo de 20 min mañana?
+          <div class="time">10:43</div>
+        </div>
+        <div class="bubble user">
+          Sí, puede ser a las 10am
+          <div class="time">10:44 ✓✓</div>
+        </div>
+        <div class="bubble bot">
+          Listo ✅ Demo agendada para mañana a las 10:00 AM. Te llega confirmación por aquí. ¡Hasta mañana!
+          <div class="time">10:44</div>
+        </div>
+      </div>
+    </div>
+
+    <p><em>Esta conversación fue manejada completamente por el agente de IA, sin ningún asesor humano. El lead quedó calificado y agendado en menos de 3 minutos.</em></p>
+
+
+    <!-- SECCIÓN 1: CHATBOT VS AGENTE -->
+    <h2>Chatbot vs agente de IA: cuál es la diferencia real</h2>
+    <p>La confusión entre estos dos términos es común. No son lo mismo, y la diferencia importa para tu negocio:</p>
+
+    <table class="diff-table" aria-label="Diferencias entre chatbot y agente IA">
+      <thead>
+        <tr>
+          <th>Característica</th>
+          <th>Chatbot tradicional</th>
+          <th>Agente de IA</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="feature">Comprensión del lenguaje</td>
+          <td class="old">Palabras clave o menús</td>
+          <td class="new">Lenguaje natural, contexto completo</td>
+        </tr>
+        <tr>
+          <td class="feature">Respuestas inesperadas</td>
+          <td class="old">Se rompe o va a FAQ</td>
+          <td class="new">Las maneja de forma coherente</td>
+        </tr>
+        <tr>
+          <td class="feature">Memoria de la conversación</td>
+          <td class="old">No recuerda lo anterior</td>
+          <td class="new">Mantiene contexto durante todo el hilo</td>
+        </tr>
+        <tr>
+          <td class="feature">Calificación de leads</td>
+          <td class="old">No o muy básica</td>
+          <td class="new">Detecta intención, perfil y urgencia</td>
+        </tr>
+        <tr>
+          <td class="feature">Integración con CRM / sistemas</td>
+          <td class="old">Difícil o inexistente</td>
+          <td class="new">Nativa: registra, actualiza y alerta</td>
+        </tr>
+        <tr>
+          <td class="feature">Entrenamiento</td>
+          <td class="old">Se programa manualmente</td>
+          <td class="new">Se entrena con datos del negocio</td>
+        </tr>
+        <tr>
+          <td class="feature">Experiencia del usuario</td>
+          <td class="old">Robótica y frustrante</td>
+          <td class="new">Natural, como hablar con un asesor</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <!-- SECCIÓN 2: CASOS DE USO -->
+    <h2>¿En qué industrias funciona un agente IA para WhatsApp?</h2>
+    <p>Prácticamente cualquier negocio que reciba consultas por WhatsApp puede beneficiarse. Estos son los casos más comunes que implementamos:</p>
+
+    <div class="usecase-grid">
+      <div class="usecase-card">
+        <span class="usecase-card__icon">🏠</span>
+        <div class="usecase-card__title">Inmobiliarias</div>
+        <div class="usecase-card__desc">Califica si el prospecto busca arriendo o compra, filtra presupuesto y agenda visitas automáticamente.</div>
+      </div>
+      <div class="usecase-card">
+        <span class="usecase-card__icon">🏥</span>
+        <div class="usecase-card__title">Clínicas y salud</div>
+        <div class="usecase-card__desc">Agendamiento de citas, recordatorios, confirmaciones y FAQ médicas sin ocupar recepción.</div>
+      </div>
+      <div class="usecase-card">
+        <span class="usecase-card__icon">🎓</span>
+        <div class="usecase-card__title">Educación</div>
+        <div class="usecase-card__desc">Información de programas, proceso de inscripción, requisitos y seguimiento a prospectos.</div>
+      </div>
+      <div class="usecase-card">
+        <span class="usecase-card__icon">🛒</span>
+        <div class="usecase-card__title">E-commerce</div>
+        <div class="usecase-card__desc">Estado de pedidos, catálogo conversacional, recuperación de carritos abandonados.</div>
+      </div>
+      <div class="usecase-card">
+        <span class="usecase-card__icon">🚚</span>
+        <div class="usecase-card__title">Logística y transporte</div>
+        <div class="usecase-card__desc">Tracking de envíos, notificaciones automáticas a clientes y gestión de novedades.</div>
+      </div>
+      <div class="usecase-card">
+        <span class="usecase-card__icon">💼</span>
+        <div class="usecase-card__title">Servicios B2B</div>
+        <div class="usecase-card__desc">Calificación de leads corporativos, envío de propuestas y agendamiento de demos.</div>
+      </div>
+    </div>
+
+
+    <!-- SECCIÓN 3: RESULTADOS -->
+    <h2>¿Qué resultados concretos genera?</h2>
+    <p>Estos son métricas reales de proyectos de WhatsApp IA que hemos implementado en empresas colombianas y mexicanas:</p>
+
+    <div class="stats-row">
+      <div class="stat-box">
+        <div class="stat-box__num">&lt;8s</div>
+        <div class="stat-box__label">Tiempo promedio de primera respuesta</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-box__num">+41%</div>
+        <div class="stat-box__label">Leads correctamente calificados</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-box__num">32%</div>
+        <div class="stat-box__label">Recuperación de conversaciones caídas</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-box__num">24/7</div>
+        <div class="stat-box__label">Atención sin depender de horario</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-box__num">−60%</div>
+        <div class="stat-box__label">Reducción en carga operativa del equipo</div>
+      </div>
+    </div>
+
+
+    <!-- SECCIÓN 4: CÓMO SE IMPLEMENTA -->
+    <h2>¿Cómo se implementa un agente IA para WhatsApp?</h2>
+    <p>El proceso en Sense Digital tiene cuatro etapas claras, desde el diagnóstico hasta el agente funcionando en producción:</p>
+
+    <ol class="step-list">
+      <li>
+        <strong>Diseño conversacional</strong>
+        <p>Definimos los objetivos del agente, el tono de marca, los escenarios de conversación principales y las reglas de negocio. ¿Qué debe responder? ¿Cuándo escala a humano? ¿Cómo califica un lead?</p>
+      </li>
+      <li>
+        <strong>Integración técnica</strong>
+        <p>Conectamos el agente a la API de WhatsApp Business y a tus sistemas existentes: CRM (Kommo, HubSpot, Salesforce), ERP, calendario o sistema de agendamiento.</p>
+      </li>
+      <li>
+        <strong>Entrenamiento y ajuste</strong>
+        <p>Alimentamos el modelo con información real de tu negocio: catálogo, precios, preguntas frecuentes, casos de soporte. Probamos múltiples escenarios antes del lanzamiento.</p>
+      </li>
+      <li>
+        <strong>Lanzamiento y optimización continua</strong>
+        <p>Monitoreamos el desempeño con métricas de conversión, calidad de respuesta y satisfacción. Cada mes se hacen ajustes según los patrones reales de conversación.</p>
+      </li>
+    </ol>
+
+
+    <!-- SECCIÓN 5: COSTOS -->
+    <h2>¿Cuánto cuesta un agente de IA para WhatsApp en Colombia?</h2>
+    <p>El costo depende del nivel de automatización y el volumen de conversaciones. Estos son los tres niveles que manejamos:</p>
+
+    <p>Sin contratos. Sin sorpresas. Cancela cuando quieras.</p>
+
+    <div class="plan-grid">
+      <div class="plan-card">
+        <div class="plan-card__badge">Basic</div>
+        <div class="plan-card__name">Basic</div>
+        <div class="plan-card__price">$299.000 <span>/mes</span></div>
+        <div class="plan-card__desc">COP · facturado mensual</div>
+        <ul>
+          <li>500 conversaciones/mes</li>
+          <li>1 número de WhatsApp</li>
+          <li>IA entrenada en tu negocio</li>
+          <li>Panel de control</li>
+          <li style="color:var(--text-faint);">Agendamiento Calendar</li>
+        </ul>
+        <a href="https://wa.me/573244089755?text=Quiero%20el%20plan%20Basic%20de%20WhatsApp%20IA" style="display:block;margin-top:1.2rem;padding:.7rem;border:1.5px solid var(--cyan);border-radius:7px;text-align:center;color:var(--cyan);font-family:var(--font-display);font-weight:700;font-size:.88rem;text-decoration:none;">Comenzar</a>
+      </div>
+      <div class="plan-card featured">
+        <div class="plan-card__badge">Más popular</div>
+        <div class="plan-card__name">Pro</div>
+        <div class="plan-card__price">$499.000 <span>/mes</span></div>
+        <div class="plan-card__desc">COP · facturado mensual</div>
+        <ul>
+          <li>2.000 conversaciones/mes</li>
+          <li>1 número de WhatsApp</li>
+          <li>IA entrenada en tu negocio</li>
+          <li>Panel de control</li>
+          <li>Agendamiento Google Calendar</li>
+        </ul>
+        <a href="https://wa.me/573244089755?text=Quiero%20el%20plan%20Pro%20de%20WhatsApp%20IA" style="display:block;margin-top:1.2rem;padding:.75rem;border-radius:7px;text-align:center;background:var(--cyan);color:var(--dark);font-family:var(--font-display);font-weight:700;font-size:.88rem;text-decoration:none;">Comenzar</a>
+      </div>
+      <div class="plan-card">
+        <div class="plan-card__badge">Enterprise</div>
+        <div class="plan-card__name">Enterprise</div>
+        <div class="plan-card__price">$1.299.000 <span>/mes</span></div>
+        <div class="plan-card__desc">COP · facturado mensual</div>
+        <ul>
+          <li>Conversaciones ilimitadas</li>
+          <li>Múltiples números</li>
+          <li>IA entrenada en tu negocio</li>
+          <li>Panel de control</li>
+          <li>Agendamiento Google Calendar</li>
+          <li>Soporte prioritario</li>
+        </ul>
+        <a href="https://wa.me/573244089755?text=Quiero%20el%20plan%20Enterprise%20de%20WhatsApp%20IA" style="display:block;margin-top:1.2rem;padding:.7rem;border:1.5px solid var(--cyan);border-radius:7px;text-align:center;color:var(--cyan);font-family:var(--font-display);font-weight:700;font-size:.88rem;text-decoration:none;">Contactar</a>
+      </div>
+    </div>
+
+
+    <!-- SECCIÓN 6: FAQ -->
+    <h2>Preguntas frecuentes</h2>
+
+    <div class="faq-list" itemscope itemtype="https://schema.org/FAQPage">
+
+      <div class="faq-item" itemscope itemtype="https://schema.org/Question">
+        <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+          <span itemprop="name">¿Necesito la API oficial de WhatsApp Business?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer" itemscope itemtype="https://schema.org/Answer">
+          <p itemprop="text">Para operaciones de alto volumen con integraciones a CRM y campañas masivas, sí se recomienda la API oficial de WhatsApp Business (Meta). Para volúmenes menores existe la opción de operar con WhatsApp Business App con limitaciones. Nosotros evaluamos cuál conviene más según tu caso antes de iniciar.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" itemscope itemtype="https://schema.org/Question">
+        <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+          <span itemprop="name">¿Puede el agente pasar la conversación a un humano?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer" itemscope itemtype="https://schema.org/Answer">
+          <p itemprop="text">Sí, y de hecho es parte central del diseño. El agente resuelve el 80% de consultas repetitivas y escala al asesor humano cuando detecta intención alta de compra, casos sensibles o cuando el usuario lo solicita. Esto garantiza que tus vendedores reciben leads calificados y listos para cerrar.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" itemscope itemtype="https://schema.org/Question">
+        <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+          <span itemprop="name">¿El agente respeta la identidad y el tono de mi marca?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer" itemscope itemtype="https://schema.org/Answer">
+          <p itemprop="text">Totalmente. Durante el diseño conversacional definimos el tono (formal, cercano, técnico), el nombre del agente, los mensajes de bienvenida y las restricciones de comunicación. El agente habla como tu marca, no como un robot genérico.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" itemscope itemtype="https://schema.org/Question">
+        <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+          <span itemprop="name">¿Qué pasa si el agente no sabe responder algo?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer" itemscope itemtype="https://schema.org/Answer">
+          <p itemprop="text">Diseñamos un flujo de fallback: cuando el agente detecta que no tiene suficiente información para responder bien, informa al usuario que lo conectará con un asesor y notifica al equipo. Nunca deja al cliente sin respuesta. Además, esos casos se registran para mejorar el entrenamiento en la siguiente iteración.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" itemscope itemtype="https://schema.org/Question">
+        <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+          <span itemprop="name">¿Cuánto tiempo toma tener el agente funcionando?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer" itemscope itemtype="https://schema.org/Answer">
+          <p itemprop="text">Un flujo inicial (Starter Bot) puede estar en producción en 2 a 3 semanas. El Sales Bot con CRM integrado tarda entre 4 y 8 semanas. Los proyectos Omnichannel con integraciones avanzadas pueden requerir hasta 12 semanas. El tiempo depende principalmente de la complejidad de las integraciones y la velocidad de respuesta en las revisiones.</p>
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- CTA -->
+    <div class="cta-block">
+      <div class="cta-block__eyebrow">¿Listo para automatizar tu WhatsApp?</div>
+      <h2>Convierte tus conversaciones en ventas reales</h2>
+      <p>Cuéntanos tu caso y diseñamos el agente ideal para tu operación. Primera consulta sin costo.</p>
+      <a href="https://wa.me/573244089755?text=Hola%2C%20le%C3%AD%20el%20art%C3%ADculo%20de%20WhatsApp%20IA%20y%20quiero%20implementarlo%20en%20mi%20empresa" class="cta-wa" target="_blank" rel="noopener">
+        💬 Agendar demo gratuita →
+      </a>
+    </div>
+
+
+    <!-- RELATED -->
+    <section class="related" aria-label="Artículos relacionados">
+      <h2>Artículos relacionados</h2>
+      <div class="related-grid">
+        <a href="/blog/cuanto-cuesta-pagina-web-colombia" class="related-card">
+          <div class="related-card__tag">Desarrollo Web</div>
+          <div class="related-card__title">¿Cuánto cuesta una página web en Colombia en 2025?</div>
+        </a>
+        <a href="/blog/como-automatizar-ventas-con-ia" class="related-card">
+          <div class="related-card__tag">Automatización IA</div>
+          <div class="related-card__title">Cómo automatizar el área de ventas con IA</div>
+        </a>
+        <a href="/blog/como-hacer-publicidad-google-ads-colombia" class="related-card">
+          <div class="related-card__tag">Marketing Digital</div>
+          <div class="related-card__title">¿Cómo hacer publicidad en Google Ads en Colombia?</div>
+        </a>
+      </div>
+    </section>
+
+  </article>
+</main>
+
+<!-- ─── FOOTER ─── -->
+<footer class="site-footer">
+  <p>© 2025 <a href="https://sense-digital.co">Sense Digital</a> · Cl. 110 #9-25 Of. 901, Bogotá · <a href="mailto:F.otalora@sense-digital.co">F.otalora@sense-digital.co</a></p>
+</footer>
+
+<script>
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(el => {
+      el.classList.remove('open');
+      el.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+    });
+    if (!isOpen) {
+      item.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+    }
+  }
+</script>
+
+</body>
+</html>

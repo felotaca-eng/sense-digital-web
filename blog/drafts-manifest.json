@@ -25,5 +25,14 @@
     "publishAt": "2026-04-15T08:00:00-05:00",
     "coverImage": "../assets/images/services/automatizacion-ia-limpio-web.svg",
     "draftFile": "guia-ia-ventas-2026.html"
+  },
+  {
+    "slug": "que-es-agente-ia-whatsapp",
+    "title": "Que es un agente de IA para WhatsApp y como funciona",
+    "excerpt": "Guia completa para entender como funciona un agente de IA en WhatsApp, costos, implementacion y casos reales en Colombia.",
+    "category": "WhatsApp IA",
+    "publishAt": "2026-04-15T08:00:00-05:00",
+    "coverImage": "../assets/images/blog/portada-agente-ia-whatsapp.png",
+    "draftFile": "que-es-agente-ia-whatsapp.html"
   }
 ]
