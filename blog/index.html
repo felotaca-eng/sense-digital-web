@@ -171,7 +171,7 @@
     async function loadPosts() {
       const container = document.getElementById('posts');
       try {
-        const res = await fetch('./posts-manifest.json', { cache: 'no-store' });
+        const res = await fetch(`./posts-manifest.json?v=${Date.now()}`, { cache: 'no-store' });
         const posts = await res.json();
         if (!Array.isArray(posts) || posts.length === 0) {
           container.innerHTML = '<div class="empty">Aun no hay publicaciones. Vuelve pronto.</div>';
