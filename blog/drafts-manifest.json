@@ -1,5 +1,23 @@
 [
   {
+    "slug": "desarrollo-app-movil-negocios-colombia-2026",
+    "title": "Desarrollo de apps moviles para negocios en Colombia 2026",
+    "excerpt": "Que debe tener una app movil para realmente aportar ventas, retencion y operacion en empresas de Colombia.",
+    "category": "Apps Moviles",
+    "publishAt": "2026-04-14T08:00:00-05:00",
+    "coverImage": "../assets/images/home/1.png",
+    "draftFile": "2026-04-14-desarrollo-app-movil-negocios-colombia-2026.html"
+  },
+  {
+    "slug": "google-ads-pymes-colombia-2026",
+    "title": "Google Ads para pymes en Colombia en 2026: estructura que si convierte",
+    "excerpt": "Guia practica para ordenar campañas, reducir costo por lead y escalar pauta con control comercial.",
+    "category": "Marketing Digital",
+    "publishAt": "2026-04-14T08:00:00-05:00",
+    "coverImage": "../assets/images/home/2.png",
+    "draftFile": "2026-04-14-google-ads-pymes-colombia-2026.html"
+  },
+  {
     "slug": "guia-ia-ventas-2026",
     "title": "Guia IA para ventas B2B en 2026",
     "excerpt": "Framework simple para definir donde usar IA en tu embudo comercial sin sobre-automatizar.",
