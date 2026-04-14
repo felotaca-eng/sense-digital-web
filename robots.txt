@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Prevent indexing of internal draft content if ever exposed
+Disallow: /blog/drafts/
+Disallow: /blog/drafts-manifest.json
+
+Sitemap: https://sense-digital.co/sitemap.xml

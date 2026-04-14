@@ -124,6 +124,50 @@
   </main>
 
   <script>
+    function renderBlogPostingSchema(posts) {
+      const schema = {
+        '@context': 'https://schema.org',
+        '@type': 'ItemList',
+        itemListElement: posts.map((post, index) => ({
+          '@type': 'ListItem',
+          position: index + 1,
+          item: {
+            '@type': 'BlogPosting',
+            headline: post.title,
+            description: post.excerpt,
+            datePublished: post.publishAt,
+            author: {
+              '@type': 'Organization',
+              name: 'Sense Digital'
+            },
+            publisher: {
+              '@type': 'Organization',
+              name: 'Sense Digital',
+              logo: {
+                '@type': 'ImageObject',
+                url: 'https://sense-digital.co/logo.png'
+              }
+            },
+            image: post.coverImage?.startsWith('http')
+              ? post.coverImage
+              : `https://sense-digital.co/blog/${String(post.coverImage || '').replace(/^\.?\//, '')}`,
+            mainEntityOfPage: post.url?.startsWith('http')
+              ? post.url
+              : `https://sense-digital.co/blog/${String(post.url || '').replace(/^\.?\//, '')}`,
+            inLanguage: 'es'
+          }
+        }))
+      };
+
+      const existing = document.getElementById('blogPostingSchema');
+      if (existing) existing.remove();
+      const script = document.createElement('script');
+      script.type = 'application/ld+json';
+      script.id = 'blogPostingSchema';
+      script.textContent = JSON.stringify(schema);
+      document.head.appendChild(script);
+    }
+
     async function loadPosts() {
       const container = document.getElementById('posts');
       try {
@@ -133,6 +177,7 @@
           container.innerHTML = '<div class="empty">Aun no hay publicaciones. Vuelve pronto.</div>';
           return;
         }
+        renderBlogPostingSchema(posts);
         container.innerHTML = posts.map(post => {
           const date = new Date(post.publishAt);
           const pretty = new Intl.DateTimeFormat('es-CO', { dateStyle: 'medium' }).format(date);
