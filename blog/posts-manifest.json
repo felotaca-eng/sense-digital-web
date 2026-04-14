@@ -1,5 +1,23 @@
 [
   {
+    "slug": "desarrollo-app-movil-negocios-colombia-2026",
+    "title": "Desarrollo de apps moviles para negocios en Colombia 2026",
+    "excerpt": "Que debe tener una app movil para realmente aportar ventas, retencion y operacion en empresas de Colombia.",
+    "category": "Apps Moviles",
+    "publishAt": "2026-04-14T08:00:00-05:00",
+    "coverImage": "../assets/images/home/1.png",
+    "url": "posts/desarrollo-app-movil-negocios-colombia-2026.html"
+  },
+  {
+    "slug": "google-ads-pymes-colombia-2026",
+    "title": "Google Ads para pymes en Colombia en 2026: estructura que si convierte",
+    "excerpt": "Guia practica para ordenar campañas, reducir costo por lead y escalar pauta con control comercial.",
+    "category": "Marketing Digital",
+    "publishAt": "2026-04-14T08:00:00-05:00",
+    "coverImage": "../assets/images/home/2.png",
+    "url": "posts/google-ads-pymes-colombia-2026.html"
+  },
+  {
     "slug": "automatizacion-whatsapp-ventas",
     "title": "Automatizacion de WhatsApp para ventas: que si funciona en 2026",
     "excerpt": "Una guia concreta para pasar de respuestas manuales a una operacion conversacional que califica leads y agenda oportunidades.",
