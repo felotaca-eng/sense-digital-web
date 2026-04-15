@@ -1,17 +1,6 @@
 name: Blog Scheduler
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - 'blog/drafts/**'
-      - 'blog/drafts-manifest.json'
-      - 'scripts/publish-scheduled-posts.mjs'
-      - '.github/workflows/blog-scheduler.yml'
-  schedule:
-    # 08:00 America/Bogota (UTC-5)
-    - cron: '0 13 * * *'
   workflow_dispatch:
 
 permissions:
