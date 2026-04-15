@@ -5,7 +5,7 @@
     "excerpt": "Descubre como los agentes de IA estan transformando las empresas colombianas en 2026: casos de uso, beneficios y ruta de implementacion.",
     "category": "Automatizacion IA",
     "publishAt": "2026-04-15T08:00:00-05:00",
-    "coverImage": "../assets/images/home/2.png",
+    "coverImage": "../assets/images/home/3.png",
     "url": "posts/agentes-ia-empresas-colombia-2026.html"
   },
   {
@@ -14,7 +14,7 @@
     "excerpt": "Costos reales, tendencias y tecnologia para desarrollar una app movil empresarial en Colombia en 2026.",
     "category": "Apps Moviles",
     "publishAt": "2026-04-15T08:00:00-05:00",
-    "coverImage": "../assets/images/home/1.png",
+    "coverImage": "../assets/images/testimonials/oficina-bogota.jpg",
     "url": "posts/desarrollo-app-movil-empresas-colombia-2026.html"
   },
   {
@@ -32,7 +32,7 @@
     "excerpt": "Framework simple para definir donde usar IA en tu embudo comercial sin sobre-automatizar.",
     "category": "IA para Ventas",
     "publishAt": "2026-04-15T08:00:00-05:00",
-    "coverImage": "../assets/images/services/automatizacion-ia-limpio-web.svg",
+    "coverImage": "../assets/images/testimonials/oficina.cdmx.jpg",
     "url": "posts/guia-ia-ventas-2026.html"
   },
   {
