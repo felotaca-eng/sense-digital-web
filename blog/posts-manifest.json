@@ -1,5 +1,41 @@
 [
   {
+    "slug": "agentes-ia-empresas-colombia-2026",
+    "title": "Agentes de IA para Empresas en Colombia 2026: De la Experimentacion a la Operatividad",
+    "excerpt": "Descubre como los agentes de IA estan transformando las empresas colombianas en 2026: casos de uso, beneficios y ruta de implementacion.",
+    "category": "Automatizacion IA",
+    "publishAt": "2026-04-15T08:00:00-05:00",
+    "coverImage": "../assets/images/home/2.png",
+    "url": "posts/agentes-ia-empresas-colombia-2026.html"
+  },
+  {
+    "slug": "desarrollo-app-movil-empresas-colombia-2026",
+    "title": "Desarrollo de App Movil para tu Empresa en Colombia 2026: Guia Completa",
+    "excerpt": "Costos reales, tendencias y tecnologia para desarrollar una app movil empresarial en Colombia en 2026.",
+    "category": "Apps Moviles",
+    "publishAt": "2026-04-15T08:00:00-05:00",
+    "coverImage": "../assets/images/home/1.png",
+    "url": "posts/desarrollo-app-movil-empresas-colombia-2026.html"
+  },
+  {
+    "slug": "que-es-agente-ia-whatsapp",
+    "title": "Que es un agente de IA para WhatsApp y como funciona",
+    "excerpt": "Guia completa para entender como funciona un agente de IA en WhatsApp, costos, implementacion y casos reales en Colombia.",
+    "category": "WhatsApp IA",
+    "publishAt": "2026-04-15T08:00:00-05:00",
+    "coverImage": "../assets/images/blog/portada-agente-ia-whatsapp.png",
+    "url": "posts/que-es-agente-ia-whatsapp.html"
+  },
+  {
+    "slug": "guia-ia-ventas-2026",
+    "title": "Guia IA para ventas B2B en 2026",
+    "excerpt": "Framework simple para definir donde usar IA en tu embudo comercial sin sobre-automatizar.",
+    "category": "IA para Ventas",
+    "publishAt": "2026-04-15T08:00:00-05:00",
+    "coverImage": "../assets/images/services/automatizacion-ia-limpio-web.svg",
+    "url": "posts/guia-ia-ventas-2026.html"
+  },
+  {
     "slug": "desarrollo-app-movil-negocios-colombia-2026",
     "title": "Desarrollo de apps moviles para negocios en Colombia 2026",
     "excerpt": "Que debe tener una app movil para realmente aportar ventas, retencion y operacion en empresas de Colombia.",
