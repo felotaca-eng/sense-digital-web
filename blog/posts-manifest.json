@@ -1,12 +1,237 @@
 [
   {
-    "slug": "agentes-ia-empresas-colombia-2026",
-    "title": "Agentes de IA para Empresas en Colombia 2026: De la Experimentacion a la Operatividad",
-    "excerpt": "Descubre como los agentes de IA estan transformando las empresas colombianas en 2026: casos de uso, beneficios y ruta de implementacion.",
+    "slug": "2026-05-07-customer-success-retencion-clientes-colombia-2026",
+    "title": "Customer Success en Colombia 2026: Cómo Retener Clientes y Multiplicar su Valor",
+    "excerpt": "Customer Success retención clientes Colombia 2026: cómo reducir churn, calcular LTV, implementar NPS y estrategias de fidelización que multiplican el valor de cada cliente. Guía completa para PYMES.",
     "category": "Automatizacion IA",
+    "publishAt": "2026-05-07T08:00:00-05:00",
+    "coverImage": "https://sense-digital.co/images/logos/Sense-05%20%281%29.png",
+    "url": "posts/2026-05-07-customer-success-retencion-clientes-colombia-2026.html"
+  },
+  {
+    "slug": "2026-05-08-automatizacion-email-marketing-sms-colombia-2026",
+    "title": "Automatización de Email Marketing y SMS en Colombia 2026: Secuencias que Convierten",
+    "excerpt": "Descubre cómo la automatización de email marketing y SMS puede multiplicar tus ventas en Colombia 2026. ROI de 36:1, secuencias probadas y plataformas disponibles para PYMES.",
+    "category": "Automatizacion IA",
+    "publishAt": "2026-05-07T08:00:00-05:00",
+    "coverImage": "https://sense-digital.co/images/logos/Sense-05%20%281%29.png",
+    "url": "posts/2026-05-08-automatizacion-email-marketing-sms-colombia-2026.html"
+  },
+  {
+    "slug": "2026-05-07-fintech-colombia-pymes-ventajas-2026",
+    "title": "Fintech Colombia 2026: Cómo las PYMES Pueden Beneficiarse de la Revolución Financiera Digital",
+    "excerpt": "Fintech Colombia PYMES 2026: ecosistema con 409 empresas activas, neobancos, pagos digitales Bre-B, Nequi, Bold y Wompi. Guía completa para que tu PYME aproveche la revolución financiera.",
+    "category": "Automatizacion IA",
+    "publishAt": "2026-05-07T08:00:00-05:00",
+    "coverImage": "https://sense-digital.co/images/logos/Sense-05%20%281%29.png",
+    "url": "posts/2026-05-07-fintech-colombia-pymes-ventajas-2026.html"
+  },
+  {
+    "slug": "2026-05-07-omnicanalidad-retail-digital-colombia-2026",
+    "title": "Omnicanalidad en el Retail Colombiano 2026: Integra tu Tienda Física y Digital",
+    "excerpt": "Omnicanalidad retail Colombia 2026: descubre cómo integrar tu tienda física y digital, estadísticas del consumidor omnicanal colombiano y pasos concretos para PYMES.",
+    "category": "Automatizacion IA",
+    "publishAt": "2026-05-07T08:00:00-05:00",
+    "coverImage": "https://sense-digital.co/images/logos/Sense-05%20%281%29.png",
+    "url": "posts/2026-05-07-omnicanalidad-retail-digital-colombia-2026.html"
+  },
+  {
+    "slug": "2026-05-08-landing-pages-alta-conversion-colombia-2026",
+    "title": "Landing Pages de Alta Conversión para Empresas Colombianas: Guía Completa 2026",
+    "excerpt": "Aprende a crear landing pages de alta conversión para empresas colombianas en 2026. Los 7 elementos indispensables, benchmarks por industria y herramientas sin programar.",
+    "category": "Marketing Digital",
+    "publishAt": "2026-05-07T08:00:00-05:00",
+    "coverImage": "https://sense-digital.co/images/logos/Sense-05%20%281%29.png",
+    "url": "posts/2026-05-08-landing-pages-alta-conversion-colombia-2026.html"
+  },
+  {
+    "slug": "2026-05-06-meta-ads-facebook-instagram-colombia-2026",
+    "title": "Meta Ads en Colombia 2026: Guía Avanzada de Facebook e Instagram Ads",
+    "excerpt": "Domina Meta Ads en Colombia en 2026: estructura de campañas, audiencias lookalike, píxel, formatos creativos que convierten y métricas clave para PYMES colombianas en Facebook e Instagram.",
+    "category": "Automatizacion IA",
+    "publishAt": "2026-05-06T08:00:00-05:00",
+    "coverImage": "https://sense-digital.co/images/logos/Sense-05%20%281%29.png",
+    "url": "posts/2026-05-06-meta-ads-facebook-instagram-colombia-2026.html"
+  },
+  {
+    "slug": "2026-05-06-cloud-computing-pymes-colombia-2026",
+    "title": "Cloud Computing para PYMES en Colombia 2026: Guía para Migrar a la Nube sin Riesgos",
+    "excerpt": "Guía completa de cloud computing para PYMES en Colombia 2026: comparativa AWS, Google Cloud y Azure, costos en pesos colombianos, guía de migración paso a paso y casos de éxito reales.",
+    "category": "Automatizacion IA",
+    "publishAt": "2026-05-06T08:00:00-05:00",
+    "coverImage": "https://sense-digital.co/images/logos/Sense-05%20%281%29.png",
+    "url": "posts/2026-05-06-cloud-computing-pymes-colombia-2026.html"
+  },
+  {
+    "slug": "2026-05-06-ux-ui-diseno-web-conversion-colombia-2026",
+    "title": "UX/UI y Diseño Web para Conversión: Cómo el Diseño Impacta las Ventas de tu Empresa",
+    "excerpt": "Descubre cómo el UX UI y diseño web para conversión en Colombia puede aumentar tus ventas hasta un 400%. Core Web Vitals, auditoría de UX, herramientas gratuitas y casos reales de rediseño.",
+    "category": "Automatizacion IA",
+    "publishAt": "2026-05-06T08:00:00-05:00",
+    "coverImage": "https://sense-digital.co/images/logos/Sense-05%20%281%29.png",
+    "url": "posts/2026-05-06-ux-ui-diseno-web-conversion-colombia-2026.html"
+  },
+  {
+    "slug": "2026-05-05-tiktok-ads-publicidad-empresas-colombia-2026",
+    "title": "TikTok Ads para Empresas en Colombia 2026: Cómo Crear Campañas que Conviertan",
+    "excerpt": "Guía completa de TikTok Ads Colombia 2026: tipos de anuncios, costos reales en pesos, segmentación de audiencias, creatividad que convierte y comparativa TikTok Ads vs Meta Ads.",
+    "category": "Automatizacion IA",
+    "publishAt": "2026-05-05T08:00:00-05:00",
+    "coverImage": "https://sense-digital.co/images/logos/Sense-05%20%281%29.png",
+    "url": "posts/2026-05-05-tiktok-ads-publicidad-empresas-colombia-2026.html"
+  },
+  {
+    "slug": "2026-05-05-seo-local-google-maps-negocios-colombia-2026",
+    "title": "SEO Local en Colombia 2026: Cómo Aparecer Primero en Google Maps",
+    "excerpt": "Guía completa de SEO local Colombia 2026: cómo optimizar Google Business Profile, posicionarte en el mapa pack local, obtener reseñas y dominar las búsquedas 'cerca de mí' en Colombia.",
+    "category": "Automatizacion IA",
+    "publishAt": "2026-05-05T08:00:00-05:00",
+    "coverImage": "https://sense-digital.co/images/logos/Sense-05%20%281%29.png",
+    "url": "posts/2026-05-05-seo-local-google-maps-negocios-colombia-2026.html"
+  },
+  {
+    "slug": "2026-05-05-funnel-ventas-digital-pymes-colombia-2026",
+    "title": "Funnel de Ventas Digital para PYMES Colombianas: Guía Paso a Paso 2026",
+    "excerpt": "Aprende a construir un funnel de ventas digital para tu PYME colombiana en 2026: etapas TOFU/MOFU/BOFU, herramientas, tasas de conversión por sector y casos reales.",
+    "category": "Automatizacion IA",
+    "publishAt": "2026-05-05T08:00:00-05:00",
+    "coverImage": "https://sense-digital.co/images/logos/Sense-05%20%281%29.png",
+    "url": "posts/2026-05-05-funnel-ventas-digital-pymes-colombia-2026.html"
+  },
+  {
+    "slug": "2026-05-04-agentes-ia-autonomos-empresas-colombia-2026",
+    "title": "Agentes de IA Autónomos para Empresas en Colombia 2026: Guía Completa",
+    "excerpt": "Descubre cómo los agentes de IA autónomos están transformando las empresas colombianas en 2026. Casos de uso reales, ROI documentado y cómo implementarlos en tu negocio.",
+    "category": "Automatizacion IA",
+    "publishAt": "2026-05-04T08:00:00-05:00",
+    "coverImage": "https://sense-digital.co/images/logos/Sense-05%20%281%29.png",
+    "url": "posts/2026-05-04-agentes-ia-autonomos-empresas-colombia-2026.html"
+  },
+  {
+    "slug": "2026-05-04-marketing-influencers-microinfluencers-colombia-2026",
+    "title": "Marketing de Influencers en Colombia 2026: Estrategia Completa para Empresas",
+    "excerpt": "Guía completa de marketing de influencers y microinfluencers en Colombia 2026. Costos, ROI, plataformas y estrategias para que tu empresa conecte con audiencias reales.",
+    "category": "Automatizacion IA",
+    "publishAt": "2026-05-04T08:00:00-05:00",
+    "coverImage": "https://sense-digital.co/images/logos/Sense-05%20%281%29.png",
+    "url": "posts/2026-05-04-marketing-influencers-microinfluencers-colombia-2026.html"
+  },
+  {
+    "slug": "2026-04-27-ciberseguridad-pymes-colombia-proteccion-digital-2026",
+    "title": "Ciberseguridad para PYMES en Colombia 2026: Guía de Protección Digital",
+    "excerpt": "Las PYMES colombianas representan el 70% de víctimas de ciberataques. Aprende a proteger tu empresa con estrategias de ciberseguridad accesibles y efectivas en 2026.",
+    "category": "Automatizacion IA",
+    "publishAt": "2026-04-27T08:00:00-05:00",
+    "coverImage": "https://sense-digital.co/images/logos/Sense-05%20%281%29.png",
+    "url": "posts/2026-04-27-ciberseguridad-pymes-colombia-proteccion-digital-2026.html"
+  },
+  {
+    "slug": "2026-04-27-video-marketing-reels-youtube-shorts-empresas-colombia-2026",
+    "title": "Video Marketing con Reels y YouTube Shorts para Empresas en Colombia 2026",
+    "excerpt": "El video corto domina el marketing digital en 2026: el 82% del tráfico web será video. Aprende cómo usar Reels y YouTube Shorts para hacer crecer tu empresa en Colombia.",
+    "category": "Automatizacion IA",
+    "publishAt": "2026-04-27T08:00:00-05:00",
+    "coverImage": "https://sense-digital.co/images/logos/Sense-05%20%281%29.png",
+    "url": "posts/2026-04-27-video-marketing-reels-youtube-shorts-empresas-colombia-2026.html"
+  },
+  {
+    "slug": "2026-04-27-business-intelligence-analytics-pymes-colombia-2026",
+    "title": "Business Intelligence para PYMES en Colombia 2026: Cómo Tomar Decisiones con Datos",
+    "excerpt": "Descubre cómo el Business Intelligence transforma las PYMES colombianas en 2026. Herramientas, estadísticas clave y guía paso a paso para competir con datos reales.",
+    "category": "Automatizacion IA",
+    "publishAt": "2026-04-27T08:00:00-05:00",
+    "coverImage": "https://sense-digital.co/images/logos/Sense-05%20%281%29.png",
+    "url": "posts/2026-04-27-business-intelligence-analytics-pymes-colombia-2026.html"
+  },
+  {
+    "slug": "2026-04-27-whatsapp-business-marketing-automatizacion-empresas-colombia",
+    "title": "WhatsApp Business para Empresas en Colombia 2026: Marketing y Automatización",
+    "excerpt": "Descubre cómo WhatsApp Business puede transformar tu empresa en Colombia: automatización, marketing conversacional y estrategias que generan ventas reales en 2026.",
+    "category": "WhatsApp IA",
+    "publishAt": "2026-04-27T08:00:00-05:00",
+    "coverImage": "https://sense-digital.co/images/logos/Sense-05%20%281%29.png",
+    "url": "posts/2026-04-27-whatsapp-business-marketing-automatizacion-empresas-colombia.html"
+  },
+  {
+    "slug": "2026-04-24-linkedin-marketing-b2b-empresas-colombia-2026",
+    "title": "LinkedIn Marketing B2B para Empresas Colombianas 2026: Guía Estratégica",
+    "excerpt": "Aprende a usar LinkedIn para generar leads B2B en Colombia en 2026. El 80% de leads B2B en redes vienen de LinkedIn. Estrategias, formatos y casos de éxito para empresas colombianas.",
+    "category": "Automatizacion IA",
+    "publishAt": "2026-04-24T08:00:00-05:00",
+    "coverImage": "https://sense-digital.co/images/logos/Sense-05%20%281%29.png",
+    "url": "posts/2026-04-24-linkedin-marketing-b2b-empresas-colombia-2026.html"
+  },
+  {
+    "slug": "2026-04-24-chatbots-ia-conversacional-atencion-cliente-colombia",
+    "title": "Chatbots con IA para Atención al Cliente en Colombia 2026: Guía Completa",
+    "excerpt": "Descubre cómo los chatbots con IA están transformando la atención al cliente en Colombia en 2026. Estadísticas, casos de uso, ROI y cómo implementarlos en tu empresa.",
+    "category": "WhatsApp IA",
+    "publishAt": "2026-04-24T08:00:00-05:00",
+    "coverImage": "https://sense-digital.co/images/logos/Sense-05%20%281%29.png",
+    "url": "posts/2026-04-24-chatbots-ia-conversacional-atencion-cliente-colombia.html"
+  },
+  {
+    "slug": "2026-04-23-ecommerce-colombia-2026-guia-emprender-vender-online",
+    "title": "E-commerce en Colombia 2026: Guía Completa para Emprender y Vender Online",
+    "excerpt": "E-commerce en Colombia 2026: cifras récord, tendencias clave, IA en ventas online y cómo emprender digitalmente. Guía completa con datos reales para PYMES colombianas.",
+    "category": "Automatizacion IA",
+    "publishAt": "2026-04-23T08:00:00-05:00",
+    "coverImage": "https://sense-digital.co/images/logos/Sense-05%20%281%29.png",
+    "url": "posts/2026-04-23-ecommerce-colombia-2026-guia-emprender-vender-online.html"
+  },
+  {
+    "slug": "2026-04-23-geo-optimizacion-motores-ia-colombia-2026",
+    "title": "GEO: Cómo Posicionar tu Empresa en los Motores de IA en Colombia 2026",
+    "excerpt": "Aprende qué es GEO (Generative Engine Optimization) y cómo optimizar tu empresa para aparecer en ChatGPT, Google AI Overviews y Perplexity en Colombia 2026.",
+    "category": "Automatizacion IA",
+    "publishAt": "2026-04-23T08:00:00-05:00",
+    "coverImage": "https://sense-digital.co/images/logos/Sense-05%20%281%29.png",
+    "url": "posts/2026-04-23-geo-optimizacion-motores-ia-colombia-2026.html"
+  },
+  {
+    "slug": "2026-04-20-pwa-progressive-web-apps-empresas-colombia-2026",
+    "title": "Progressive Web Apps para Empresas en Colombia 2026: La Guía Definitiva",
+    "excerpt": "Descubre cómo las Progressive Web Apps (PWA) están transformando los negocios en Colombia en 2026. Costos, beneficios, casos de éxito y cómo implementarlas. Guía completa.",
+    "category": "Automatizacion IA",
+    "publishAt": "2026-04-20T08:00:00-05:00",
+    "coverImage": "https://sense-digital.co/images/logos/Sense-05%20%281%29.png",
+    "url": "posts/2026-04-20-pwa-progressive-web-apps-empresas-colombia-2026.html"
+  },
+  {
+    "slug": "2026-04-20-estrategia-contenido-redes-sociales-empresas-colombia-2026",
+    "title": "Estrategia de Contenido en Redes Sociales para Empresas en Colombia 2026",
+    "excerpt": "Guía completa de estrategia de contenido en redes sociales para empresas colombianas en 2026. TikTok, Instagram, LinkedIn: qué publicar, cuándo y cómo medir resultados reales.",
+    "category": "Automatizacion IA",
+    "publishAt": "2026-04-20T08:00:00-05:00",
+    "coverImage": "https://sense-digital.co/images/logos/Sense-05%20%281%29.png",
+    "url": "posts/2026-04-20-estrategia-contenido-redes-sociales-empresas-colombia-2026.html"
+  },
+  {
+    "slug": "2026-04-16-branding-digital-pymes-colombia-2026",
+    "title": "Branding Digital para PYMES en Colombia 2026: Cómo Construir una Identidad de Marca que Venda",
+    "excerpt": "Guía completa de branding digital para PYMES colombianas en 2026. Aprende a construir una identidad de marca coherente, memorable y que genere ventas reales. Tendencias, casos y estrategias.",
+    "category": "Automatizacion IA",
+    "publishAt": "2026-04-16T08:00:00-05:00",
+    "coverImage": "https://sense-digital.co/images/logos/Sense-05%20%281%29.png",
+    "url": "posts/2026-04-16-branding-digital-pymes-colombia-2026.html"
+  },
+  {
+    "slug": "2026-04-16-no-code-low-code-pymes-colombia-2026",
+    "title": "No-Code y Low-Code: La Revolución Digital que las PYMES Colombianas No Pueden Ignorar en 2026",
+    "excerpt": "Descubre cómo las plataformas no-code y low-code están permitiendo a las PYMES colombianas crear soluciones digitales sin programar. Guía completa con casos reales, herramientas y estrategias para 2026.",
+    "category": "Automatizacion IA",
+    "publishAt": "2026-04-16T08:00:00-05:00",
+    "coverImage": "https://sense-digital.co/images/logos/Sense-05%20%281%29.png",
+    "url": "posts/2026-04-16-no-code-low-code-pymes-colombia-2026.html"
+  },
+  {
+    "slug": "guia-ia-ventas-2026",
+    "title": "Guia IA para ventas B2B en 2026",
+    "excerpt": "Framework simple para definir donde usar IA en tu embudo comercial sin sobre-automatizar.",
+    "category": "IA para Ventas",
     "publishAt": "2026-04-15T08:00:00-05:00",
-    "coverImage": "../assets/images/home/3.png",
-    "url": "posts/agentes-ia-empresas-colombia-2026.html"
+    "coverImage": "../assets/images/testimonials/oficina.cdmx.jpg",
+    "url": "posts/guia-ia-ventas-2026.html"
   },
   {
     "slug": "desarrollo-app-movil-empresas-colombia-2026",
@@ -27,13 +252,31 @@
     "url": "posts/que-es-agente-ia-whatsapp.html"
   },
   {
-    "slug": "guia-ia-ventas-2026",
-    "title": "Guia IA para ventas B2B en 2026",
-    "excerpt": "Framework simple para definir donde usar IA en tu embudo comercial sin sobre-automatizar.",
-    "category": "IA para Ventas",
+    "slug": "agentes-ia-empresas-colombia-2026",
+    "title": "Agentes de IA para Empresas en Colombia 2026: De la Experimentacion a la Operatividad",
+    "excerpt": "Descubre como los agentes de IA estan transformando las empresas colombianas en 2026: casos de uso, beneficios y ruta de implementacion.",
+    "category": "Automatizacion IA",
     "publishAt": "2026-04-15T08:00:00-05:00",
-    "coverImage": "../assets/images/testimonials/oficina.cdmx.jpg",
-    "url": "posts/guia-ia-ventas-2026.html"
+    "coverImage": "../assets/images/home/3.png",
+    "url": "posts/agentes-ia-empresas-colombia-2026.html"
+  },
+  {
+    "slug": "2026-04-14-aeo-answer-engine-optimization-seo-ia",
+    "title": "AEO en 2026: Qué es Answer Engine Optimization y cómo posicionar tu marca en la IA",
+    "excerpt": "Aprende qué es AEO (Answer Engine Optimization), por qué reemplaza al SEO tradicional en 2026 y cómo aparecer en ChatGPT, Perplexity y Google AI Overviews.",
+    "category": "Automatizacion IA",
+    "publishAt": "2026-04-14T08:00:00-05:00",
+    "coverImage": "https://sense-digital.co/logo%20original-03%20%281%29.png",
+    "url": "posts/2026-04-14-aeo-answer-engine-optimization-seo-ia.html"
+  },
+  {
+    "slug": "2026-04-14-social-commerce-tiktok-colombia-latam",
+    "title": "Social Commerce en Colombia y LATAM: TikTok Shop, Instagram y WhatsApp",
+    "excerpt": "Descubre cómo el social commerce transforma las ventas digitales en Colombia y LATAM en 2026. TikTok Shop, Instagram Shopping y WhatsApp Business: guía completa.",
+    "category": "WhatsApp IA",
+    "publishAt": "2026-04-14T08:00:00-05:00",
+    "coverImage": "https://sense-digital.co/logo%20original-03%20%281%29.png",
+    "url": "posts/2026-04-14-social-commerce-tiktok-colombia-latam.html"
   },
   {
     "slug": "desarrollo-app-movil-negocios-colombia-2026",
@@ -43,6 +286,24 @@
     "publishAt": "2026-04-14T08:00:00-05:00",
     "coverImage": "../assets/images/home/1.png",
     "url": "posts/desarrollo-app-movil-negocios-colombia-2026.html"
+  },
+  {
+    "slug": "2026-04-14-automatizacion-ia-pymes-colombia",
+    "title": "Automatización con IA para PYMES Colombianas: La Guía Definitiva 2026",
+    "excerpt": "Descubre cómo la automatización con IA está transformando las PYMES colombianas en 2026: estadísticas reales, casos de uso, herramientas y pasos para implementarla.",
+    "category": "Automatizacion IA",
+    "publishAt": "2026-04-14T08:00:00-05:00",
+    "coverImage": "https://sense-digital.co/logo%20original-03%20%281%29.png",
+    "url": "posts/2026-04-14-automatizacion-ia-pymes-colombia.html"
+  },
+  {
+    "slug": "2026-04-14-email-marketing-crm-automatizacion-pymes-colombia",
+    "title": "Email Marketing y CRM con IA para PYMEs Colombianas: ROI en 2026",
+    "excerpt": "Aprende cómo el email marketing con CRM e IA genera hasta un ROI del 4200% para PYMEs en Colombia. Estrategias, herramientas y casos reales para 2026.",
+    "category": "Automatizacion IA",
+    "publishAt": "2026-04-14T08:00:00-05:00",
+    "coverImage": "https://sense-digital.co/logo%20original-03%20%281%29.png",
+    "url": "posts/2026-04-14-email-marketing-crm-automatizacion-pymes-colombia.html"
   },
   {
     "slug": "google-ads-pymes-colombia-2026",
