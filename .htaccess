@@ -1,0 +1,9 @@
+# Sense Digital — sitio en proceso de cierre.
+# Toda solicitud se sirve con el aviso de index.html, salvo archivos estaticos
+# (imagenes, fuentes, css/js, robots/sitemap) que se dejan pasar sin cambios.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{REQUEST_URI} !^/index\.html$
+  RewriteCond %{REQUEST_URI} !\.(png|jpe?g|gif|svg|webp|ico|css|js|woff2?|ttf|eot|txt|xml|json)$ [NC]
+  RewriteRule ^ /index.html [L]
+</IfModule>
